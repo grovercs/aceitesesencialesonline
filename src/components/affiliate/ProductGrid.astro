@@ -11,6 +11,8 @@ export interface Product {
   reviews?: number;
   asin?: string;
   badge?: string;
+  features?: string[];
+  buttonText?: string;
 }
 
 export interface Props {
@@ -28,25 +30,23 @@ const gridClasses: Record<number, string> = {
 };
 ---
 
-<div class={`grid ${gridClasses[columns]} gap-6`}>
+<div class={`grid ${gridClasses[columns]} gap-6 items-stretch`}>
   {
     products.map((product) => (
-      <div class="relative">
-        {product.badge && (
-          <span class="absolute -top-2 left-4 z-10 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-white shadow-sm">
-            {product.badge}
-          </span>
-        )}
-        <AmazonCard
-          title={product.title}
-          description={product.description}
-          image={product.image}
-          link={product.link}
-          price={product.price}
-          rating={product.rating}
-          reviews={product.reviews}
-        />
-      </div>
+      <AmazonCard
+        title={product.title}
+        description={product.description}
+        image={product.image}
+        link={product.link}
+        price={product.price}
+        rating={product.rating}
+        reviews={product.reviews}
+        badge={product.badge}
+        features={product.features}
+        buttonText={product.buttonText}
+        layout="vertical"
+        class="my-0 h-full"
+      />
     ))
   }
 </div>

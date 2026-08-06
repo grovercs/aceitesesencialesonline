@@ -8,79 +8,228 @@ export interface Props {
   rating?: number;
   reviews?: number;
   buttonText?: string;
+  badge?: string;
+  features?: string[];
+  layout?: 'horizontal' | 'vertical';
+  class?: string;
 }
 
-const { title, description, image, link, price, rating, reviews, buttonText = 'Ver en Amazon' } = Astro.props;
+const {
+  title,
+  description,
+  image,
+  link,
+  price,
+  rating,
+  reviews,
+  buttonText = 'Ver precio en Amazon',
+  badge,
+  features,
+  layout = 'horizontal',
+  class: className = '',
+} = Astro.props;
 
 const safeLink = link.startsWith('http') ? link : `https://${link}`;
-const safeImage = image || 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=300&q=80';
+const safeImage = image || 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=400&q=80';
 const roundedRating = rating ? Math.round(rating * 10) / 10 : undefined;
 ---
 
-<article
-  class="amazon-card not-prose my-8 flex flex-col gap-5 rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800 sm:flex-row"
-  aria-label={`Producto recomendado: ${title}`}
->
-  <div class="flex-shrink-0">
-    <img
-      src={safeImage}
-      alt={title}
-      width="150"
-      height="150"
-      loading="lazy"
-      decoding="async"
-      class="rounded-lg object-cover"
-    />
-  </div>
-  <div class="flex flex-1 flex-col justify-between">
-    <div>
-      <h3 class="text-lg font-bold text-gray-900 dark:text-white">{title}</h3>
-      {description && <p class="mt-1 text-sm leading-relaxed text-gray-600 dark:text-slate-300">{description}</p>}
+{
+  layout === 'vertical' ? (
+    <article
+      class:list={[
+        'amazon-card not-prose relative flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 hover:border-amber-300 hover:shadow-md dark:border-slate-700/80 dark:bg-slate-800/90 dark:hover:border-amber-500/50 h-full',
+        className,
+      ]}
+      aria-label={`Producto recomendado: ${title}`}
+    >
+      {badge && (
+        <div class="absolute -top-3 left-4 z-10">
+          <span class="inline-flex items-center rounded-full bg-amber-500 px-3 py-0.5 text-xs font-bold uppercase tracking-wider text-slate-950 shadow-sm">
+            {badge}
+          </span>
+        </div>
+      )}
 
-      {
-        (price || roundedRating) && (
-          <div class="mt-2 flex flex-wrap items-center gap-3 text-sm">
+      <div class="flex-1 flex flex-col">
+        <div class="flex items-center justify-center p-3 w-full h-56 bg-slate-50 dark:bg-slate-900/50 rounded-xl overflow-hidden border border-gray-100 dark:border-slate-700/50 mb-4">
+          <img
+            src={safeImage}
+            alt={title}
+            loading="lazy"
+            decoding="async"
+            class="w-full h-full object-contain p-1 transition-transform duration-300 hover:scale-105"
+          />
+        </div>
+
+        <h3 class="text-base sm:text-lg font-bold text-gray-900 dark:text-white leading-snug line-clamp-2">
+          <a
+            href={safeLink}
+            target="_blank"
+            rel="nofollow sponsored noopener"
+            class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+          >
+            {title}
+          </a>
+        </h3>
+
+        {description && (
+          <p class="mt-2 text-xs sm:text-sm leading-relaxed text-gray-600 dark:text-slate-300 line-clamp-3">
+            {description}
+          </p>
+        )}
+
+        {features && features.length > 0 && (
+          <ul class="mt-3 space-y-1 text-xs text-gray-600 dark:text-slate-300">
+            {features.map((feat) => (
+              <li class="flex items-center gap-1.5">
+                <svg class="h-3.5 w-3.5 flex-shrink-0 text-emerald-500 dark:text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="line-clamp-1">{feat}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <div class="mt-4 pt-3 border-t border-gray-100 dark:border-slate-700/60 space-y-3">
+        <div class="flex items-center justify-between gap-2">
+          {price && (
+            <span class="text-lg font-extrabold text-emerald-700 dark:text-emerald-400" aria-label={`Precio: ${price}`}>
+              {price}
+            </span>
+          )}
+          {roundedRating && (
+            <div class="flex items-center gap-1 text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-2 py-0.5 rounded-md border border-amber-200/60 dark:border-amber-900/60">
+              <svg class="h-3.5 w-3.5 fill-current text-amber-500" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <span>{roundedRating}</span>
+              {reviews && <span class="text-gray-500 dark:text-slate-400 font-normal">({reviews})</span>}
+            </div>
+          )}
+        </div>
+
+        <a
+          href={safeLink}
+          target="_blank"
+          rel="nofollow sponsored noopener"
+          class="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 py-2.5 px-4 text-xs font-extrabold text-slate-950 shadow-sm transition-all duration-200 hover:from-amber-500 hover:to-amber-600 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 active:scale-[0.98] group"
+          data-affiliate="amazon"
+        >
+          <span>{buttonText === 'Ver en Amazon' ? 'Ver precio actualizado en Amazon' : buttonText}</span>
+          <svg class="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+          </svg>
+        </a>
+        <p class="text-[10px] text-center text-slate-500 dark:text-slate-400 font-medium">
+          ✓ Envío rápido y garantía oficial en Amazon
+        </p>
+      </div>
+    </article>
+  ) : (
+    <article
+      class:list={[
+        'amazon-card not-prose relative my-8 flex flex-col gap-6 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition-all duration-300 hover:border-amber-300 hover:shadow-md dark:border-slate-700/80 dark:bg-slate-800/90 dark:hover:border-amber-500/50 sm:flex-row sm:items-center',
+        className,
+      ]}
+      aria-label={`Producto recomendado: ${title}`}
+    >
+      {badge && (
+        <div class="absolute -top-3 left-4 z-10">
+          <span class="inline-flex items-center rounded-full bg-amber-500 px-3 py-0.5 text-xs font-bold uppercase tracking-wider text-slate-950 shadow-sm">
+            {badge}
+          </span>
+        </div>
+      )}
+
+      <div class="flex-shrink-0 flex items-center justify-center p-2 sm:w-48 sm:h-48 bg-slate-50 dark:bg-slate-900/50 rounded-xl overflow-hidden border border-gray-100 dark:border-slate-700/50">
+        <img
+          src={safeImage}
+          alt={title}
+          loading="lazy"
+          decoding="async"
+          class="max-h-44 w-auto object-contain transition-transform duration-300 hover:scale-105"
+        />
+      </div>
+
+      <div class="flex flex-1 flex-col justify-between h-full space-y-3">
+        <div>
+          <h3 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white leading-snug">
+            <a
+              href={safeLink}
+              target="_blank"
+              rel="nofollow sponsored noopener"
+              class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+            >
+              {title}
+            </a>
+          </h3>
+
+          {description && (
+            <p class="mt-2 text-sm leading-relaxed text-gray-600 dark:text-slate-300">
+              {description}
+            </p>
+          )}
+
+          {features && features.length > 0 && (
+            <ul class="mt-3 space-y-1 text-xs text-gray-600 dark:text-slate-300">
+              {features.map((feat) => (
+                <li class="flex items-center gap-1.5">
+                  <svg class="h-3.5 w-3.5 flex-shrink-0 text-emerald-500 dark:text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{feat}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-gray-100 dark:border-slate-700/60">
+          <div class="flex flex-wrap items-center gap-3">
             {price && (
-              <span class="font-semibold text-green-700 dark:text-green-400" aria-label={`Precio: ${price}`}>
+              <span class="text-xl font-extrabold text-emerald-700 dark:text-emerald-400" aria-label={`Precio: ${price}`}>
                 {price}
               </span>
             )}
             {roundedRating && (
-              <span class="inline-flex items-center text-yellow-600 dark:text-yellow-400" aria-label={`Valoración: ${roundedRating} de 5`}>
-                <svg class="mr-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-                {roundedRating}
-                {reviews && <span class="ml-1 text-gray-500 dark:text-slate-400">({reviews?.toLocaleString('es-ES')})</span>}
-              </span>
+              <div class="flex items-center gap-1 text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950/40 px-2.5 py-1 rounded-md border border-amber-200/60 dark:border-amber-900/60">
+                <div class="flex items-center text-amber-500">
+                  <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                </div>
+                <span>{roundedRating} / 5</span>
+                {reviews && (
+                  <span class="text-gray-500 dark:text-slate-400 font-normal">
+                    ({reviews.toLocaleString('es-ES')} valoraciones)
+                  </span>
+                )}
+              </div>
             )}
           </div>
-        )
-      }
-    </div>
-    <div class="mt-3">
-      <a
-        href={safeLink}
-        class="inline-flex items-center rounded-lg bg-[#ff9900] px-5 py-2.5 text-sm font-semibold text-gray-900 transition hover:bg-[#e68a00]"
-        target="_blank"
-        rel="nofollow sponsored noopener"
-        data-affiliate="amazon"
-      >
-        {buttonText}
-        <svg
-          class="ml-2 h-4 w-4"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg>
-      </a>
-      <p class="mt-2 text-xs text-gray-400 dark:text-slate-400">
-        Enlace de afiliado. Comprar puede generarnos una comisión sin coste extra para ti.
-      </p>
-    </div>
-  </div>
-</article>
+
+          <div class="flex flex-col items-start sm:items-end">
+            <a
+              href={safeLink}
+              target="_blank"
+              rel="nofollow sponsored noopener"
+              class="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 px-5 py-2.5 text-sm font-bold text-gray-950 shadow-sm transition-all duration-200 hover:from-amber-500 hover:to-amber-600 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 active:scale-[0.98]"
+              data-affiliate="amazon"
+            >
+              <span>{buttonText}</span>
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+            </a>
+            <span class="mt-1.5 text-[11px] text-gray-400 dark:text-slate-500">
+              Enlace de afiliado de Amazon
+            </span>
+          </div>
+        </div>
+      </div>
+    </article>
+  )
+}

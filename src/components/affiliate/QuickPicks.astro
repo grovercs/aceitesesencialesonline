@@ -1,0 +1,104 @@
+---
+import { Icon } from 'astro-icon/components';
+
+export interface QuickPickItem {
+  badge: string;
+  badgeColor?: 'gold' | 'green' | 'blue';
+  title: string;
+  subtitle?: string;
+  image: string;
+  rating?: number;
+  highlight: string;
+  link: string;
+  price?: string;
+}
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  items: QuickPickItem[];
+}
+
+const {
+  title = 'Nuestra Selección Rápida (En un vistazo)',
+  subtitle = 'Si no tienes tiempo para leer toda la comparativa, estos son los 3 modelos mejor valorados:',
+  items = [],
+} = Astro.props;
+
+const badgeColors = {
+  gold: 'bg-amber-500 text-slate-950',
+  green: 'bg-emerald-600 text-white',
+  blue: 'bg-sky-600 text-white',
+};
+---
+
+<section class="not-prose my-8 p-5 sm:p-6 rounded-2xl bg-gradient-to-b from-amber-50/70 via-stone-50/40 to-white dark:from-slate-800/80 dark:via-slate-800/60 dark:to-slate-900 border border-amber-200/80 dark:border-slate-700 shadow-sm">
+  <div class="mb-5 text-center sm:text-left">
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 text-xs font-bold uppercase tracking-wider mb-2">
+      <Icon name="tabler:trophy" class="w-4 h-4 text-amber-600 dark:text-amber-400" />
+      Resumen de Ganadores
+    </div>
+    <h2 class="text-xl sm:text-2xl font-bold font-heading text-slate-900 dark:text-white leading-tight">
+      {title}
+    </h2>
+    {subtitle && <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">{subtitle}</p>}
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    {
+      items.map((item) => (
+        <div class="flex flex-col justify-between p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-700/80 shadow-xs hover:border-amber-300 dark:hover:border-amber-500/40 transition-all duration-300">
+          <div>
+            <span class={`inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider mb-3 ${badgeColors[item.badgeColor || 'gold']}`}>
+              {item.badge}
+            </span>
+
+            <div class="w-full h-40 flex items-center justify-center p-2 bg-slate-50 dark:bg-slate-800/50 rounded-lg overflow-hidden mb-3 border border-slate-100 dark:border-slate-800">
+              <img
+                src={item.image}
+                alt={item.title}
+                class="w-full h-full object-contain p-1"
+                loading="lazy"
+              />
+            </div>
+
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white leading-snug line-clamp-2 mb-1">
+              {item.title}
+            </h3>
+
+            {item.rating && (
+              <div class="flex items-center gap-1 text-xs text-amber-500 mb-2">
+                {'★'.repeat(Math.floor(item.rating))}
+                <span class="text-[11px] font-semibold text-slate-600 dark:text-slate-400 ml-1">
+                  ({item.rating}/5)
+                </span>
+              </div>
+            )}
+
+            <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-2 leading-relaxed mb-3 bg-stone-50 dark:bg-slate-800/40 p-2 rounded-md border border-stone-100 dark:border-slate-800">
+              💡 <strong>Destacado:</strong> {item.highlight}
+            </p>
+          </div>
+
+          <div>
+            {item.price && (
+              <div class="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2">
+                Precio aprox: <span class="text-amber-700 dark:text-amber-400 font-bold text-sm">{item.price}</span>
+              </div>
+            )}
+
+            <a
+              href={item.link.startsWith('http') ? item.link : `https://${item.link}`}
+              target="_blank"
+              rel="nofollow sponsored noopener"
+              class="w-full py-2.5 px-3 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-xs group"
+            >
+              <span>Ver precio en Amazon</span>
+              <Icon name="tabler:external-link" class="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+            </a>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

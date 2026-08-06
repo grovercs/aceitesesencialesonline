@@ -156,6 +156,7 @@ const cdnSrcSet =
   isCdnUrl && cdnWidths?.length
     ? cdnWidths.map((bw) => `${buildCdnUrl(bw, heightFromWidth(bw))} ${bw}w`).join(', ')
     : undefined;
+const isPublicUrl = typeof resolved === 'string' && resolved.startsWith('/');
 ---
 
 {
@@ -168,6 +169,15 @@ const cdnSrcSet =
       alt={alt}
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
+      {...rest}
+      style={finalStyle}
+    />
+  ) : isPublicUrl ? (
+    <img
+      src={resolved as string}
+      width={w}
+      height={h}
+      alt={alt}
       {...rest}
       style={finalStyle}
     />

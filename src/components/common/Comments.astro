@@ -1,0 +1,83 @@
+---
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+
+const GISCUS_CONFIG = {
+  repo: 'grovercs/aceitesesencialesonline',
+  repoId: 'R_kgDOTvk4vQ',
+  category: 'Announcements',
+  categoryId: 'DIC_kwDOTvk4vc4DCyXl',
+  mapping: 'pathname',
+  strict: '0',
+  reactionsEnabled: '1',
+  emitMetadata: '0',
+  inputPosition: 'bottom',
+  lang: 'es',
+  loading: 'lazy',
+};
+---
+
+<section class:list={['giscus-container not-prose mt-12 border-t border-gray-200 dark:border-slate-700 pt-10', className]}>
+  <div class="mb-6 flex items-center justify-between">
+    <div>
+      <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
+        Comentarios y Opiniones
+      </h2>
+      <p class="mt-1 text-sm text-gray-600 dark:text-slate-400">
+        ¿Tienes alguna duda o quieres compartir tu experiencia? Únete a la conversación a través de GitHub Discussions.
+      </p>
+    </div>
+  </div>
+
+  <div class="giscus min-h-[160px]"></div>
+
+  <script
+    is:inline
+    src="https://giscus.app/client.js"
+    data-repo={GISCUS_CONFIG.repo}
+    data-repo-id={GISCUS_CONFIG.repoId}
+    data-category={GISCUS_CONFIG.category}
+    data-category-id={GISCUS_CONFIG.categoryId}
+    data-mapping={GISCUS_CONFIG.mapping}
+    data-strict={GISCUS_CONFIG.strict}
+    data-reactions-enabled={GISCUS_CONFIG.reactionsEnabled}
+    data-emit-metadata={GISCUS_CONFIG.emitMetadata}
+    data-input-position={GISCUS_CONFIG.inputPosition}
+    data-theme="preferred_color_scheme"
+    data-lang={GISCUS_CONFIG.lang}
+    data-loading={GISCUS_CONFIG.loading}
+    crossorigin="anonymous"
+    async
+  ></script>
+
+  <script is:inline>
+    (function () {
+      function getGiscusTheme() {
+        return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+      }
+
+      function updateGiscusTheme() {
+        const theme = getGiscusTheme();
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe && iframe.contentWindow) {
+          iframe.contentWindow.postMessage(
+            { giscus: { setConfig: { theme: theme } } },
+            'https://giscus.app'
+          );
+        }
+      }
+
+      const observer = new MutationObserver(function () {
+        updateGiscusTheme();
+      });
+
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class'],
+      });
+    })();
+  </script>
+</section>

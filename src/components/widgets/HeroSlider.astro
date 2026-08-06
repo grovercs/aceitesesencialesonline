@@ -26,7 +26,7 @@ const actions = await Astro.slots.render('actions');
 ---
 
 <section
-  class="relative w-full min-h-[600px] md:min-h-[700px] lg:min-h-[800px] flex items-center justify-center overflow-hidden not-prose"
+  class="relative w-full min-h-[440px] md:min-h-[520px] lg:min-h-[580px] flex items-center justify-center overflow-hidden not-prose"
   {...id ? { id } : {}}
   data-autoplay-interval={interval}
 >
@@ -54,11 +54,11 @@ const actions = await Astro.slots.render('actions');
   </div>
 
   {/* Content */}
-  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-24 md:py-32 text-center">
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 py-16 md:py-24 text-center">
     {
       tagline && (
         <p
-          class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase mb-4"
+          class="text-xs sm:text-sm text-amber-300 font-bold tracking-widest uppercase mb-3"
           set:html={tagline}
         />
       )
@@ -66,7 +66,7 @@ const actions = await Astro.slots.render('actions');
     {
       title && (
         <h1
-          class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tighter tracking-tighter mb-6 font-heading text-white drop-shadow-lg"
+          class="text-3xl sm:text-4xl md:text-5xl font-bold font-heading text-white drop-shadow-md mb-4 leading-tight"
           set:html={title}
         />
       )
@@ -74,7 +74,7 @@ const actions = await Astro.slots.render('actions');
     {
       subtitle && (
         <p
-          class="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto drop-shadow-md"
+          class="text-base sm:text-lg text-white/90 mb-6 max-w-2xl mx-auto drop-shadow-xs font-normal leading-relaxed"
           set:html={subtitle}
         />
       )

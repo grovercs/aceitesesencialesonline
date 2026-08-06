@@ -1,64 +1,53 @@
 ---
 import '@fontsource-variable/inter';
-
-// 'DM Sans'
-// Nunito
-// Dosis
-// Outfit
-// Roboto
-// Literata
-// 'IBM Plex Sans'
-// Karla
-// Poppins
-// 'Fira Sans'
-// 'Libre Franklin'
-// Inconsolata
-// Raleway
-// Oswald
-// 'Space Grotesk'
-// Urbanist
+import '@fontsource/playfair-display/400.css';
+import '@fontsource/playfair-display/600.css';
+import '@fontsource/playfair-display/700.css';
+import '@fontsource/playfair-display/400-italic.css';
 ---
 
 <style is:inline>
   :root {
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+    --aw-font-sans: 'Inter Variable', sans-serif;
+    --aw-font-serif: 'Playfair Display', serif;
+    --aw-font-heading: 'Playfair Display', serif;
 
-    --aw-color-primary: rgb(21 128 61);
-    --aw-color-secondary: rgb(22 163 74);
-    --aw-color-accent: rgb(180 83 9);
+    /* Primary & Secondary: Organic Sage & Forest Green */
+    --aw-color-primary: rgb(34 100 72);
+    --aw-color-secondary: rgb(46 125 90);
+    /* Accent: Warm Amber & Crafted Gold */
+    --aw-color-accent: rgb(200 150 62);
 
-    --aw-color-text-heading: rgb(20 83 45);
-    --aw-color-text-default: rgb(55 65 81);
-    --aw-color-text-muted: rgb(55 65 81 / 66%);
-    --aw-color-bg-page: rgb(255 255 253);
-
-    --aw-color-bg-page-dark: rgb(6 78 59);
+    --aw-color-text-heading: rgb(24 55 42);
+    --aw-color-text-default: rgb(45 58 52);
+    --aw-color-text-muted: rgb(75 92 84);
+    /* Organic Linen Soft Cream Background */
+    --aw-color-bg-page: rgb(250 248 244);
 
     ::selection {
-      background-color: rgb(187 247 208);
-      color: rgb(20 83 45);
+      background-color: rgb(232 216 182);
+      color: rgb(24 55 42);
     }
   }
 
   .dark {
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+    --aw-font-sans: 'Inter Variable', sans-serif;
+    --aw-font-serif: 'Playfair Display', serif;
+    --aw-font-heading: 'Playfair Display', serif;
 
-    --aw-color-primary: rgb(74 222 128);
-    --aw-color-secondary: rgb(34 197 94);
-    --aw-color-accent: rgb(251 191 36);
+    --aw-color-primary: rgb(74 180 135);
+    --aw-color-secondary: rgb(90 195 148);
+    --aw-color-accent: rgb(229 169 60);
 
-    --aw-color-text-heading: rgb(240 253 244);
-    --aw-color-text-default: rgb(220 252 231);
-    --aw-color-text-muted: rgb(220 252 231 / 70%);
-    --aw-color-bg-page: rgb(6 78 59);
+    --aw-color-text-heading: rgb(244 241 234);
+    --aw-color-text-default: rgb(220 226 222);
+    --aw-color-text-muted: rgb(155 172 164);
+    /* Deep Forest Slate Background */
+    --aw-color-bg-page: rgb(13 23 18);
 
     ::selection {
-      background-color: rgb(20 83 45);
-      color: rgb(187 247 208);
+      background-color: rgb(34 100 72);
+      color: rgb(244 241 234);
     }
   }
 </style>

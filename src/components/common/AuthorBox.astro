@@ -1,0 +1,35 @@
+---
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  authorName?: string;
+  authorRole?: string;
+  avatar?: string;
+}
+
+const {
+  authorName = 'Equipo Editorial & Especialistas en Aromaterapia',
+  authorRole = 'Revisado por expertos en bienestar natural',
+  avatar = 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
+} = Astro.props;
+---
+
+<div class="not-prose my-10 p-5 rounded-2xl bg-stone-50/80 dark:bg-slate-800/80 border border-stone-200/80 dark:border-slate-700 flex flex-col sm:flex-row items-center sm:items-start gap-4">
+  <img
+    src={avatar}
+    alt={authorName}
+    class="w-14 h-14 rounded-full object-cover border-2 border-amber-400 shrink-0 shadow-xs"
+  />
+  <div class="text-center sm:text-left">
+    <div class="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 mb-0.5">
+      <Icon name="tabler:shield-check" class="w-4 h-4 text-amber-600 dark:text-amber-400" />
+      {authorRole}
+    </div>
+    <h4 class="text-base font-bold text-slate-900 dark:text-white leading-tight">
+      {authorName}
+    </h4>
+    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-1">
+      Evaluamos aceites esenciales, difusores y métodos de aromaterapia basándonos en evidencia técnica, análisis de laboratorio sobre pureza 100% y pruebas de uso en el hogar.
+    </p>
+  </div>
+</div>

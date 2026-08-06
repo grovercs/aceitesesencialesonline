@@ -1,0 +1,50 @@
+---
+export interface Props {
+  type?: 'tip' | 'warning' | 'science';
+  title?: string;
+}
+
+const { type = 'tip', title } = Astro.props;
+
+const styles = {
+  tip: {
+    border: 'border-emerald-200 dark:border-emerald-900/60',
+    bg: 'bg-emerald-50/50 dark:bg-emerald-950/20',
+    text: 'text-emerald-950 dark:text-emerald-100',
+    iconBg: 'bg-emerald-500/20 text-emerald-700 dark:text-emerald-300',
+    defaultTitle: 'Consejo Práctico',
+  },
+  warning: {
+    border: 'border-amber-300 dark:border-amber-900/60',
+    bg: 'bg-amber-50/50 dark:bg-amber-950/20',
+    text: 'text-amber-950 dark:text-amber-100',
+    iconBg: 'bg-amber-500/20 text-amber-700 dark:text-amber-300',
+    defaultTitle: 'Precaución de Seguridad',
+  },
+  science: {
+    border: 'border-sky-200 dark:border-sky-900/60',
+    bg: 'bg-sky-50/50 dark:bg-sky-950/20',
+    text: 'text-sky-950 dark:text-sky-100',
+    iconBg: 'bg-sky-500/20 text-sky-700 dark:text-sky-300',
+    defaultTitle: 'Base Científica',
+  },
+};
+
+const current = styles[type] || styles.tip;
+---
+
+<div class={`not-prose my-6 rounded-2xl border ${current.border} ${current.bg} p-4 sm:p-5 shadow-xs backdrop-blur-xs`}>
+  <div class="mb-2 flex items-center gap-2.5">
+    <div class={`flex h-6 w-6 items-center justify-center rounded-lg ${current.iconBg} text-xs font-bold`}>
+      {type === 'tip' && '💡'}
+      {type === 'warning' && '⚠️'}
+      {type === 'science' && '🧪'}
+    </div>
+    <h4 class={`font-heading font-bold text-sm sm:text-base ${current.text}`}>
+      {title || current.defaultTitle}
+    </h4>
+  </div>
+  <div class={`text-xs sm:text-sm leading-relaxed ${current.text} opacity-90 space-y-2`}>
+    <slot />
+  </div>
+</div>

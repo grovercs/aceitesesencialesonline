@@ -1,0 +1,49 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Política de afiliación',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline="Transparencia"
+    >
+    <Fragment slot="title">Política de <span class="text-primary dark:text-white">afiliación</span></Fragment>
+    <Fragment slot="subtitle">
+      En Aceites Esenciales Online creemos que la confianza se gana con honestidad. Aquí explicamos cómo funcionan nuestros enlaces de afiliado.
+    </Fragment>
+  </Hero>
+
+  <Content
+    items={[
+      {
+        title: '¿Qué es un enlace de afiliado?',
+        description:
+          'Es un enlace especial a tiendas como Amazon que incluye un identificador nuestro. Si compras tras hacer clic, la tienda nos reconoce una pequeña comisión.',
+      },
+      {
+        title: '¿Te cuesta algo más?',
+        description:
+          'No. El precio final del producto es el mismo para ti, ya sea que compres a través de nuestro enlace o directamente en la tienda.',
+      },
+      {
+        title: '¿Influye en nuestras recomendaciones?',
+        description:
+          'No. Solo recomendamos productos que consideramos útiles, bien valorados y adecuados para el uso que describimos. La comisión nunca es el criterio principal.',
+      },
+      {
+        title: '¿Cómo identificarlos?',
+        description:
+          'Los enlaces de afiliado suelen ir acompañados de una nota como "Enlace de afiliado" o "Ver en Amazon". También puedes reconocerlos por los parámetros del enlace (por ejemplo, "tag=").',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Nuestro compromiso</h3>
+      Mantenemos esta web gracias, en parte, a las comisiones de afiliación. Pero nuestra prioridad siempre será ofrecerte contenido útil, seguro e independiente.
+    </Fragment>
+  </Content>
+</Layout>

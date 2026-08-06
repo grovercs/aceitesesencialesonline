@@ -1,0 +1,64 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  id?: string;
+}
+
+const { title, subtitle, tagline, id = 'newsletter' } = Astro.props;
+---
+
+<WidgetWrapper id={id} containerClass="max-w-4xl mx-auto"
+  >
+  <Headline
+    title={title}
+    subtitle={subtitle}
+    tagline={tagline}
+    classes={{
+      container: 'text-center mb-8',
+      title: 'text-3xl md:text-4xl font-bold tracking-tighter mb-4 font-heading',
+      subtitle: 'text-lg text-muted dark:text-slate-400',
+    }}
+  />
+
+  <form
+    name="newsletter"
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    action="/gracias-newsletter/"
+    class="mx-auto max-w-lg rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800"
+  >
+    <input type="hidden" name="form-name" value="newsletter" />
+    <p class="hidden">
+      <label>No rellenes este campo: <input name="bot-field" /></label>
+    </p>
+
+    <div class="flex flex-col gap-4 sm:flex-row"
+      >
+      <label for="email-newsletter" class="sr-only">Correo electrónico</label>
+      <input
+        id="email-newsletter"
+        name="email"
+        type="email"
+        placeholder="Tu correo electrónico"
+        required
+        class="flex-1 rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:border-slate-600 dark:bg-slate-900 dark:text-white"
+      />
+      <button
+        type="submit"
+        class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 font-semibold text-white transition hover:bg-secondary"
+      >
+        Suscribirme
+      </button>
+    </div>
+
+    <p class="mt-4 text-xs text-muted dark:text-slate-400">
+      Al suscribirte aceptas recibir emails de Aceites Esenciales Online. Puedes darte de baja en cualquier momento.
+    </p>
+  </form>
+</WidgetWrapper>

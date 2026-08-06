@@ -1,0 +1,189 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Newsletter from '~/components/widgets/Newsletter.astro';
+
+const metadata = {
+  title: 'Aceites Esenciales Online — Guías de aromaterapia y bienestar natural',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Explorar guías',
+        href: '/blog/',
+        icon: 'tabler:leaf',
+      },
+      { text: 'Ver difusores recomendados', href: '/blog/mejores-difusores-aceites-esenciales' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1024&q=80',
+      alt: 'Difusor de cerámica blanca con botellas de aceites esenciales y ramas de lavanda sobre mesa de madera',
+    }}
+  >
+    <Fragment slot="title">
+      Bienestar natural con <span class="text-primary dark:text-white">aceites esenciales</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Guías prácticas, comparativas honestas y recomendaciones basadas en evidencia para que uses la aromaterapia con confianza.
+    </Fragment>
+  </Hero>
+
+  <Note title="Nuestra filosofía:" description="Contenido independiente, transparencia total y respeto por la seguridad de cada aceite." />
+
+  <Features
+    id="pilares"
+    tagline="Explora por temas"
+    title="Todo lo que necesitas para empezar"
+    subtitle="Hemos organizado el contenido en tres áreas para que encuentres respuestas claras, desde los fundamentos hasta las aplicaciones en casa."
+    columns={3}
+    items={[
+      {
+        title: 'Aprender los fundamentos',
+        description:
+          'Qué son los aceites esenciales, cómo elegirlos, diluirlos y usarlos de forma segura desde el primer día.',
+        icon: 'tabler:book-2',
+      },
+      {
+        title: 'Bienestar emocional',
+        description:
+          'Aceites para dormir mejor, reducir el estrés y crear rituales de relajación que realmente funcionan.',
+        icon: 'tabler:moon-stars',
+      },
+      {
+        title: 'Usos en el hogar',
+        description:
+          'Difusores, limpieza natural, cosmética casera y recetas prácticas para tu día a día.',
+        icon: 'tabler:home-2',
+      },
+    ]}
+  />
+
+  <Content
+    isReversed
+    tagline="Por qué confiar en nosotros"
+    title="Recomendamos con criterio, no con prisa"
+    items={[
+      {
+        title: 'Contenido basado en evidencia',
+        description:
+          'Cada guía combina tradición aromaterapéutica con estudios y advertencias de seguridad actuales.',
+      },
+      {
+        title: 'Transparencia de afiliados',
+        description:
+          'Los enlaces a Amazon pueden generar comisión, pero nunca influyen en nuestras valoraciones.',
+      },
+      {
+        title: 'Enfocados en seguridad',
+        description:
+          'Diluciones, contraindicaciones, uso en niños y embarazo: la seguridad siempre va primero.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1024&q=80',
+      alt: 'Botellas de aceites esenciales en vidrio ámbar sobre superficie de madera natural',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Tu guía independiente de aromaterapia
+      </h3>
+      No vendemos nuestros propios productos. Eso nos permite recomendar lo que realmente funciona.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-green-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <Steps
+    title="Empieza con aromaterapia en 3 pasos"
+    items={[
+      {
+        title: 'Paso 1: <span class="font-medium">Elije bien</span>',
+        description:
+          'Aprende a leer etiquetas, reconocer aceites puros y evitar imitaciones con nuestra guía de calidad.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Paso 2: <span class="font-medium">Diluye siempre</span>',
+        description:
+          'Descubre las proporciones seguras para aplicar en piel, masajes o difusores sin riesgos.',
+        icon: 'tabler:droplet',
+      },
+      {
+        title: 'Paso 3: <span class="font-medium">Disfruta con calma</span>',
+        description:
+          'Crea tu primer ritual de relajación o limpieza natural y ve notando los cambios.',
+        icon: 'tabler:plant',
+      },
+      {
+        title: 'Listo',
+        icon: 'tabler:check',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1024&q=80',
+      alt: 'Ambiente relajante con velas, difusor y plantas aromáticas',
+    }}
+  />
+
+  <BlogLatestPosts
+    title="Lo último en el blog"
+    information="Artículos nuevos cada semana sobre aceites esenciales, difusores, bienestar emocional y usos prácticos en casa."
+  />
+
+  <FAQs
+    title="Preguntas frecuentes"
+    subtitle="Resolvemos las dudas más comunes para que empieces con seguridad y confianza."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: '¿Son seguros los aceites esenciales?',
+        description:
+          'Sí, cuando se usan correctamente. La clave está en diluirlos, respetar las contraindicaciones y no usarlos de forma interna sin supervisión profesional.',
+      },
+      {
+        title: '¿Puedo usar cualquier aceite en el difusor?',
+        description:
+          'La mayoría de aceites puros son aptos para difusores ultrasónicos. Revisa siempre las indicaciones del fabricante y ventila la habitación tras la difusión.',
+      },
+      {
+        title: '¿Cuál es el mejor aceite para dormir?',
+        description:
+          'La lavanda es la más estudiada para mejorar la calidad del sueño. Otras opciones populares son cedro, manzanilla romana y bergamota.',
+      },
+      {
+        title: '¿Qué diferencia un aceite puro de uno sintético?',
+        description:
+          'Un aceite puro se extrae de plantas reales. Los sintéticos imitan el aroma con productos químicos y no ofrecen las mismas propiedades ni seguridad.',
+      },
+      {
+        title: '¿Cómo ganáis dinero con esta web?',
+        description:
+          'Parte de los enlaces son de afiliados de Amazon. Si compras a través de ellos, recibimos una pequeña comisión sin coste adicional para ti.',
+      },
+    ]}
+  />
+
+  <Newsletter
+    id="newsletter"
+    tagline="Newsletter"
+    title="Recibe una guía gratis cada semana"
+    subtitle="Apunta tu correo y te enviamos consejos prácticos de aromaterapia, ofertas interesantes y novedades del blog."
+  />
+</Layout>

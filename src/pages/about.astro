@@ -1,0 +1,78 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Sobre nosotros',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Sobre nosotros"
+    image={{
+      src: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1024&q=80',
+      alt: 'Ambiente relajante con velas, difusor y plantas aromáticas',
+    }}
+  >
+    <Fragment slot="title"
+      >Tu guía independiente de
+      <span class="text-primary dark:text-white">aromaterapia</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Aceites Esenciales Online nace para ayudarte a usar los aceites esenciales con confianza. Sin dogmas, sin venderte productos propios: solo guías claras, comparativas honestas y advertencias de seguridad.
+    </Fragment>
+  </Hero>
+
+  <Steps2
+    title="Nuestros valores"
+    subtitle="Todo lo que publicamos se rige por estos tres principios."
+    items={[
+      {
+        title: 'Evidencia y honestidad',
+        description:
+          'Combinamos la tradición aromaterapéutica con la información científica disponible. Si algo no tiene suficiente respaldo, lo decimos.',
+      },
+      {
+        title: 'Seguridad antes que moda',
+        description:
+          'Diluciones, contraindicaciones, uso en niños y embarazo: la seguridad siempre va por delante de cualquier tendencia.',
+      },
+      {
+        title: 'Transparencia de afiliados',
+        description:
+          'Algunos enlaces son de Amazon. Si compras a través de ellos, recibimos una comisión sin coste extra para ti. Nunca influye en nuestras valoraciones.',
+      },
+    ]}
+  />
+
+  <Features2
+    title="Qué encontrarás aquí"
+    tagline="Contenido"
+    columns={3}
+    items={[
+      {
+        title: 'Guías prácticas',
+        description: 'Desde los fundamentos hasta usos avanzados, explicados paso a paso.',
+        icon: 'tabler:book-2',
+      },
+      {
+        title: 'Comparativas de productos',
+        description: 'Difusores, kits de aceites y accesorios evaluados con criterio claro.',
+        icon: 'tabler:scale',
+      },
+      {
+        title: 'Recetas y rutinas',
+        description: 'Mezclas seguras para relajarte, dormir mejor o limpiar tu hogar de forma natural.',
+        icon: 'tabler:sparkles',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-green-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+</Layout>

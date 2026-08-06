@@ -1,0 +1,92 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Headline from '~/components/blog/Headline.astro';
+import { fetchPosts } from '~/utils/blog';
+import { getPermalink } from '~/utils/permalinks';
+import { Icon } from 'astro-icon/components';
+
+export const prerender = true;
+
+const posts = await fetchPosts();
+
+// Group posts by category
+const categoriesMap: Record<string, { title: string; slug: string; count: number; description: string; icon: string }> = {
+  guias: {
+    title: 'Guías',
+    slug: 'guias',
+    count: 0,
+    description: 'Manuales paso a paso, diluciones seguras, criterios de calidad y todo lo necesario para principiantes.',
+    icon: 'tabler:book',
+  },
+  bienestar: {
+    title: 'Bienestar',
+    slug: 'bienestar',
+    count: 0,
+    description: 'Aceites esenciales para mejorar el descanso, combatir el estrés, la ansiedad y promover la relajación.',
+    icon: 'tabler:heart-handshake',
+  },
+  hogar: {
+    title: 'Hogar',
+    slug: 'hogar',
+    count: 0,
+    description: 'Análisis de difusores, recetas para ambientadores caseros y técnicas de limpieza natural.',
+    icon: 'tabler:home',
+  },
+};
+
+posts.forEach((post) => {
+  if (post.category?.slug && categoriesMap[post.category.slug]) {
+    categoriesMap[post.category.slug].count += 1;
+  }
+});
+
+const categories = Object.values(categoriesMap);
+
+const metadata = {
+  title: 'Categorías de Aromaterapia y Aceites Esenciales',
+  description: 'Explora nuestros artículos organizados por categorías: Guías, Bienestar y Hogar.',
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="px-4 md:px-6 py-12 sm:py-16 mx-auto max-w-5xl">
+    <Headline
+      title="Categorías del Blog"
+      subtitle="Explora nuestras guías independientes organizadas por temáticas principales."
+    />
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+      {
+        categories.map((cat) => (
+          <a
+            href={getPermalink(cat.slug, 'category')}
+            class="group p-6 rounded-2xl bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700/80 shadow-sm hover:shadow-md hover:border-amber-400 dark:hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between"
+          >
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-950/50 border border-amber-200/60 dark:border-amber-900/60 flex items-center justify-center text-amber-600 dark:text-amber-400 mb-4 group-hover:scale-110 transition-transform">
+                <Icon name={cat.icon} class="w-6 h-6" />
+              </div>
+
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-xl font-bold font-heading text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                  {cat.title}
+                </h3>
+                <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
+                  {cat.count} {cat.count === 1 ? 'guía' : 'guías'}
+                </span>
+              </div>
+
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-normal mb-4">
+                {cat.description}
+              </p>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 dark:border-slate-700/60 text-xs font-semibold text-amber-700 dark:text-amber-400 group-hover:underline flex items-center gap-1">
+              Ver todos los artículos →
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

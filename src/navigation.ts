@@ -4,7 +4,12 @@ export const headerData = {
   links: [
     {
       text: 'Guías',
+      href: getPermalink('guias', 'category'),
       links: [
+        {
+          text: 'Todas las guías',
+          href: getPermalink('guias', 'category'),
+        },
         {
           text: 'Guía para principiantes',
           href: getPermalink('blog/guia-principiantes-aceites-esenciales', 'post'),
@@ -25,7 +30,12 @@ export const headerData = {
     },
     {
       text: 'Bienestar',
+      href: getPermalink('bienestar', 'category'),
       links: [
+        {
+          text: 'Todo en Bienestar',
+          href: getPermalink('bienestar', 'category'),
+        },
         {
           text: 'Aceites para dormir',
           href: getPermalink('blog/mejores-aceites-para-dormir', 'post'),
@@ -38,7 +48,12 @@ export const headerData = {
     },
     {
       text: 'Hogar',
+      href: getPermalink('hogar', 'category'),
       links: [
+        {
+          text: 'Todo en Hogar',
+          href: getPermalink('hogar', 'category'),
+        },
         {
           text: 'Mejores difusores',
           href: getPermalink('blog/mejores-difusores-aceites-esenciales', 'post'),
@@ -76,7 +91,7 @@ export const footerData = {
       title: 'Descubre',
       links: [
         { text: 'Blog', href: getBlogPermalink() },
-        { text: 'Categorías', href: getPermalink('/category') },
+        { text: 'Categorías', href: getPermalink('category') },
         { text: 'Newsletter', href: getPermalink('/#newsletter') },
         { text: 'Cómo evaluamos', href: getPermalink('/como-evaluamos-productos') },
       ],

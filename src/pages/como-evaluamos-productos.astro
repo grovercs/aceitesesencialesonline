@@ -1,0 +1,54 @@
+---
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Cómo evaluamos productos',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero tagline="Metodología"
+    >
+    <Fragment slot="title">Así <span class="text-primary dark:text-white">evaluamos</span> los productos</Fragment>
+    <Fragment slot="subtitle">
+      Nuestras recomendaciones se basan en criterios claros y reproducibles. No aceptamos pagos a cambio de valoraciones positivas.
+    </Fragment>
+  </Hero>
+
+  <Content
+    items={[
+      {
+        title: '1. Calidad y pureza',
+        description:
+          'Preferimos aceites con etiquetado claro, nombre botánico, método de extracción, frasco de vidrio oscuro e indicación de pureza.',
+      },
+      {
+        title: '2. Valoraciones reales de usuarios',
+        description:
+          'Analizamos opiniones de compradores verificados para detectar problemas recurrentes de calidad, olor o envase.',
+      },
+      {
+        title: '3. Relación calidad-precio',
+        description:
+          'No recomendamos solo lo más caro. Buscamos opciones que ofrezcan buen resultado a un precio razonable.',
+      },
+      {
+        title: '4. Seguridad y uso previsto',
+        description:
+          'Verificamos que el producto sea adecuado para el uso que describimos: difusión, masaje, limpieza, etc.',
+      },
+      {
+        title: '5. Disponibilidad y garantía',
+        description:
+          'Priorizamos productos con envío fiable a España, buena política de devoluciones y servicio al cliente accesible.',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Independencia total</h3>
+      Somos un medio editorial independiente. No vendemos nuestros propios productos ni cobramos por posicionar marcas.
+    </Fragment>
+  </Content>
+</Layout>

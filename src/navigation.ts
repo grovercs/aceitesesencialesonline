@@ -76,7 +76,7 @@ export const footerData = {
       title: 'Descubre',
       links: [
         { text: 'Blog', href: getBlogPermalink() },
-        { text: 'Categorías', href: getPermalink('/category/tutorials') },
+        { text: 'Categorías', href: getPermalink('/category') },
         { text: 'Newsletter', href: getPermalink('/#newsletter') },
         { text: 'Cómo evaluamos', href: getPermalink('/como-evaluamos-productos') },
       ],

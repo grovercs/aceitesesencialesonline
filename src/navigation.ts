@@ -7,19 +7,19 @@ export const headerData = {
       links: [
         {
           text: 'Guía para principiantes',
-          href: getPermalink('guia-principiantes-aceites-esenciales', 'post'),
+          href: getPermalink('blog/guia-principiantes-aceites-esenciales', 'post'),
         },
         {
           text: 'Cómo elegir aceites puros',
-          href: getPermalink('como-elegir-aceites-esenciales-puros', 'post'),
+          href: getPermalink('blog/como-elegir-aceites-esenciales-puros', 'post'),
         },
         {
           text: 'Cómo diluir aceites',
-          href: getPermalink('como-diluir-aceites-esenciales', 'post'),
+          href: getPermalink('blog/como-diluir-aceites-esenciales', 'post'),
         },
         {
           text: 'Seguridad y precauciones',
-          href: getPermalink('precauciones-aceites-esenciales-seguridad', 'post'),
+          href: getPermalink('blog/precauciones-aceites-esenciales-seguridad', 'post'),
         },
       ],
     },
@@ -28,11 +28,11 @@ export const headerData = {
       links: [
         {
           text: 'Aceites para dormir',
-          href: getPermalink('mejores-aceites-para-dormir', 'post'),
+          href: getPermalink('blog/mejores-aceites-para-dormir', 'post'),
         },
         {
           text: 'Relajación y estrés',
-          href: getPermalink('aceites-esenciales-para-dormir-relajacion-estres', 'post'),
+          href: getPermalink('blog/aceites-esenciales-para-dormir-relajacion-estres', 'post'),
         },
       ],
     },
@@ -41,11 +41,11 @@ export const headerData = {
       links: [
         {
           text: 'Mejores difusores',
-          href: getPermalink('mejores-difusores-aceites-esenciales', 'post'),
+          href: getPermalink('blog/mejores-difusores-aceites-esenciales', 'post'),
         },
         {
           text: 'Usos en casa',
-          href: getPermalink('como-usar-aceites-esenciales-en-casa', 'post'),
+          href: getPermalink('blog/como-usar-aceites-esenciales-en-casa', 'post'),
         },
       ],
     },
@@ -66,10 +66,10 @@ export const footerData = {
     {
       title: 'Contenido',
       links: [
-        { text: 'Guía para principiantes', href: getPermalink('guia-principiantes-aceites-esenciales', 'post') },
-        { text: 'Mejores difusores', href: getPermalink('mejores-difusores-aceites-esenciales', 'post') },
-        { text: 'Aceites para dormir', href: getPermalink('mejores-aceites-para-dormir', 'post') },
-        { text: 'Usos en el hogar', href: getPermalink('como-usar-aceites-esenciales-en-casa', 'post') },
+        { text: 'Guía para principiantes', href: getPermalink('blog/guia-principiantes-aceites-esenciales', 'post') },
+        { text: 'Mejores difusores', href: getPermalink('blog/mejores-difusores-aceites-esenciales', 'post') },
+        { text: 'Aceites para dormir', href: getPermalink('blog/mejores-aceites-para-dormir', 'post') },
+        { text: 'Usos en el hogar', href: getPermalink('blog/como-usar-aceites-esenciales-en-casa', 'post') },
       ],
     },
     {

@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
+import HeroSlider from '~/components/widgets/HeroSlider.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
@@ -18,7 +18,23 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <Hero
+  <HeroSlider
+    tagline="Aromaterapia para tu día a día"
+    interval={5500}
+    slides={[
+      {
+        src: 'https://images.unsplash.com/photo-1639677357385-92d3c33c0766?auto=format&fit=crop&w=1920&q=80',
+        alt: 'Set de aceites esenciales sobre mesa de madera con luz natural',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1769538515234-6f307ce6143a?auto=format&fit=crop&w=1920&q=80',
+        alt: 'Difusor de cañas con flores secas sobre fondo oscuro',
+      },
+      {
+        src: 'https://images.unsplash.com/photo-1768877460519-f018f4e012a4?auto=format&fit=crop&w=1920&q=80',
+        alt: 'Difusor de cristal con luces cálidas en ambiente relajante',
+      },
+    ]}
     actions={[
       {
         variant: 'primary',
@@ -28,19 +44,15 @@ const metadata = {
       },
       { text: 'Ver difusores recomendados', href: '/blog/mejores-difusores-aceites-esenciales' },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1024&q=80',
-      alt: 'Difusor de cerámica blanca con botellas de aceites esenciales y ramas de lavanda sobre mesa de madera',
-    }}
   >
     <Fragment slot="title">
-      Bienestar natural con <span class="text-primary dark:text-white">aceites esenciales</span>
+      Bienestar natural con <span class="text-primary">aceites esenciales</span>
     </Fragment>
 
     <Fragment slot="subtitle">
       Guías prácticas, comparativas honestas y recomendaciones basadas en evidencia para que uses la aromaterapia con confianza.
     </Fragment>
-  </Hero>
+  </HeroSlider>
 
   <Note title="Nuestra filosofía:" description="Contenido independiente, transparencia total y respeto por la seguridad de cada aceite." />
 

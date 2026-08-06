@@ -17,6 +17,9 @@ const blog = defineCollection({
       affiliateDisclaimer: z.boolean().default(true),
       canonical: z.string().optional(),
       noindex: z.boolean().default(false),
+      featured: z.boolean().default(false),
+      pillar: z.string().optional(),
+      status: z.enum(['draft', 'published']).default('published'),
     }),
 });
 

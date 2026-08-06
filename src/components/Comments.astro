@@ -1,0 +1,36 @@
+---
+import { GISCUS } from '../consts';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+---
+
+<section class:list={['not-prose mt-12 border-t pt-10', className]}>
+  <h2 class="mb-6 text-2xl font-bold text-gray-900">Comentarios</h2>
+  <p class="mb-6 text-sm text-gray-600">
+    ¿Tienes alguna pregunta o experiencia que compartir? Déjala abajo. Los comentarios se gestionan
+    a través de GitHub Discussions, así que puedes participar con tu cuenta de GitHub.
+  </p>
+
+  <div class="giscus"></div>
+
+  <script
+    is:inline
+    src="https://giscus.app/client.js"
+    data-repo={GISCUS.repo}
+    data-repo-id={GISCUS.repoId}
+    data-category={GISCUS.category}
+    data-category-id={GISCUS.categoryId}
+    data-mapping={GISCUS.mapping}
+    data-reactions-enabled={GISCUS.reactionsEnabled}
+    data-emit-metadata={GISCUS.emitMetadata}
+    data-input-position={GISCUS.inputPosition}
+    data-theme={GISCUS.theme}
+    data-lang={GISCUS.lang}
+    data-loading={GISCUS.loading}
+    crossorigin="anonymous"
+    async></script>
+</section>

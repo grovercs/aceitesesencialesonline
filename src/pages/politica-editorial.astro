@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Política editorial';
+const description =
+  'Conoce los principios que rigen nuestros contenidos: independencia, rigor, transparencia y compromiso con el lector.';
+---
+
+<BaseLayout title={title} description={description} type="website">
+  <Header />
+
+  <main class="container mx-auto max-w-3xl px-4 py-12">
+    <article class="prose prose-lg prose-green mx-auto">
+      <h1>{title}</h1>
+
+      <p class="lead">
+        En <strong>Aceites Esenciales Online</strong> nos comprometemos a publicar contenidos
+        útiles, veraces y seguros. Esta política editorial resume los estándares que aplicamos a
+        todos nuestros artículos.
+      </p>
+
+      <h2>1. Propósito del sitio</h2>
+      <p>
+        Nuestro objetivo es ayudar a personas interesadas en la aromaterapia a tomar decisiones
+        informadas. Priorizamos la educación, la seguridad y el bienestar por encima de cualquier
+        objetivo comercial.
+      </p>
+
+      <h2>2. Independencia y transparencia</h2>
+      <ul>
+        <li>No aceptamos pagos de marcas para posicionar sus productos.</li>
+        <li>Los enlaces de afiliado están siempre claramente identificados.</li>
+        <li>Las comparativas se basan en criterios objetivos, no en acuerdos comerciales.</li>
+      </ul>
+
+      <h2>3. Rigor y fuentes</h2>
+      <p>
+        Cuando mencionamos propiedades o beneficios de los aceites esenciales, intentamos apoyar
+        la información en estudios científicos, organismos oficiales o literatura especializada.
+        Cuando una afirmación se basa en experiencia tradicional o uso popular, lo indicamos
+        expresamente.
+      </p>
+
+      <h2>4. Seguridad antes que ventas</h2>
+      <p>
+        Nunca recomendamos el uso interno de aceites esenciales sin supervisión profesional.
+        Advertimos sobre contraindicaciones, especialmente en niños, embarazadas, personas con
+        enfermedades crónicas o mascotas. La seguridad del lector es prioritaria.
+      </p>
+
+      <h2>5. Correcciones y actualizaciones</h2>
+      <p>
+        Si detectamos un error o información desactualizada, corregimos el artículo y, cuando es
+        relevante, indicamos la fecha de actualización. Puedes contactarnos para reportar cualquier
+        problema en el contenido.
+      </p>
+
+      <h2>6. Comentarios y comunidad</h2>
+      <p>
+        Fomentamos los comentarios constructivos. Los mensajes publicitarios, spam o desinformación
+        sobre salud pueden ser moderados para proteger a la comunidad.
+      </p>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>

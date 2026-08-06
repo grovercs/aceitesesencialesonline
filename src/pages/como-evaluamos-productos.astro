@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Cómo evaluamos los productos que recomendamos';
+const description =
+  'Descubre el proceso que seguimos para analizar y comparar aceites esenciales. Transparencia, criterios claros y total independencia editorial.';
+---
+
+<BaseLayout title={title} description={description} type="website">
+  <Header />
+
+  <main class="container mx-auto max-w-3xl px-4 py-12">
+    <article class="prose prose-lg prose-green mx-auto">
+      <h1>{title}</h1>
+
+      <p class="lead">
+        En <strong>Aceites Esenciales Online</strong> no recomendamos productos al azar. Cada
+        sugerencia que aparece en nuestras guías y comparativas pasa por un proceso de análisis
+        basado en criterios objetivos, experiencia práctica y transparencia total.
+      </p>
+
+      <h2>1. Independencia editorial</h2>
+      <p>
+        No recibimos pagos de marcas a cambio de reseñas positivas. Nuestras opiniones son
+        independientes. Si un producto no cumple con nuestros estándares, no lo recomendamos,
+        aunque tenga un programa de afiliados.
+      </p>
+
+      <h2>2. Criterios de evaluación</h2>
+      <p>Cuando analizamos un aceite esencial, valoramos al menos estos aspectos:</p>
+      <ul>
+        <li><strong>Pureza:</strong> el producto debe indicar claramente que es 100% puro y natural, sin adulterantes.</li>
+        <li><strong>Origen y extracción:</strong> preferimos aceites con información sobre país de origen y método de destilación.</li>
+        <li><strong>Certificaciones:</strong> valoramos sellos como ECOCERT, USDA Organic u otras certificaciones reconocidas.</li>
+        <li><strong>Opiniones de usuarios:</strong> analizamos reseñas reales en plataformas como Amazon para detectar problemas recurrentes.</li>
+        <li><strong>Relación calidad-precio:</strong> buscamos opciones justas, no necesariamente las más baratas.</li>
+        <li><strong>Presentación:</strong> botella de vidrio oscuro, gotero preciso y etiquetado claro.</li>
+      </ul>
+
+      <h2>3. Uso de enlaces de afiliado</h2>
+      <p>
+        Algunos enlaces de este sitio son de afiliados. Esto significa que si compras a través de
+        ellos, podemos recibir una pequeña comisión <strong>sin que el precio del producto aumente para ti</strong>.
+        Esta comisión nos ayuda a mantener el sitio, pero <strong>nunca influye en nuestras valoraciones</strong>.
+      </p>
+      <p>
+        Siempre identificamos los enlaces de afiliado con el atributo
+        <code>rel="nofollow sponsored noopener"</code> y mostramos un aviso claro en las páginas que
+        los incluyen.
+      </p>
+
+      <h2>4. Actualización de contenido</h2>
+      <p>
+        Revisamos periódicamente nuestras guías para comprobar que los productos recomendados
+        siguen disponibles, que sus precios son correctos y que no han aparecido opciones mejores
+        en el mercado.
+      </p>
+
+      <h2>5. ¿Tienes una sugerencia?</h2>
+      <p>
+        Si crees que hemos omitido un producto excelente o has detectado información desactualizada,
+        escríbenos a
+        <a href="mailto:contacto@aceitesesencialesonline.com">contacto@aceitesesencialesonline.com</a>.
+        Tu opinión nos ayuda a mejorar.
+      </p>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>

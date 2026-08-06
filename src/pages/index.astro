@@ -3,11 +3,20 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ContentPillarCard from '../components/ContentPillarCard.astro';
+import PopularGuides from '../components/PopularGuides.astro';
+import TrustSection from '../components/TrustSection.astro';
 import PostCard from '../components/PostCard.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
 import { SITE } from '../consts';
+import { getPublishedPosts } from '../utils/content';
 
-const posts = await getCollection('blog');
+const allPosts = await getCollection('blog');
+const posts = getPublishedPosts(allPosts);
 const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const featuredPosts = sortedPosts.filter((post) => post.data.featured);
+const latestPosts = sortedPosts.slice(0, 6);
 
 const categories = [...new Set(posts.map((post) => post.data.category))];
 ---
@@ -20,43 +29,97 @@ const categories = [...new Set(posts.map((post) => post.data.category))];
 >
   <Header />
 
-  <main class="container mx-auto max-w-6xl px-4 py-12">
-    <section class="mb-12 text-center">
-      <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 md:text-5xl">
-        Descubre el poder de los aceites esenciales
-      </h1>
-      <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-        Guías prácticas, comparativas honestas y recomendaciones de afiliados para mejorar tu
-        bienestar de forma natural.
-      </p>
+  <HeroSection
+    title="Tu guía confiable sobre aceites esenciales"
+    subtitle="Aprende a usar la aromaterapia de forma segura y efectiva. Contenido independiente, comparativas honestas y recomendaciones basadas en evidencia."
+    ctaText="Explorar guías"
+    ctaHref="/blog/"
+    secondaryText="Cómo evaluamos productos"
+    secondaryHref="/como-evaluamos-productos/"
+  />
+
+  <main class="bg-white">
+    <section class="py-16">
+      <div class="container mx-auto max-w-6xl px-4">
+        <div class="mb-10 text-center">
+          <h2 class="text-3xl font-bold text-gray-900">Explora por temas</h2>
+          <p class="mx-auto mt-3 max-w-2xl text-gray-600">
+            Hemos organizado todo el contenido en tres grandes áreas para que encuentres lo que necesitas.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <ContentPillarCard
+            title="Aprender los fundamentos"
+            description="Qué son los aceites esenciales, cómo elegirlos, diluirlos y usarlos de forma segura."
+            href="/categorias/guías/"
+            icon="📚"
+          />
+          <ContentPillarCard
+            title="Bienestar emocional"
+            description="Aceites para dormir, reducir el estrés, mejorar la concentración y equilibrar el ánimo."
+            href="/categorias/bienestar/"
+            icon="🧘"
+          />
+          <ContentPillarCard
+            title="Usos en el hogar"
+            description="Difusores, limpieza natural, cosmética casera y recetas prácticas para tu día a día."
+            href="/blog/"
+            icon="🏠"
+          />
+        </div>
+      </div>
+    </section>
+
+    <PopularGuides posts={featuredPosts} />
+
+    <TrustSection />
+
+    <section class="py-16">
+      <div class="container mx-auto max-w-3xl px-4">
+        <NewsletterForm />
+      </div>
+    </section>
+
+    <section class="py-16">
+      <div class="container mx-auto max-w-6xl px-4">
+        <div class="mb-8 flex items-end justify-between">
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900">Últimos artículos</h2>
+            <p class="mt-2 text-gray-600">Novedades, guías y comparativas para seguir aprendiendo.</p>
+          </div>
+          <a href="/blog/" class="hidden text-sm font-semibold text-green-700 hover:text-green-800 sm:inline">
+            Ver todos →
+          </a>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-3">
+          {latestPosts.map((post) => (
+            <PostCard post={post} />
+          ))}
+        </div>
+      </div>
     </section>
 
     {
       categories.length > 0 && (
-        <section class="mb-10">
-          <h2 class="mb-4 text-lg font-semibold text-gray-800">Explora por categoría</h2>
-          <div class="flex flex-wrap gap-3">
-            {categories.map((category) => (
-              <a
-                href={`/categorias/${category.toLowerCase().replace(/\s+/g, '-')}/`}
-                class="rounded-full border border-green-200 bg-white px-4 py-2 text-sm font-medium text-green-800 transition hover:bg-green-50"
-              >
-                {category}
-              </a>
-            ))}
+        <section class="border-t border-gray-200 bg-gray-50 py-12">
+          <div class="container mx-auto max-w-6xl px-4">
+            <h2 class="mb-4 text-lg font-semibold text-gray-800">Navegar por categoría</h2>
+            <div class="flex flex-wrap gap-3">
+              {categories.map((category) => (
+                <a
+                  href={`/categorias/${category.toLowerCase().replace(/\s+/g, '-')}/`}
+                  class="rounded-full border border-green-200 bg-white px-4 py-2 text-sm font-medium text-green-800 transition hover:bg-green-50"
+                >
+                  {category}
+                </a>
+              ))}
+            </div>
           </div>
         </section>
       )
     }
-
-    <section>
-      <h2 class="mb-6 text-2xl font-bold text-gray-900">Últimos artículos</h2>
-      <div class="grid gap-8 md:grid-cols-2">
-        {sortedPosts.map((post) => (
-          <PostCard post={post} />
-        ))}
-      </div>
-    </section>
   </main>
 
   <Footer />

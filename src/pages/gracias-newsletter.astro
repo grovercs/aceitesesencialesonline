@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = '¡Gracias por suscribirte!';
+const description = 'Tu suscripción a nuestro boletín ha sido confirmada. Pronto recibirás nuestras mejores guías.';
+---
+
+<BaseLayout title={title} description={description} type="website" noindex={true}>
+  <Header />
+
+  <main class="container mx-auto max-w-2xl px-4 py-20 text-center">
+    <div class="rounded-2xl border border-green-200 bg-green-50 p-10">
+      <div class="mb-4 text-5xl">✅</div>
+      <h1 class="text-3xl font-bold text-gray-900">{title}</h1>
+      <p class="mt-4 text-lg text-gray-700">{description}</p>
+      <a
+        href="/blog/"
+        class="mt-8 inline-block rounded-xl bg-green-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-green-800"
+      >
+        Explorar artículos
+      </a>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Metodología de investigación';
+const description =
+  'Te explicamos cómo documentamos cada artículo: fuentes consultadas, criterios de revisión y proceso de verificación de la información.';
+---
+
+<BaseLayout title={title} description={description} type="website">
+  <Header />
+
+  <main class="container mx-auto max-w-3xl px-4 py-12">
+    <article class="prose prose-lg prose-green mx-auto">
+      <h1>{title}</h1>
+
+      <p class="lead">
+        Cada artículo de <strong>Aceites Esenciales Online</strong> sigue un proceso de
+        documentación que busca ofrecer información fiable, actualizada y útil para nuestros
+        lectores.
+      </p>
+
+      <h2>1. Selección del tema</h2>
+      <p>
+        Elegimos temas basándonos en preguntas reales de los lectores, tendencias de búsqueda
+        relacionadas con el bienestar natural y lagunas informativas que detectamos en otros
+        sitios del nicho.
+      </p>
+
+      <h2>2. Búsqueda de fuentes</h2>
+      <p>Para cada artículo consultamos:</p>
+      <ul>
+        <li>Estudios científicos publicados en bases como PubMed o ScienceDirect.</li>
+        <li>Documentación de organismos oficiales (OMS, EMA, ministerios de sanidad).</li>
+        <li>Libros y manuales especializados en aromaterapia.</li>
+        <li>Opiniones y experiencias reales de usuarios en foros y tiendas online.</li>
+      </ul>
+
+      <h2>3. Redacción y verificación</h2>
+      <p>
+        El contenido se redacta de forma clara, evitando afirmaciones exageradas. Antes de
+        publicar, revisamos que los datos sean correctos, que las fuentes estén citadas o
+        referenciadas cuando es necesario, y que las recomendaciones de seguridad sean
+        apropiadas.
+      </p>
+
+      <h2>4. Análisis de productos</h2>
+      <p>
+        Para las comparativas y recomendaciones de productos, analizamos fichas técnicas,
+        certificaciones, opiniones de usuarios y precios. No realizamos pruebas de laboratorio,
+        pero sí comparamos la información disponible públicamente de forma sistemática.
+      </p>
+
+      <h2>5. Actualización periódica</h2>
+      <p>
+        Los artículos más visitados se revisan al menos una vez al trimestre. Si un producto
+        deja de estar disponible, cambia de precio o surge nueva evidencia científica,
+        actualizamos el contenido y marcamos la fecha de revisión.
+      </p>
+
+      <h2>6. Límites de nuestro contenido</h2>
+      <p>
+        La información de este sitio tiene carácter informativo y educativo. No sustituye el
+        diagnóstico, tratamiento o consejo de un profesional de la salud, farmacéutico o
+        aromaterapeuta cualificado.
+      </p>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>

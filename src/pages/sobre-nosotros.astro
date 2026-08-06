@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 
 const title = 'Sobre nosotros';
 const description =
-  'Conoce el equipo detrás de Aceites Esenciales Online y nuestra misión: ayudarte a elegir los mejores aceites esenciales con información clara y honesta.';
+  'Conoce el equipo detrás de Aceites Esenciales Online y nuestra misión: crear la guía más útil, honesta y segura sobre aceites esenciales en español.';
 ---
 
 <BaseLayout title={title} description={description} type="website">
@@ -14,19 +14,53 @@ const description =
   <main class="container mx-auto max-w-3xl px-4 py-12">
     <article class="prose prose-lg prose-green mx-auto">
       <h1>{title}</h1>
-      <p>
-        En <strong>Aceites Esenciales Online</strong> creemos en el poder de la naturaleza para
-        mejorar el día a día. Nuestro objetivo es ofrecerte guías claras, comparativas honestas y
-        recomendaciones prácticas para que elijas los mejores aceites esenciales según tus
-        necesidades.
+
+      <p class="lead">
+        <strong>Aceites Esenciales Online</strong> nace de la idea de que la aromaterapia puede
+        mejorar la vida de las personas, pero solo cuando se practica con información clara,
+        responsable y honesta.
       </p>
+
+      <h2>Nuestra misión</h2>
       <p>
-        Los artículos de este sitio combinan investigación, experiencia personal y opiniones de
-        usuarios. Algunos enlaces son de afiliado, lo que nos permite mantener el proyecto sin
-        coste adicional para ti.
+        Queremos ser la guía de referencia en español para quienes quieren usar aceites esenciales
+        de forma segura y consciente. No promovemos modas pasajeras ni afirmaciones milagrosas: nos
+        centramos en lo que realmente funciona y puede demostrarse.
       </p>
+
+      <h2>¿Quién está detrás?</h2>
       <p>
-        Si tienes dudas o sugerencias, no dudes en escribirnos a
+        Somos un pequeño equipo apasionado por el bienestar natural, la divulgación científica y el
+        buen contenido. Colaboramos con aromaterapeutas, redactores especializados y lectores que
+        nos ayudan a mantener la información actualizada.
+      </p>
+
+      <h2>Cómo trabajamos</h2>
+      <ul>
+        <li>
+          Investigamos cada tema antes de publicar. Puedes consultar nuestra
+          <a href="/metodologia-de-investigacion/">metodología de investigación</a>.
+        </li>
+        <li>
+          Aplicamos criterios claros para recomendar productos. Lee
+          <a href="/como-evaluamos-productos/">cómo evaluamos los productos</a>.
+        </li>
+        <li>
+          Seguimos una <a href="/politica-editorial/">política editorial</a> basada en la
+          independencia y la transparencia.
+        </li>
+      </ul>
+
+      <h2>Afiliación honesta</h2>
+      <p>
+        Algunos enlaces de este sitio son de afiliado. Esto nos permite mantener el proyecto
+        activo sin cobrar a los lectores. Sin embargo, nuestras recomendaciones no dependen de las
+        comisiones: un producto malo no aparecerá en nuestras guías, pase lo que pase.
+      </p>
+
+      <h2>Contacto</h2>
+      <p>
+        ¿Tienes una pregunta, sugerencia o quieres colaborar? Escríbenos a
         <a href="mailto:contacto@aceitesesencialesonline.com">contacto@aceitesesencialesonline.com</a>.
       </p>
     </article>

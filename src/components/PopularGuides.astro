@@ -1,0 +1,33 @@
+---
+import PostCard from './PostCard.astro';
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  posts: CollectionEntry<'blog'>[];
+}
+
+const { posts } = Astro.props;
+---
+
+{
+  posts.length > 0 && (
+    <section class="py-16">
+      <div class="container mx-auto max-w-6xl px-4">
+        <div class="mb-8 flex items-end justify-between">
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900">Guías destacadas</h2>
+            <p class="mt-2 text-gray-600">Los artículos más completos para empezar a profundizar.</p>
+          </div>
+          <a href="/blog/" class="hidden text-sm font-semibold text-green-700 hover:text-green-800 sm:inline">
+            Ver todo el blog →
+          </a>
+        </div>
+        <div class="grid gap-8 md:grid-cols-2">
+          {posts.map((post) => (
+            <PostCard post={post} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

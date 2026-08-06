@@ -2,6 +2,9 @@
 import BaseLayout from './BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Comments from '../components/Comments.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import TagCloud from '../components/TagCloud.astro';
 import { SITE } from '../consts';
 import type { CollectionEntry } from 'astro:content';
 
@@ -92,17 +95,15 @@ const formattedDate = (date: Date) =>
         tags.length > 0 && (
           <footer class="not-prose mt-10 border-t pt-6">
             <h2 class="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500">Etiquetas</h2>
-            <div class="flex flex-wrap gap-2">
-              {tags.map((tag) => (
-                <span class="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-700">
-                  #{tag}
-                </span>
-              ))}
-            </div>
+            <TagCloud tags={tags} />
           </footer>
         )
       }
     </article>
+
+    <NewsletterForm />
+
+    <Comments />
   </main>
 
   <Footer />

@@ -3,23 +3,37 @@ import { SITE, LEGAL } from '../consts';
 ---
 
 <footer class="border-t border-gray-200 bg-white">
-  <div class="container mx-auto max-w-6xl px-4 py-10">
-    <div class="grid gap-8 md:grid-cols-2">
-      <div>
+  <div class="container mx-auto max-w-6xl px-4 py-12">
+    <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+      <div class="sm:col-span-2 md:col-span-2">
         <h2 class="text-lg font-bold text-green-800">{SITE.title}</h2>
-        <p class="mt-2 text-sm text-gray-600">{SITE.description}</p>
+        <p class="mt-2 max-w-sm text-sm leading-relaxed text-gray-600">{SITE.description}</p>
       </div>
+
       <div>
-        <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500">Legal</h3>
-        <ul class="mt-2 space-y-1 text-sm text-gray-600">
-          <li><a href="/aviso-legal/" class="hover:text-green-700">Aviso legal</a></li>
-          <li><a href="/politica-privacidad/" class="hover:text-green-700">Política de privacidad</a></li>
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500">Descubre</h3>
+        <ul class="mt-3 space-y-2 text-sm text-gray-600">
+          <li><a href="/" class="hover:text-green-700">Inicio</a></li>
+          <li><a href="/blog/" class="hover:text-green-700">Blog</a></li>
+          <li><a href="/categorias/guías/" class="hover:text-green-700">Guías</a></li>
+          <li><a href="/categorias/bienestar/" class="hover:text-green-700">Bienestar</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500">Transparencia</h3>
+        <ul class="mt-3 space-y-2 text-sm text-gray-600">
           <li><a href="/sobre-nosotros/" class="hover:text-green-700">Sobre nosotros</a></li>
+          <li><a href="/como-evaluamos-productos/" class="hover:text-green-700">Cómo evaluamos</a></li>
+          <li><a href="/politica-editorial/" class="hover:text-green-700">Política editorial</a></li>
+          <li><a href="/metodologia-de-investigacion/" class="hover:text-green-700">Metodología</a></li>
+          <li><a href="/aviso-legal/" class="hover:text-green-700">Aviso legal</a></li>
+          <li><a href="/politica-privacidad/" class="hover:text-green-700">Privacidad</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="mt-8 border-t pt-6 text-center text-xs text-gray-500">
+    <div class="mt-10 border-t pt-6 text-center text-xs leading-relaxed text-gray-500">
       <p>{LEGAL.affiliateDisclaimer}</p>
       <p class="mt-2">© {new Date().getFullYear()} {LEGAL.companyName}. Todos los derechos reservados.</p>
     </div>

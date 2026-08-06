@@ -16,3 +16,18 @@ export const LEGAL = {
   affiliateDisclaimer:
     'Algunos enlaces de esta página son de afiliados. Si compras a través de ellos, podemos recibir una comisión sin coste adicional para ti.',
 };
+
+export const GISCUS = {
+  // Sustituye por tu usuario/repositorio de GitHub donde hayas activado Discussions
+  repo: 'TU_USUARIO/aceitesesencialesonline' as `${string}/${string}`,
+  repoId: 'R_xxxxxxxxxx',
+  category: 'Comments',
+  categoryId: 'DIC_xxxxxxxxxx',
+  mapping: 'pathname',
+  reactionsEnabled: '1',
+  emitMetadata: '0',
+  inputPosition: 'bottom',
+  theme: 'preferred_color_scheme',
+  lang: 'es',
+  loading: 'lazy',
+};

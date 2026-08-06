@@ -1,0 +1,52 @@
+---
+import AmazonCard from './AmazonCard.astro';
+
+export interface Product {
+  title: string;
+  description?: string;
+  image: string;
+  link: string;
+  price?: string;
+  rating?: number;
+  reviews?: number;
+  asin?: string;
+  badge?: string;
+}
+
+export interface Props {
+  products: Product[];
+  columns?: 1 | 2 | 3 | 4;
+}
+
+const { products, columns = 3 } = Astro.props;
+
+const gridClasses: Record<number, string> = {
+  1: 'grid-cols-1',
+  2: 'grid-cols-1 md:grid-cols-2',
+  3: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+  4: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4',
+};
+---
+
+<div class={`grid ${gridClasses[columns]} gap-6`}>
+  {
+    products.map((product) => (
+      <div class="relative">
+        {product.badge && (
+          <span class="absolute -top-2 left-4 z-10 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-white shadow-sm">
+            {product.badge}
+          </span>
+        )}
+        <AmazonCard
+          title={product.title}
+          description={product.description}
+          image={product.image}
+          link={product.link}
+          price={product.price}
+          rating={product.rating}
+          reviews={product.reviews}
+        />
+      </div>
+    ))
+  }
+</div>

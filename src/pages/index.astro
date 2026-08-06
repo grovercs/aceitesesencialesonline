@@ -9,6 +9,7 @@ import Steps from '~/components/widgets/Steps.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Newsletter from '~/components/widgets/Newsletter.astro';
+import ProductGrid from '~/components/affiliate/ProductGrid.astro';
 
 const metadata = {
   title: 'Aceites Esenciales Online — Guías de aromaterapia y bienestar natural',
@@ -145,6 +146,55 @@ const metadata = {
     title="Lo último en el blog"
     information="Artículos nuevos cada semana sobre aceites esenciales, difusores, bienestar emocional y usos prácticos en casa."
   />
+
+  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-7xl">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-heading mb-3">
+        Productos más vendidos recomendados
+      </h2>
+      <p class="text-lg text-muted dark:text-slate-400 max-w-2xl mx-auto">
+        Selección de aceites esenciales y difusores con excelente reputación. Más adelante estos datos se sincronizarán automáticamente con Amazon.
+      </p>
+    </div>
+    <ProductGrid
+      columns={3}
+      products={[
+        {
+          title: 'Set de aceites esenciales puros (6x10 ml)',
+          description: 'Lavanda, árbol del té, eucalipto, limón, menta y naranja. Kit ideal para empezar en aromaterapia.',
+          image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=400&q=80',
+          link: 'https://www.amazon.es/dp/EXAMPLE01?tag=tuaffiliate-21',
+          price: '€14,99',
+          rating: 4.5,
+          reviews: 2847,
+          badge: 'Más vendido',
+        },
+        {
+          title: 'Difusor ultrasónico de cerámica 300 ml',
+          description: 'Silencioso, temporizador y luz cálida regulable. Perfecto para dormitorios y salón.',
+          image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=400&q=80',
+          link: 'https://www.amazon.es/dp/EXAMPLE02?tag=tuaffiliate-21',
+          price: '€29,95',
+          rating: 4.6,
+          reviews: 1523,
+          badge: 'Top valorado',
+        },
+        {
+          title: 'Aceite esencial de lavanda 100% puro, 30 ml',
+          description: 'El clásico de aromaterapia para relajación y sueño. Gran relación calidad-precio.',
+          image: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=400&q=80',
+          link: 'https://www.amazon.es/dp/EXAMPLE03?tag=tuaffiliate-21',
+          price: '€9,99',
+          rating: 4.7,
+          reviews: 4102,
+          badge: 'Mejor relación calidad-precio',
+        },
+      ]}
+    />
+    <p class="mt-8 text-xs text-center text-gray-400 dark:text-slate-500">
+      Precios y valoraciones de ejemplo. Se actualizarán con datos reales de Amazon tras conectar la API de afiliados.
+    </p>
+  </section>
 
   <FAQs
     title="Preguntas frecuentes"

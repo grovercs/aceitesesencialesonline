@@ -1,4 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#e0e7ff"/>
-  <text x="600" y="315" text-anchor="middle" font-family="sans-serif" font-size="48" fill="#4338ca">Lavanda para dormir mejor</text>
+  <defs>
+    <linearGradient id="l1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eef2ff" />
+      <stop offset="100%" stop-color="#c7d2fe" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#l1)" />
+
+  <g transform="translate(240,315)">
+    <!-- Luna -->
+    <circle cx="0" cy="-120" r="70" fill="#6366f1" opacity="0.2" />
+    <path d="M-20,-120 A50,50 0 1,1 -20,-80 A35,35 0 1,0 -20,-120" fill="#4338ca" />
+
+    <!-- Almohada -->
+    <rect x="-90" y="0" width="180" height="110" rx="25" fill="#e0e7ff" stroke="#818cf8" stroke-width="4" />
+    <rect x="-70" y="20" width="140" height="70" rx="15" fill="#c7d2fe" />
+
+    <!-- Ramas de lavanda -->
+    <g transform="translate(120,80)">
+      <line x1="0" y1="0" x2="0" y2="-120" stroke="#4f46e5" stroke-width="4" />
+      <ellipse cx="0" cy="-120" rx="12" ry="25" fill="#818cf8" />
+      <ellipse cx="0" cy="-95" rx="14" ry="28" fill="#6366f1" />
+      <ellipse cx="0" cy="-65" rx="15" ry="30" fill="#4f46e5" />
+
+      <line x1="35" y1="10" x2="35" y2="-100" stroke="#4f46e5" stroke-width="4" />
+      <ellipse cx="35" cy="-100" rx="10" ry="22" fill="#818cf8" />
+      <ellipse cx="35" cy="-75" rx="12" ry="25" fill="#6366f1" />
+      <ellipse cx="35" cy="-45" rx="13" ry="28" fill="#4f46e5" />
+    </g>
+  </g>
+
+  <text x="730" y="275" text-anchor="middle" font-family="system-ui, sans-serif" font-size="58" fill="#3730a3" font-weight="800">Lavanda para dormir mejor</text>
+  <text x="730" y="340" text-anchor="middle" font-family="system-ui, sans-serif" font-size="58" fill="#4338ca" font-weight="800">Descansa de forma natural</text>
+  <text x="730" y="405" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" fill="#374151">Los mejores aceites esenciales para conciliar el sueño</text>
 </svg>

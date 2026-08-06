@@ -1,6 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
-  <rect width="300" height="300" fill="#f9fafb"/>
-  <rect x="90" y="60" width="120" height="180" rx="12" fill="#e5e7eb"/>
-  <rect x="110" y="40" width="80" height="30" rx="6" fill="#d1d5db"/>
-  <text x="150" y="160" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#6b7280">Imagen del producto</text>
+  <rect width="300" height="300" fill="#f8fafc"/>
+  <circle cx="250" cy="50" r="40" fill="#e2e8f0" opacity="0.5"/>
+  <circle cx="50" cy="250" r="35" fill="#e2e8f0" opacity="0.4"/>
+  <g transform="translate(150,150)">
+    <rect x="-40" y="-70" width="80" height="120" rx="12" fill="#e2e8f0"/>
+    <rect x="-25" y="-100" width="50" height="30" rx="5" fill="#cbd5e1"/>
+    <rect x="-30" y="-120" width="60" height="20" rx="4" fill="#94a3b8"/>
+    <text x="0" y="10" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#64748b" font-weight="600">Imagen del</text>
+    <text x="0" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#64748b" font-weight="600">producto</text>
+  </g>
 </svg>

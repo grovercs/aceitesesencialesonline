@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Política de privacidad';
+const description =
+  'Información sobre cómo tratamos tus datos personales en Aceites Esenciales Online. Compromiso de privacidad y cumplimiento del RGPD.';
+---
+
+<BaseLayout title={title} description={description} type="website">
+  <Header />
+
+  <main class="container mx-auto max-w-3xl px-4 py-12">
+    <article class="prose prose-lg prose-green mx-auto">
+      <h1>{title}</h1>
+
+      <h2>1. Responsable del tratamiento</h2>
+      <p>El responsable del tratamiento de los datos es Aceites Esenciales Online.</p>
+
+      <h2>2. Datos que recopilamos</h2>
+      <p>
+        Este sitio web no recopila datos personales de forma directa. No utilizamos formularios de
+        contacto integrados ni bases de datos tradicionales.
+      </p>
+
+      <h2>3. Uso de cookies</h2>
+      <p>
+        Actualmente no utilizamos cookies propias. Algunos enlaces de terceros (como Amazon) pueden
+        utilizar cookies de seguimiento de afiliados cuando haces clic en ellos. Te recomendamos
+        consultar la política de privacidad de dichos terceros.
+      </p>
+
+      <h2>4. Tus derechos</h2>
+      <p>
+        De acuerdo con el Reglamento General de Protección de Datos (RGPD), puedes ejercer tus
+        derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y
+        portabilidad escribiéndonos a contacto@aceitesesencialesonline.com.
+      </p>
+
+      <h2>5. Modificaciones</h2>
+      <p>
+        Nos reservamos el derecho a modificar esta política de privacidad para adaptarla a cambios
+        legislativos o de funcionamiento del sitio. Te recomendamos revisarla periódicamente.
+      </p>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Sobre nosotros';
+const description =
+  'Conoce el equipo detrás de Aceites Esenciales Online y nuestra misión: ayudarte a elegir los mejores aceites esenciales con información clara y honesta.';
+---
+
+<BaseLayout title={title} description={description} type="website">
+  <Header />
+
+  <main class="container mx-auto max-w-3xl px-4 py-12">
+    <article class="prose prose-lg prose-green mx-auto">
+      <h1>{title}</h1>
+      <p>
+        En <strong>Aceites Esenciales Online</strong> creemos en el poder de la naturaleza para
+        mejorar el día a día. Nuestro objetivo es ofrecerte guías claras, comparativas honestas y
+        recomendaciones prácticas para que elijas los mejores aceites esenciales según tus
+        necesidades.
+      </p>
+      <p>
+        Los artículos de este sitio combinan investigación, experiencia personal y opiniones de
+        usuarios. Algunos enlaces son de afiliado, lo que nos permite mantener el proyecto sin
+        coste adicional para ti.
+      </p>
+      <p>
+        Si tienes dudas o sugerencias, no dudes en escribirnos a
+        <a href="mailto:contacto@aceitesesencialesonline.com">contacto@aceitesesencialesonline.com</a>.
+      </p>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>

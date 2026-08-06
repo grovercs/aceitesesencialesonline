@@ -1,0 +1,27 @@
+---
+import { SITE, LEGAL } from '../consts';
+---
+
+<footer class="border-t border-gray-200 bg-white">
+  <div class="container mx-auto max-w-6xl px-4 py-10">
+    <div class="grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="text-lg font-bold text-green-800">{SITE.title}</h2>
+        <p class="mt-2 text-sm text-gray-600">{SITE.description}</p>
+      </div>
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wide text-gray-500">Legal</h3>
+        <ul class="mt-2 space-y-1 text-sm text-gray-600">
+          <li><a href="/aviso-legal/" class="hover:text-green-700">Aviso legal</a></li>
+          <li><a href="/politica-privacidad/" class="hover:text-green-700">Política de privacidad</a></li>
+          <li><a href="/sobre-nosotros/" class="hover:text-green-700">Sobre nosotros</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 border-t pt-6 text-center text-xs text-gray-500">
+      <p>{LEGAL.affiliateDisclaimer}</p>
+      <p class="mt-2">© {new Date().getFullYear()} {LEGAL.companyName}. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>

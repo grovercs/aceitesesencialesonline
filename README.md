@@ -1,43 +1,93 @@
-# Astro Starter Kit: Minimal
+# Aceites Esenciales Online
 
-```sh
-npm create astro@latest -- --template minimal
+Sitio web de afiliación sobre aceites esenciales, construido con **Astro**, **Tailwind CSS**, **Markdown/MDX** y desplegado en **Netlify**.
+
+## Stack tecnológico
+
+- [Astro](https://astro.build) — framework web estático y JAMstack.
+- [Tailwind CSS](https://tailwindcss.com) — utilidades de estilado.
+- [MDX](https://mdxjs.com) — artículos con componentes interactivos.
+- [Content Collections](https://docs.astro.build/en/guides/content-collections/) — gestión de contenido en Markdown sin base de datos.
+- [Netlify](https://netlify.com) — hosting y despliegue continuo.
+
+## Estructura clave
+
+| Ruta | Propósito |
+|------|-----------|
+| `src/content/blog/` | Artículos en MDX |
+| `src/content.config.ts` | Esquema Zod de los artículos |
+| `src/components/AmazonCard.astro` | Tarjeta de producto de afiliado |
+| `src/layouts/BaseLayout.astro` | Layout con SEO técnico base |
+| `src/layouts/PostLayout.astro` | Layout para artículos individuales |
+| `src/pages/blog/[...slug].astro` | Ruta dinámica de artículos |
+| `src/pages/categorias/[category].astro` | Páginas de archivo por categoría |
+| `src/pages/rss.xml.js` | Feed RSS |
+| `public/robots.txt` | Instrucciones para rastreadores |
+
+## Scripts disponibles
+
+```bash
+npm run dev      # Servidor de desarrollo
+npm run build    # Build de producción
+npm run preview  # Previsualizar build local
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Cómo crear un nuevo artículo
 
-## 🚀 Project Structure
+1. Crea un archivo `.mdx` en `src/content/blog/` con un slug descriptivo, por ejemplo `mejores-aceites-anticeluliticos.mdx`.
+2. Rellena el frontmatter:
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```yaml
+---
+title: "Título SEO del artículo"
+description: "Meta description de menos de 160 caracteres."
+pubDate: 2026-08-10
+category: "Bienestar"
+tags: ["aceite", "belleza"]
+author: "Tu nombre"
+image: "../../assets/images/tu-imagen.svg"
+alt: "Descripción de la imagen"
+---
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+3. Escribe el contenido en Markdown.
+4. Usa el componente `AmazonCard` donde quieras insertar un producto de afiliado:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```mdx
+import AmazonCard from '../../components/AmazonCard.astro';
 
-Any static assets, like images, can be placed in the `public/` directory.
+<AmazonCard
+  title="Nombre del producto"
+  description="Breve descripción atractiva."
+  image="/images/tu-producto.jpg"
+  link="https://www.amazon.es/dp/XXXXXX?tag=tuaffiliate-21"
+  buttonText="Ver precio en Amazon"
+/>
+```
 
-## 🧞 Commands
+## Despliegue en Netlify
 
-All commands are run from the root of the project, from a terminal:
+1. Sube el repositorio a GitHub:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```bash
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/TU_USUARIO/aceitesesencialesonline.git
+git push -u origin main
+```
 
-## 👀 Want to learn more?
+2. En Netlify: **Add new site → Import an existing project → GitHub**.
+3. Selecciona el repositorio.
+4. Configura el build:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+5. Haz clic en **Deploy site**.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Checklist SEO antes de lanzar
+
+- [ ] Sustituir imágenes SVG placeholder por imágenes reales (JPG/PNG, ≥1200 px de ancho).
+- [ ] Actualizar enlaces de Amazon con tu propio ID de afiliado.
+- [ ] Configurar el dominio personalizado en Netlify.
+- [ ] Añadir el sitio a Google Search Console y enviar el sitemap.
+- [ ] Crear cuentas en redes sociales y actualizar `src/consts.ts`.
+- [ ] Revisar textos legales con un asesor si es necesario.

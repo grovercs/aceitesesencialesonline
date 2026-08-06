@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Aviso legal';
+const description =
+  'Información legal, condiciones de uso y política de afiliación de Aceites Esenciales Online.';
+---
+
+<BaseLayout title={title} description={description} type="website">
+  <Header />
+
+  <main class="container mx-auto max-w-3xl px-4 py-12">
+    <article class="prose prose-lg prose-green mx-auto">
+      <h1>{title}</h1>
+
+      <h2>1. Identificación del titular</h2>
+      <p>
+        Este sitio web es gestionado por Aceites Esenciales Online. Puedes contactarnos a través de
+        la dirección de correo electrónico disponible en la sección de contacto.
+      </p>
+
+      <h2>2. Condiciones de uso</h2>
+      <p>
+        El acceso y uso de este sitio web implica la aceptación de las presentes condiciones. El
+        contenido tiene carácter informativo y no sustituye el asesoramiento médico, farmacéutico o
+        de cualquier profesional cualificado.
+      </p>
+
+      <h2>3. Política de afiliados</h2>
+      <p>
+        Algunos enlaces publicados en este sitio son enlaces de afiliado de Amazon y otras
+        plataformas. Esto significa que, si realizas una compra a través de esos enlaces, podemos
+        recibir una pequeña comisión sin que el precio final del producto aumente para ti.
+      </p>
+      <p>
+        Nuestras recomendaciones se basan en criterios de calidad, valoraciones de usuarios y
+        experiencia propia, siempre buscando el mejor producto para el lector.
+      </p>
+
+      <h2>4. Propiedad intelectual</h2>
+      <p>
+        Todo el contenido textual y gráfico de este sitio está protegido por derechos de autor. Queda
+        prohibida su reproducción total o parcial sin autorización expresa.
+      </p>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>

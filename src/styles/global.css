@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+/* Tipografía base */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Prose personalizado con Tailwind Typography (activo por CDN/class) */
+.prose a {
+  color: #15803d;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose a:hover {
+  color: #14532d;
+}
+
+.prose h2,
+.prose h3 {
+  color: #111827;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose img {
+  border-radius: 0.75rem;
+}
+
+.prose blockquote {
+  border-left-color: #16a34a;
+  color: #374151;
+  font-style: italic;
+}

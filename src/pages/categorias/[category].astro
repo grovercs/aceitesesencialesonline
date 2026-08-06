@@ -1,0 +1,56 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PostCard from '../../components/PostCard.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  const categories = [...new Set(posts.map((post) => post.data.category))];
+
+  return categories.map((category) => ({
+    params: {
+      category: category.toLowerCase().replace(/\s+/g, '-'),
+    },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props;
+const posts = await getCollection('blog');
+const filteredPosts = posts
+  .filter((post) => post.data.category === category)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const title = `Artículos sobre ${category}`;
+const description = `Descubre todos nuestros artículos de la categoría ${category}: guías, comparativas y recomendaciones de aceites esenciales.`;
+---
+
+<BaseLayout title={title} description={description} type="website">
+  <Header />
+
+  <main class="container mx-auto max-w-6xl px-4 py-12">
+    <header class="mb-10">
+      <nav class="mb-3 text-sm text-gray-500" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2">
+          <li><a href="/" class="hover:text-green-700">Inicio</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/blog/" class="hover:text-green-700">Blog</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-gray-700">{category}</li>
+        </ol>
+      </nav>
+      <h1 class="text-3xl font-extrabold text-gray-900 md:text-4xl">{title}</h1>
+      <p class="mt-2 text-lg text-gray-600">{description}</p>
+    </header>
+
+    <div class="grid gap-8 md:grid-cols-2">
+      {filteredPosts.map((post) => (
+        <PostCard post={post} />
+      ))}
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

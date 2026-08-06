@@ -1,0 +1,109 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../consts';
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, updatedDate, image, alt, category, tags, canonical, noindex } =
+  post.data;
+
+// image() de Astro devuelve un objeto ImageMetadata con src, width, height
+const coverImage = typeof image === 'string' ? image : image.src;
+const coverWidth = typeof image === 'string' ? 1200 : image.width;
+const coverHeight = typeof image === 'string' ? 630 : image.height;
+
+const formattedDate = (date: Date) =>
+  date.toLocaleDateString('es-ES', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={coverImage}
+  canonical={canonical}
+  noindex={noindex}
+  pubDate={pubDate}
+  modifiedDate={updatedDate}
+  type="article"
+  tags={tags}
+>
+  <Header />
+
+  <main class="container mx-auto max-w-3xl px-4 py-8">
+    <article class="prose prose-lg prose-green mx-auto">
+      <header class="not-prose mb-8 text-center">
+        <a
+          href={`/categorias/${category.toLowerCase().replace(/\s+/g, '-')}/`}
+          class="inline-block rounded-full bg-green-100 px-3 py-1 text-sm font-medium text-green-800"
+        >
+          {category}
+        </a>
+        <h1 class="mt-4 text-3xl font-extrabold leading-tight text-gray-900 md:text-4xl">
+          {title}
+        </h1>
+        <p class="mt-3 text-sm text-gray-500">
+          Publicado el <time datetime={pubDate.toISOString()}>{formattedDate(pubDate)}</time>
+          {updatedDate && (
+            <>
+              {' '}
+              · Actualizado el
+              <time datetime={updatedDate.toISOString()}>{formattedDate(updatedDate)}</time>
+            </>
+          )}
+          {' '}por {post.data.author}
+        </p>
+      </header>
+
+      <img
+        src={coverImage}
+        alt={alt}
+        width={coverWidth}
+        height={coverHeight}
+        loading="eager"
+        decoding="async"
+        class="mb-8 w-full rounded-xl object-cover"
+      />
+
+      {
+        post.data.affiliateDisclaimer && (
+          <aside class="not-prose mb-6 rounded-lg border-l-4 border-yellow-400 bg-yellow-50 p-4 text-sm text-yellow-800">
+            <strong>Aviso de afiliado:</strong> Algunos enlaces de este artículo son de
+            afiliados. Comprar a través de ellos puede generar una comisión para {SITE.title}{' '}
+            sin coste adicional para ti.
+          </aside>
+        )
+      }
+
+      <div class="prose-headings:scroll-mt-20">
+        <slot />
+      </div>
+
+      {
+        tags.length > 0 && (
+          <footer class="not-prose mt-10 border-t pt-6">
+            <h2 class="mb-3 text-sm font-semibold uppercase tracking-wide text-gray-500">Etiquetas</h2>
+            <div class="flex flex-wrap gap-2">
+              {tags.map((tag) => (
+                <span class="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-700">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          </footer>
+        )
+      }
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>

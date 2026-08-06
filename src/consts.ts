@@ -18,11 +18,14 @@ export const LEGAL = {
 };
 
 export const GISCUS = {
-  // Sustituye por tu usuario/repositorio de GitHub donde hayas activado Discussions
-  repo: 'TU_USUARIO/aceitesesencialesonline' as `${string}/${string}`,
-  repoId: 'R_xxxxxxxxxx',
-  category: 'Comments',
-  categoryId: 'DIC_xxxxxxxxxx',
+  // Repositorio de GitHub donde están activadas las Discussions
+  // https://github.com/grovercs/aceitesesencialesonline
+  repo: 'grovercs/aceitesesencialesonline' as `${string}/${string}`,
+
+  // Valores generados por Giscus.app
+  repoId: 'R_kgDOTvk4vQ',
+  category: 'Announcements',
+  categoryId: 'DIC_kwDOTvk4vc4DCyXl',
   mapping: 'pathname',
   reactionsEnabled: '1',
   emitMetadata: '0',

@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vademécum de Aromaterapia — Edición Editorial de Alta Conversión</title>
+  <title>doTERRA® Guía de Productos — Catálogo Oficial CPTG®</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
     @page { size: A4 portrait; margin: 0; }
     
     body {
-      font-family: 'Inter', sans-serif;
-      color: #2c302e;
-      background-color: #f7f5f0;
+      font-family: 'Montserrat', sans-serif;
+      color: #2b2b2b;
+      background-color: #f3f3f3;
       margin: 0;
       padding: 0;
     }
@@ -27,11 +27,11 @@
     .page {
       width: 210mm;
       height: 297mm;
-      padding: 16mm 20mm;
+      padding: 10mm 12mm;
       box-sizing: border-box;
       page-break-after: always;
       position: relative;
-      background-color: #fcfbfa;
+      background-color: #ffffff;
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -39,21 +39,20 @@
     }
 
     .cover-page {
+      padding: 0;
       background-color: #173326;
-      color: #fcfbfa;
     }
 
-    .border-muted {
-      border-color: #e6e2d8;
-    }
-    .text-olive {
-      color: #58694a;
-    }
-    .text-gold-muted {
-      color: #9e7b4f;
-    }
-    .bg-warm-muted {
-      background-color: #f5f2ea;
+    .badge-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 9999px;
+      font-size: 9px;
+      font-weight: 700;
+      color: #ffffff;
     }
 
     .no-print-btn {
@@ -62,15 +61,15 @@
       right: 20px;
       z-index: 9999;
       background: #173326;
-      color: #e6dbb8;
-      padding: 12px 28px;
+      color: #d4af37;
+      padding: 12px 26px;
       border-radius: 9999px;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 13px;
-      letter-spacing: 1px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      letter-spacing: 0.5px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
       cursor: pointer;
-      border: 1px solid #9e7b4f;
+      border: 1px solid #d4af37;
       transition: all 0.3s ease;
     }
     .no-print-btn:hover { background: #0a1912; color: #ffffff; }
@@ -78,753 +77,798 @@
     @media print {
       .no-print-btn { display: none !important; }
       body { background-color: #ffffff; }
-      .page { padding: 12mm 16mm; }
+      .page { padding: 8mm 10mm; }
     }
   </style>
 </head>
 <body>
 
   <button onclick="window.print()" class="no-print-btn">
-    🖨️ Descargar Guía PDF en Alta Definición
+    🖨️ Descargar Catálogo Oficial PDF
   </button>
 
-  <!-- ==================== PÁGINA 1: PORTADA EDITORIAL DE ALTA CONVERSIÓN ==================== -->
+  <!-- ==================== PÁGINA 1: PORTADA OFICIAL doTERRA® ==================== -->
   <div class="page cover-page">
-    <div class="relative z-10 text-center mt-12">
-      <span class="inline-block px-4 py-1 rounded-full bg-amber-400/10 text-amber-200 border border-amber-400/20 text-[10px] font-medium tracking-[0.3em] uppercase mb-4">
-        Edición Exclusiva para Suscriptores 2026
-      </span>
-      <h1 class="text-5xl md:text-6xl font-light text-amber-100 leading-tight tracking-wide font-serif-title mb-4">
-        VADEMÉCUM DE AROMATERAPIA
-      </h1>
-      <div class="w-16 h-px bg-amber-400/40 mx-auto my-5"></div>
-      <p class="text-xs text-emerald-100/90 font-light max-w-md mx-auto leading-relaxed tracking-wider uppercase">
-        Guía Maestra de Selección Botánica, Usos Terapéuticos y Fórmulas CPTG® doTERRA®
-      </p>
-    </div>
+    <div class="w-full h-full relative flex flex-col justify-between p-10 bg-cover bg-center" style="background-image: url('/images/doterra_cover_official.jpg');">
+      <div class="absolute inset-0 bg-gradient-to-t from-emerald-950/95 via-emerald-950/40 to-emerald-950/20"></div>
 
-    <div class="relative z-10 flex justify-center my-6">
-      <div class="w-56 h-56 rounded-full overflow-hidden border border-amber-200/20 p-2 bg-gradient-to-b from-amber-400/20 to-transparent shadow-2xl">
-        <img src="/images/guia-doterra.jpg" alt="doTERRA Lujo" class="w-full h-full object-cover rounded-full">
+      <div class="relative z-10 text-center pt-8">
+        <p class="text-amber-300 text-xs font-semibold uppercase tracking-[0.35em] mb-2">dōTERRA® OFFICIAL PRODUCT GUIDE</p>
+        <h1 class="text-5xl md:text-6xl font-light text-white font-serif-title tracking-wide leading-tight">
+          GUÍA DE PRODUCTOS & VADEMÉCUM
+        </h1>
+        <div class="w-20 h-0.5 bg-amber-400 mx-auto my-4"></div>
+        <p class="text-sm text-emerald-100 font-light max-w-lg mx-auto uppercase tracking-widest">
+          Catálogo Oficial de Aceites Esenciales CPTG® Grado Probado Puro
+        </p>
       </div>
-    </div>
 
-    <div class="relative z-10 text-center mb-6 border-t border-emerald-900/60 pt-5">
-      <p class="text-[10px] text-amber-300/80 uppercase tracking-widest font-medium">Publicado por la Red Editorial</p>
-      <p class="text-2xl font-light text-white font-serif-title tracking-wide mt-0.5">ACEITES ESENCIALES ONLINE</p>
-      <p class="text-[10px] text-slate-400 tracking-wider mt-1">aceitesesencialesonline.com</p>
-    </div>
-
-    <div class="relative z-10 text-[9px] text-slate-400/70 text-center px-8 mb-2 leading-relaxed">
-      Aviso Legal: Aceites Esenciales Online es una publicación divulgativa e independiente. doTERRA®, CPTG®, On Guard®, Serenity®, Deep Blue® y Breathe® son marcas registradas de dōTERRA Holdings, LLC. Recomendaciones de compra verificadas en Amazon.
+      <div class="relative z-10 text-center pb-8 border-t border-amber-400/30 pt-6">
+        <p class="text-xs text-amber-200 uppercase tracking-widest font-medium">Distribución Autorizada & Asesoría Independiente</p>
+        <p class="text-2xl font-light text-white font-serif-title tracking-wider mt-1">ACEITES ESENCIALES ONLINE</p>
+        <p class="text-[11px] text-slate-300 tracking-wider mt-1">aceitesesencialesonline.com</p>
+      </div>
     </div>
   </div>
 
-  <!-- ==================== PÁGINA 2: ÍNDICE & MANIFIESTO CPTG® ==================== -->
+  <!-- ==================== PÁGINA 2: EL ESTÁNDAR CPTG® Y SIMBOLOGÍA (100% LLENA) ==================== -->
   <div class="page">
     <div class="flex-1 flex flex-col justify-between">
       <div>
-        <div class="border-b border-muted pb-4 mb-6 flex justify-between items-baseline">
-          <h2 class="text-3xl font-light text-slate-900 font-serif-title">Índice del Vademécum & Compromiso de Pureza</h2>
-          <span class="text-[10px] text-gold-muted font-medium uppercase tracking-widest">SECCIÓN I</span>
+        <div class="flex justify-between items-center border-b-2 border-emerald-900 pb-2 mb-4">
+          <div>
+            <span class="text-[10px] font-bold text-amber-700 uppercase tracking-widest">sección I</span>
+            <h2 class="text-2xl font-bold text-emerald-950 font-serif-title leading-none">El Estándar CPTG® y Simbología de Uso</h2>
+          </div>
+          <img src="/images/doterra_cptg_official.jpg" alt="CPTG Badge" class="h-10 object-contain">
         </div>
 
-        <div class="grid grid-cols-2 gap-10 mb-6">
-          <div>
-            <h3 class="font-serif-title text-xl text-slate-900 mb-3 border-b border-muted pb-2">📋 Estructura de la Guía</h3>
-            <ul class="space-y-2 text-slate-600 text-xs font-light">
-              <li class="flex justify-between border-b border-muted/40 pb-1"><span>1. Estándar CPTG® y Simbología</span> <span class="text-gold-muted font-serif-title">Pág. 2</span></li>
-              <li class="flex justify-between border-b border-muted/40 pb-1"><span>2. Catálogo Aceites Individuales I</span> <span class="text-gold-muted font-serif-title">Pág. 3</span></li>
-              <li class="flex justify-between border-b border-muted/40 pb-1"><span>3. Catálogo Aceites Individuales II</span> <span class="text-gold-muted font-serif-title">Pág. 4</span></li>
-              <li class="flex justify-between border-b border-muted/40 pb-1"><span>4. Mezclas Emocionales CPTG®</span> <span class="text-gold-muted font-serif-title">Pág. 5</span></li>
-              <li class="flex justify-between border-b border-muted/40 pb-1"><span>5. Mezclas de Salud Física</span> <span class="text-gold-muted font-serif-title">Pág. 6</span></li>
-              <li class="flex justify-between border-b border-muted/40 pb-1"><span>6. Cuidado Personal y Hogar</span> <span class="text-gold-muted font-serif-title">Pág. 7</span></li>
-              <li class="flex justify-between border-b border-muted/40 pb-1"><span>7. Difusores Ultrasónicos</span> <span class="text-gold-muted font-serif-title">Pág. 8</span></li>
-              <li class="flex justify-between border-b border-muted/40 pb-1"><span>8. Colecciones y Kits de Inicio</span> <span class="text-gold-muted font-serif-title">Pág. 9</span></li>
-              <li class="flex justify-between border-b border-muted/40 pb-1"><span>9. Tabla de Dilución Universal</span> <span class="text-gold-muted font-serif-title">Pág. 10</span></li>
-              <li class="flex justify-between border-b border-muted/40 pb-1"><span>10. Verificación en Amazon</span> <span class="font-serif-title text-gold-muted">Pág. 11</span></li>
-              <li class="flex justify-between border-b border-muted/40 pb-1"><span>11. Glosario Olfativo</span> <span class="font-serif-title text-gold-muted">Pág. 12</span></li>
+        <div class="grid grid-cols-3 gap-4 mb-4">
+          <div class="col-span-2 space-y-3 text-xs text-slate-700 leading-relaxed">
+            <h3 class="font-bold text-emerald-900 text-sm border-b border-slate-200 pb-1">🔬 ¿Qué significa CPTG® (Certified Pure Tested Grade®)?</h3>
+            <p>
+              Cuando eliges doTERRA®, estás eligiendo aceites esenciales suave y cuidadosamente destilados de plantas que han sido cosechadas en el momento perfecto por agricultores experimentados de todo el mundo para obtener la composición y eficacia ideales.
+            </p>
+            <p>
+              Cada aceite doTERRA® pasa por rigurosas pruebas cruzadas de <strong>Cromatografía de Gases (GC)</strong>, <strong>Espectrometría de Masas (MS)</strong>, pruebas organolépticas, espectroscopía FTIR y pruebas microbiológicas para garantizar que están libres de contaminantes, pesticidas o sintéticos.
+            </p>
+            <div class="p-3 bg-amber-50 rounded border border-amber-200 text-[11px]">
+              <strong class="text-amber-950">🌍 Co-Impact Sourcing®:</strong> doTERRA abastece sus aceites de más de 40 países, más de la mitad de los cuales son naciones en desarrollo, creando empleo justo e infraestructuras comunitarias sostenibles.
+            </div>
+          </div>
+
+          <div class="col-span-1">
+            <img src="/images/doterra_cptg_official.jpg" alt="CPTG Pruebas" class="w-full h-auto rounded border border-slate-200 shadow-sm mb-2">
+            <p class="text-[9px] text-slate-500 text-center italic font-serif-title">Pruebas analíticas de laboratorio independientes lote por lote.</p>
+          </div>
+        </div>
+
+        <div class="border-t border-slate-300 pt-3">
+          <h3 class="font-bold text-emerald-900 text-sm mb-3">📌 Simbología Oficial de Métodos de Aplicación y Sensibilidad</h3>
+          
+          <div class="grid grid-cols-3 gap-3 text-xs mb-3">
+            <div class="p-2.5 bg-slate-50 border border-slate-200 rounded">
+              <span class="badge-icon bg-amber-600 mr-1.5">A</span>
+              <strong class="text-slate-900">Uso Aromático</strong>
+              <p class="text-[10.5px] text-slate-600 mt-1">Difundir en ambiente o inhalar directamente en las palmas para influir en el estado de ánimo y vías respiratorias.</p>
+            </div>
+            <div class="p-2.5 bg-slate-50 border border-slate-200 rounded">
+              <span class="badge-icon bg-emerald-700 mr-1.5">T</span>
+              <strong class="text-slate-900">Uso Tópico</strong>
+              <p class="text-[10.5px] text-slate-600 mt-1">Aplicar sobre la piel en sienes, cuello, espalda, muñecas o planta de los pies para un beneficio localizado.</p>
+            </div>
+            <div class="p-2.5 bg-slate-50 border border-slate-200 rounded">
+              <span class="badge-icon bg-purple-700 mr-1.5">I</span>
+              <strong class="text-slate-900">Uso Interno</strong>
+              <p class="text-[10.5px] text-slate-600 mt-1">Diluir en cápsulas vegetales o bebidas (exclusivo para aceites etiquetados aptos para ingesta).</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-3 text-xs">
+            <div class="p-2 bg-emerald-50 border border-emerald-200 rounded">
+              <strong class="text-emerald-950">N — Neutro / Sin Diluir</strong>
+              <p class="text-[10px] text-slate-600">Puede aplicarse tópicamente sin diluir en pieles normales.</p>
+            </div>
+            <div class="p-2 bg-amber-50 border border-amber-200 rounded">
+              <strong class="text-amber-950">S — Piel Sensible</strong>
+              <p class="text-[10px] text-slate-600">Diluir para pieles jóvenes, ancianas o de alta sensibilidad.</p>
+            </div>
+            <div class="p-2 bg-red-50 border border-red-200 rounded">
+              <strong class="text-red-950">D — Diluir Siempre</strong>
+              <p class="text-[10px] text-slate-600">Aceites "calientes" (Canela, Orégano, Menta). Requieren vehículo siempre.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-slate-200 pt-2">
+        <span>doTERRA® Guía de Productos · aceitesesencialesonline.com</span>
+        <span>Página 2</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 3: ACEITES INDIVIDUALES I (10 PRODUCTOS + BANNER CPTG - 100% LLENA) ==================== -->
+  <div class="page">
+    <div class="flex-1 flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-baseline border-b-2 border-emerald-900 pb-1.5 mb-3">
+          <h2 class="text-2xl font-bold text-emerald-950 font-serif-title">Catálogo de Aceites Individuales I</h2>
+          <span class="text-[10px] font-bold text-amber-700 uppercase tracking-widest">Esenciales Básicos CPTG®</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-x-4 gap-y-2.5 text-xs mb-3">
+          
+          <div class="p-2.5 bg-slate-50 border-l-4 border-l-amber-600 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-0.5">
+              <h3 class="font-bold text-slate-900 text-sm">🪻 Lavanda (Lavender) 15ml</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-purple-700">I</span><span class="badge-icon bg-emerald-900">N</span>
+              </div>
+            </div>
+            <p class="text-[9.5px] text-amber-800 font-semibold italic mb-1">Lavandula angustifolia · Bulgaria</p>
+            <p class="text-slate-600 text-[10.5px] leading-snug">Calma la tensión nerviosa, promueve un sueño reparador y alivia picaduras e irritaciones cutáneas.</p>
+          </div>
+
+          <div class="p-2.5 bg-slate-50 border-l-4 border-l-emerald-600 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-0.5">
+              <h3 class="font-bold text-slate-900 text-sm">🌿 Menta (Peppermint) 15ml</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-purple-700">I</span><span class="badge-icon bg-red-700">D</span>
+              </div>
+            </div>
+            <p class="text-[9.5px] text-emerald-800 font-semibold italic mb-1">Mentha piperita · EEUU</p>
+            <p class="text-slate-600 text-[10.5px] leading-snug">Refrescante y energizante. Alivia dolores de cabeza por tensión e imparte vigor intelectual.</p>
+          </div>
+
+          <div class="p-2.5 bg-slate-50 border-l-4 border-l-yellow-500 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-0.5">
+              <h3 class="font-bold text-slate-900 text-sm">🍋 Limón (Lemon) 15ml</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-purple-700">I</span><span class="badge-icon bg-red-700">D</span>
+              </div>
+            </div>
+            <p class="text-[9.5px] text-yellow-800 font-semibold italic mb-1">Citrus limon · Sicilia (Italia)</p>
+            <p class="text-slate-600 text-[10.5px] leading-snug">Potente limpiador cítrico. Eleva el estado de ánimo y favorece la digestión al diluirse en agua.</p>
+          </div>
+
+          <div class="p-2.5 bg-slate-50 border-l-4 border-l-teal-600 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-0.5">
+              <h3 class="font-bold text-slate-900 text-sm">🌱 Árbol del Té (Tea Tree) 15ml</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-emerald-900">N</span>
+              </div>
+            </div>
+            <p class="text-[9.5px] text-teal-800 font-semibold italic mb-1">Melaleuca alternifolia · Australia</p>
+            <p class="text-slate-600 text-[10.5px] leading-snug">Purificante cutáneo. Reconocido por sus propiedades limpiadoras y rejuvenecedoras en la piel.</p>
+          </div>
+
+          <div class="p-2.5 bg-slate-50 border-l-4 border-l-slate-700 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-0.5">
+              <h3 class="font-bold text-slate-900 text-sm">✨ Incienso (Frankincense) 15ml</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-purple-700">I</span><span class="badge-icon bg-emerald-900">N</span>
+              </div>
+            </div>
+            <p class="text-[9.5px] text-slate-800 font-semibold italic mb-1">Boswellia carterii · Somalilandia</p>
+            <p class="text-slate-600 text-[10.5px] leading-snug">"El Rey de los Aceites". Favorece la función celular saludable y embellece la piel madura.</p>
+          </div>
+
+          <div class="p-2.5 bg-slate-50 border-l-4 border-l-sky-600 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-0.5">
+              <h3 class="font-bold text-slate-900 text-sm">🍃 Eucalipto (Eucalyptus) 15ml</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-red-700">D</span>
+              </div>
+            </div>
+            <p class="text-[9.5px] text-sky-800 font-semibold italic mb-1">Eucalyptus globulus · Australia</p>
+            <p class="text-slate-600 text-[10.5px] leading-snug">Aroma despejante. Promueve la sensación de respiración fluida y limpia el aire del hogar.</p>
+          </div>
+
+          <div class="p-2.5 bg-slate-50 border-l-4 border-l-orange-500 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-0.5">
+              <h3 class="font-bold text-slate-900 text-sm">🍊 Bergamota (Bergamot) 15ml</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-amber-700">S</span>
+              </div>
+            </div>
+            <p class="text-[9.5px] text-orange-800 font-semibold italic mb-1">Citrus bergamia · Italia</p>
+            <p class="text-slate-600 text-[10.5px] leading-snug">Cítrico calmante único. Alivia sentimientos de tristeza y reduce el estrés sin causar somnolencia.</p>
+          </div>
+
+          <div class="p-2.5 bg-slate-50 border-l-4 border-l-stone-600 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-0.5">
+              <h3 class="font-bold text-slate-900 text-sm">🌲 Romero (Rosemary) 15ml</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-purple-700">I</span><span class="badge-icon bg-red-700">D</span>
+              </div>
+            </div>
+            <p class="text-[9.5px] text-stone-800 font-semibold italic mb-1">Rosmarinus officinalis · España</p>
+            <p class="text-slate-600 text-[10.5px] leading-snug">Estimulante de la memoria y la retención mental. Fortalece el cuero cabelludo y el folículo.</p>
+          </div>
+
+        </div>
+
+        <div class="w-full h-28 overflow-hidden rounded border border-slate-300 relative">
+          <img src="/images/doterra_singles_official.jpg" alt="Aceites Individuales doTERRA" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-r from-emerald-950/80 to-transparent flex items-center p-4">
+            <div class="text-white max-w-sm">
+              <p class="text-amber-300 text-[10px] font-bold uppercase tracking-wider">CPTG Certified Pure Tested Grade®</p>
+              <p class="text-xs font-serif-title text-emerald-100">Extractos botánicos puros procedentes de su hábitat natural nativo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-slate-200 pt-2">
+        <span>doTERRA® Guía de Productos · aceitesesencialesonline.com</span>
+        <span>Página 3</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 4: ACEITES INDIVIDUALES II (10 PRODUCTOS - 100% LLENA) ==================== -->
+  <div class="page">
+    <div class="flex-1 flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-baseline border-b-2 border-emerald-900 pb-1.5 mb-3">
+          <h2 class="text-2xl font-bold text-emerald-950 font-serif-title">Catálogo de Aceites Individuales II</h2>
+          <span class="text-[10px] font-bold text-amber-700 uppercase tracking-widest">Especialidades Botánicas</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-x-4 gap-y-2.5 text-xs mb-3">
+          
+          <div class="p-2.5 bg-slate-50 border-l-4 border-l-amber-700 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-0.5">
+              <h3 class="font-bold text-slate-900 text-sm">🌳 Copaiba 15ml</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-purple-700">I</span><span class="badge-icon bg-emerald-900">N</span>
+              </div>
+            </div>
+            <p class="text-[9.5px] text-amber-900 font-semibold italic mb-1">Copaifera reticulata · Brasil</p>
+            <p class="text-slate-600 text-[10.5px] leading-snug">Rico en beta-cariofileno. Calma el sistema nervioso, alivia la ansiedad y protege la piel.</p>
+          </div>
+
+          <div class="p-2.5 bg-slate-50 border-l-4 border-l-red-600 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-0.5">
+              <h3 class="font-bold text-slate-900 text-sm">🌿 Orégano (Oregano) 15ml</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-purple-700">I</span><span class="badge-icon bg-red-700">D</span>
+              </div>
+            </div>
+            <p class="text-[9.5px] text-red-900 font-semibold italic mb-1">Origanum vulgare · Turquía</p>
+            <p class="text-slate-600 text-[10.5px] leading-snug">Antiséptico natural de máxima potencia. Requiere dilución estricta con aceite portador.</p>
+          </div>
+
+          <div class="p-2.5 bg-slate-50 border-l-4 border-l-orange-600 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-0.5">
+              <h3 class="font-bold text-slate-900 text-sm">🍊 Naranja Silvestre 15ml</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-purple-700">I</span><span class="badge-icon bg-emerald-900">N</span>
+              </div>
+            </div>
+            <p class="text-[9.5px] text-orange-900 font-semibold italic mb-1">Citrus sinensis · Rep. Dominicana</p>
+            <p class="text-slate-600 text-[10.5px] leading-snug">Aroma alegre y dulce. Revitaliza el estado de ánimo e inspira optimismo en el hogar.</p>
+          </div>
+
+          <div class="p-2.5 bg-slate-50 border-l-4 border-l-stone-700 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-0.5">
+              <h3 class="font-bold text-slate-900 text-sm">🪵 Cedro (Cedarwood) 15ml</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-amber-700">S</span>
+              </div>
+            </div>
+            <p class="text-[9.5px] text-stone-900 font-semibold italic mb-1">Juniperus virginiana · EEUU</p>
+            <p class="text-slate-600 text-[10.5px] leading-snug">Aroma amaderado cálido. Induce relajación nocturna y proporciona sensación de arropamiento.</p>
+          </div>
+
+          <div class="p-2.5 bg-slate-50 border-l-4 border-l-rose-500 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-0.5">
+              <h3 class="font-bold text-slate-900 text-sm">🌸 Geranio (Geranium) 15ml</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-purple-700">I</span><span class="badge-icon bg-amber-700">S</span>
+              </div>
+            </div>
+            <p class="text-[9.5px] text-rose-900 font-semibold italic mb-1">Pelargonium graveolens · Egipto</p>
+            <p class="text-slate-600 text-[10.5px] leading-snug">Equilibrador cutáneo para pieles mixtas o grasas. Aporta serenidad y aroma floral a jardín.</p>
+          </div>
+
+          <div class="p-2.5 bg-slate-50 border-l-4 border-l-purple-600 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-0.5">
+              <h3 class="font-bold text-slate-900 text-sm">🌼 Manzanilla Romana 5ml</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-purple-700">I</span><span class="badge-icon bg-emerald-900">N</span>
+              </div>
+            </div>
+            <p class="text-[9.5px] text-purple-900 font-semibold italic mb-1">Anthemis nobilis · Reino Unido</p>
+            <p class="text-slate-600 text-[10.5px] leading-snug">Extraordinariamente suave. Tradicionalmente apreciada para el descanso y calma infantil.</p>
+          </div>
+
+          <div class="p-2.5 bg-slate-50 border-l-4 border-l-pink-500 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-0.5">
+              <h3 class="font-bold text-slate-900 text-sm">🌺 Ylang Ylang 15ml</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-purple-700">I</span><span class="badge-icon bg-amber-700">S</span>
+              </div>
+            </div>
+            <p class="text-[9.5px] text-pink-900 font-semibold italic mb-1">Cananga odorata · Madagascar</p>
+            <p class="text-slate-600 text-[10.5px] leading-snug">Flor exótica dulce. Disminuye la tensión emocional y mejora el humor en momentos de agobio.</p>
+          </div>
+
+          <div class="p-2.5 bg-slate-50 border-l-4 border-l-indigo-600 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-0.5">
+              <h3 class="font-bold text-slate-900 text-sm">🌱 Salvia Sclarea 15ml</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-purple-700">I</span><span class="badge-icon bg-emerald-900">N</span>
+              </div>
+            </div>
+            <p class="text-[9.5px] text-indigo-900 font-semibold italic mb-1">Salvia sclarea · Rusia</p>
+            <p class="text-slate-600 text-[10.5px] leading-snug">Aliado indispensable durante el ciclo femenino. Calma molestias abdominales y reconforta.</p>
+          </div>
+
+        </div>
+
+        <div class="p-3 bg-emerald-950 text-amber-100 rounded border border-emerald-900 text-xs">
+          <h4 class="font-bold text-amber-300 font-serif-title text-sm mb-1">💡 Consejos de Maridaje Aromático</h4>
+          <p class="text-emerald-100 text-[10.5px] leading-relaxed">
+            Combina aceites de notas amaderadas (<strong>Cedro</strong> o <strong>Vetiver</strong>) como nota base, con florales (<strong>Geranio</strong>) como nota media, y cítricos (<strong>Naranja Silvestre</strong>) como nota alta para crear perfumes corporales naturales duraderos.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-slate-200 pt-2">
+        <span>doTERRA® Guía de Productos · aceitesesencialesonline.com</span>
+        <span>Página 4</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 5: MEZCLAS EMOCIONALES CPTG® (100% LLENA) ==================== -->
+  <div class="page">
+    <div class="flex-1 flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-baseline border-b-2 border-emerald-900 pb-1.5 mb-3">
+          <h2 class="text-2xl font-bold text-emerald-950 font-serif-title">Mezclas Patentadas: Bienestar Emocional</h2>
+          <span class="text-[10px] font-bold text-amber-700 uppercase tracking-widest">Sinergias CPTG®</span>
+        </div>
+
+        <div class="space-y-3 text-xs mb-3">
+          
+          <div class="p-3 bg-slate-50 border-l-4 border-l-red-600 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="font-bold text-slate-900 text-base">🛡️ doTERRA On Guard® (Mezcla Protectora)</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-purple-700">I</span>
+              </div>
+            </div>
+            <p class="text-[10px] text-red-800 font-semibold mb-1">Formulación: Naranja silvestre, Clavo, Canela, Eucalipto y Romero.</p>
+            <p class="text-slate-600 text-[11px] leading-relaxed">
+              Fórmula registrada icónica. Purifica el ambiente del hogar, neutraliza bacterias suspendidas en el aire e infunde calidez especiada en los meses fríos.
+            </p>
+          </div>
+
+          <div class="p-3 bg-slate-50 border-l-4 border-l-indigo-600 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="font-bold text-slate-900 text-base">🌙 doTERRA Serenity® (Mezcla Relajante)</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span>
+              </div>
+            </div>
+            <p class="text-[10px] text-indigo-800 font-semibold mb-1">Formulación: Lavanda, Mejorana, Manzanilla, Ylang Ylang, Sándalo y Vainilla.</p>
+            <p class="text-slate-600 text-[11px] leading-relaxed">
+              Diseñada para apaciguar la mente antes de dormir. Disminuye la tensión muscular inducida por el estrés laboral y ayuda a descansar sin interrupciones.
+            </p>
+          </div>
+
+          <div class="p-3 bg-slate-50 border-l-4 border-l-purple-600 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="font-bold text-slate-900 text-base">🧘 doTERRA Adaptiv® (Mezcla Anti-Estrés)</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span>
+              </div>
+            </div>
+            <p class="text-[10px] text-purple-800 font-semibold mb-1">Formulación: Naranja, Lavanda, Copaiba, Menta, Liquidámbar y Romero.</p>
+            <p class="text-slate-600 text-[11px] leading-relaxed">
+              Formulada para momentos de alta exigencia, exámenes o cambios vitales. Mantiene la concentración calmada sin provocar fatiga mental.
+            </p>
+          </div>
+
+          <div class="p-3 bg-slate-50 border-l-4 border-l-emerald-600 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="font-bold text-slate-900 text-base">🌿 doTERRA Balance® (Mezcla Estabilizadora)</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span>
+              </div>
+            </div>
+            <p class="text-[10px] text-emerald-800 font-semibold mb-1">Formulación: Abeto, Madera de Ho, Incienso, Tanaceto Azul y Manzanilla Azul.</p>
+            <p class="text-slate-600 text-[11px] leading-relaxed">
+              Aroma amaderado cálido. Aporta sensación de tranquilidad y conexión a tierra en momentos de agitación emocional.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="w-full h-24 overflow-hidden rounded border border-slate-300 relative">
+          <img src="/images/doterra_blends_official.jpg" alt="Mezclas Emocionales doTERRA" class="w-full h-full object-cover">
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-slate-200 pt-2">
+        <span>doTERRA® Guía de Productos · aceitesesencialesonline.com</span>
+        <span>Página 5</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 6: MEZCLAS SALUD FÍSICA CPTG® (100% LLENA) ==================== -->
+  <div class="page">
+    <div class="flex-1 flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-baseline border-b-2 border-emerald-900 pb-1.5 mb-3">
+          <h2 class="text-2xl font-bold text-emerald-950 font-serif-title">Mezclas Patentadas: Salud Física</h2>
+          <span class="text-[10px] font-bold text-amber-700 uppercase tracking-widest">Sinergias Corporales</span>
+        </div>
+
+        <div class="space-y-3 text-xs mb-3">
+          
+          <div class="p-3 bg-slate-50 border-l-4 border-l-sky-600 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="font-bold text-slate-900 text-base">💙 doTERRA Deep Blue® (Mezcla Muscular)</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-red-700">D</span>
+              </div>
+            </div>
+            <p class="text-[10px] text-sky-800 font-semibold mb-1">Formulación: Gaulteria, Alcanfor, Menta, Ylang Ylang, Helicriso y Tanaceto Azul.</p>
+            <p class="text-slate-600 text-[11px] leading-relaxed">
+              Efecto frío-calor penetrante. Recomendada por fisioterapeutas para masajes descontracturantes en lumbar, cervicales y piernas tras el entrenamiento.
+            </p>
+          </div>
+
+          <div class="p-3 bg-slate-50 border-l-4 border-l-teal-600 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="font-bold text-slate-900 text-base">🌬️ doTERRA Air / Breathe® (Mezcla Respiratoria)</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span>
+              </div>
+            </div>
+            <p class="text-[10px] text-teal-800 font-semibold mb-1">Formulación: Laurel, Eucalipto, Menta, Árbol del Té, Limón y Cardamomo.</p>
+            <p class="text-slate-600 text-[11px] leading-relaxed">
+              Facilita la respiración profunda durante la noche en personas propensas a la congestión o cambios de estación.
+            </p>
+          </div>
+
+          <div class="p-3 bg-slate-50 border-l-4 border-l-amber-600 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="font-bold text-slate-900 text-base">🍃 doTERRA DigestZen® / ZenGest (Digestivo)</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span><span class="badge-icon bg-purple-700">I</span>
+              </div>
+            </div>
+            <p class="text-[10px] text-amber-800 font-semibold mb-1">Formulación: Jengibre, Hinojo, Menta, Estragón, Anís y Cilantro.</p>
+            <p class="text-slate-600 text-[11px] leading-relaxed">
+              Sinergia botánica reconfortante para masajes abdominales suaves tras comidas copiosas o viajes en coche.
+            </p>
+          </div>
+
+          <div class="p-3 bg-slate-50 border-l-4 border-l-orange-600 border border-slate-200 rounded">
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="font-bold text-slate-900 text-base">🍊 doTERRA Citrus Bliss® (Vigorizante Cítrico)</h3>
+              <div class="space-x-0.5">
+                <span class="badge-icon bg-amber-600">A</span><span class="badge-icon bg-emerald-700">T</span>
+              </div>
+            </div>
+            <p class="text-[10px] text-orange-800 font-semibold mb-1">Formulación: Naranja, Limón, Pomelo, Mandarina, Bergamota y Vainilla.</p>
+            <p class="text-slate-600 text-[11px] leading-relaxed">
+              Combina los beneficios purificantes de los cítricos creando una atmósfera alegre y refrescante en el hogar.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="p-3 bg-stone-100 border border-stone-300 rounded text-xs">
+          <h4 class="font-bold text-slate-900 text-sm mb-1">💡 Modo de Aplicación Deportiva</h4>
+          <p class="text-slate-600 text-[11px]">
+            Aplica 2 gotas de <strong>doTERRA Deep Blue®</strong> mezcladas con 5 ml de aceite de coco fraccionado en cuadriceps o gemelos antes y después de hacer ejercicio intenso.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-slate-200 pt-2">
+        <span>doTERRA® Guía de Productos · aceitesesencialesonline.com</span>
+        <span>Página 6</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 7: CUIDADO PERSONAL Y HOGAR (100% LLENA) ==================== -->
+  <div class="page">
+    <div class="flex-1 flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-baseline border-b-2 border-emerald-900 pb-1.5 mb-3">
+          <h2 class="text-2xl font-bold text-emerald-950 font-serif-title">Línea de Cuidado Personal y Hogar</h2>
+          <span class="text-[10px] font-bold text-amber-700 uppercase tracking-widest">Bienestar Diario</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 text-xs mb-3">
+          
+          <div class="p-3 bg-slate-50 border border-slate-200 rounded">
+            <h3 class="font-bold text-slate-900 text-sm mb-1">🧴 Deep Blue® Rub (120 ml)</h3>
+            <p class="text-slate-600 text-[11px] leading-relaxed">
+              Crema tópica hidratante enriquecida con la mezcla de aceites esenciales CPTG Deep Blue®. Aplicación rápida y limpia sin dejar sensación grasa.
+            </p>
+          </div>
+
+          <div class="p-3 bg-slate-50 border border-slate-200 rounded">
+            <h3 class="font-bold text-slate-900 text-sm mb-1">🥥 Aceite de Coco Fraccionado (115 ml)</h3>
+            <p class="text-slate-600 text-[11px] leading-relaxed">
+              Aceite portador inodoro e incoloro. No mancha la ropa ni se solifica a temperatura ambiente. Esencial para diluciones seguras en piel.
+            </p>
+          </div>
+
+          <div class="p-3 bg-slate-50 border border-slate-200 rounded">
+            <h3 class="font-bold text-slate-900 text-sm mb-1">🪥 Pasta de Dientes On Guard®</h3>
+            <p class="text-slate-600 text-[11px] leading-relaxed">
+              Sin flúor sintético. Limpia la cavidad bucal con aceites de clavo, canela y menta, dejando un aliento fresco y limpio duradero.
+            </p>
+          </div>
+
+          <div class="p-3 bg-slate-50 border border-slate-200 rounded">
+            <h3 class="font-bold text-slate-900 text-sm mb-1">🧼 Limpiador Concentrado On Guard®</h3>
+            <p class="text-slate-600 text-[11px] leading-relaxed">
+              Biodegradable y seguro para hogares con niños y mascotas. Sustituye limpiadores químicos agresivos con aroma natural cálido.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="w-full h-32 overflow-hidden rounded border border-slate-300 relative">
+          <img src="/images/doterra_personal_official.jpg" alt="Línea Personal doTERRA" class="w-full h-full object-cover">
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-slate-200 pt-2">
+        <span>doTERRA® Guía de Productos · aceitesesencialesonline.com</span>
+        <span>Página 7</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 8: DIFUSORES (100% LLENA) ==================== -->
+  <div class="page">
+    <div class="flex-1 flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-baseline border-b-2 border-emerald-900 pb-1.5 mb-3">
+          <h2 class="text-2xl font-bold text-emerald-950 font-serif-title">Tecnología en Difusores Ultrasónicos</h2>
+          <span class="text-[10px] font-bold text-amber-700 uppercase tracking-widest">Aromaterapia en Casa</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 text-xs mb-3">
+          
+          <div class="p-3 bg-slate-50 border border-amber-200 rounded">
+            <h3 class="font-bold text-slate-900 text-sm mb-1">⭐ doTERRA Petal 2.0</h3>
+            <p class="text-slate-600 text-[11px] mb-2">El modelo más popular y resistente. Cobertura en estancias de hasta 30 m².</p>
+            <ul class="text-[10.5px] text-slate-500 space-y-1">
+              <li>• Temporizador programable: 2h, 6h continuas o 12h intermitentes.</li>
+              <li>• Luz LED cálida ambiental regulable independiente.</li>
             </ul>
           </div>
 
-          <div>
-            <h3 class="font-serif-title text-xl text-slate-900 mb-3 border-b border-muted pb-2">🌿 ¿Por qué CPTG® doTERRA®?</h3>
-            <p class="text-xs text-slate-600 font-light leading-relaxed mb-3">
-              En el mercado actual, más del 80% de los aceites esenciales comerciales contienen diluyentes sintéticos o rellenos químicos. La certificación <strong>CPTG® (Certificado de Pureza Total Garantizada)</strong> garantiza que cada frasco contiene extracto botánico 100% puro sometido a análisis de Cromatografía de Gases (GC) y Espectrometría de Masas (MS).
+          <div class="p-3 bg-slate-50 border border-slate-200 rounded">
+            <h3 class="font-bold text-slate-900 text-sm mb-1">💡 doTERRA Laluz</h3>
+            <p class="text-slate-600 text-[11px] mb-2">Diseño premium de cristal esmerilado apto para decoración exigente.</p>
+            <ul class="text-[10.5px] text-slate-500 space-y-1">
+              <li>• Modos de luz tenue, cálida y tono lavanda.</li>
+              <li>• Autonomía continua hasta 8 horas de bruma ultra-fina.</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="w-full h-36 overflow-hidden rounded border border-slate-300 relative mb-3">
+          <img src="/images/doterra_diffusers_official.jpg" alt="Difusores doTERRA" class="w-full h-full object-cover">
+        </div>
+
+        <div class="p-3 bg-amber-50 border border-amber-200 rounded text-xs">
+          <h3 class="font-bold text-slate-900 mb-1">🧼 Limpieza y Mantenimiento del Difusor</h3>
+          <p class="text-slate-600 text-[11px] leading-relaxed">
+            Desconecta el aparato, vacía el agua y limpia la placa ultrasónica interna con un bastoncillo de algodón mojado en vinagre blanco cada 15 días. Esto evita la acumulación de aceites densos y mantiene la niebla ultra-fina al 100% de rendimiento.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-slate-200 pt-2">
+        <span>doTERRA® Guía de Productos · aceitesesencialesonline.com</span>
+        <span>Página 8</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 9: KITS Y COLECCIONES (100% LLENA) ==================== -->
+  <div class="page">
+    <div class="flex-1 flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-baseline border-b-2 border-emerald-900 pb-1.5 mb-3">
+          <h2 class="text-2xl font-bold text-emerald-950 font-serif-title">Colecciones y Kits de Iniciación</h2>
+          <span class="text-[10px] font-bold text-amber-700 uppercase tracking-widest">Kits Oficiales</span>
+        </div>
+
+        <div class="space-y-3 text-xs mb-3">
+          
+          <div class="p-4 bg-slate-50 border border-amber-200 rounded">
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="font-bold text-slate-900 text-base">🧰 Family Essentials Kit (10 Aceites x 5ml)</h3>
+              <span class="text-[9px] bg-amber-100 text-amber-900 px-2 py-0.5 rounded font-bold">Botiquín Básico</span>
+            </div>
+            <p class="text-slate-600 text-[11px] leading-relaxed">
+              Incluye los 10 aceites e infusiones imprescindibles de doTERRA® (Lavanda, Limón, Menta, Tea Tree, Orégano, Incienso, Deep Blue®, Air, DigestZen® y On Guard®). Excelente opción para contar con un remedio natural para cada situación en el hogar.
             </p>
-            <p class="text-xs text-slate-600 font-light leading-relaxed">
-              Gracias al programa <em>Co-Impact Sourcing</em>, cada planta se recolecta en su suelo nativo por agricultores tradicionales.
+          </div>
+
+          <div class="p-4 bg-slate-50 border border-emerald-200 rounded">
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="font-bold text-slate-900 text-base">🏠 Home Essentials Kit (10 Aceites x 15ml + Difusor Petal)</h3>
+              <span class="text-[9px] bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded font-bold">El Más Valorado</span>
+            </div>
+            <p class="text-slate-600 text-[11px] leading-relaxed">
+              Contiene los mismos 10 aceites principales pero en formato de 15 ml (tres veces más cantidad) e incluye el difusor oficial Petal 2.0. Representa la mayor rentabilidad por euro invertido para familias.
             </p>
           </div>
+
         </div>
 
-        <div class="border-t border-muted pt-5">
-          <h3 class="font-serif-title text-xl text-slate-900 mb-3">📌 Leyenda de Uso Seguro en Piel y Ambiente</h3>
-          <div class="grid grid-cols-3 gap-6 text-xs font-light text-slate-600">
-            <div>
-              <p class="font-semibold text-slate-900 mb-1">A — Aromático</p>
-              <p class="text-[11px] leading-relaxed">Difusión mediante nebulización o inhalación directa en las palmas de las manos.</p>
-            </div>
-            <div>
-              <p class="font-semibold text-slate-900 mb-1">T — Tópico</p>
-              <p class="text-[11px] leading-relaxed">Aplicación sobre puntos de pulso, cuello, sienes, columna o plantas de los pies.</p>
-            </div>
-            <div>
-              <p class="font-semibold text-slate-900 mb-1">N / S / D — Dilución</p>
-              <p class="text-[11px] leading-relaxed"><strong>N:</strong> Neutro sin diluir | <strong>S:</strong> Piel Sensible | <strong>D:</strong> Diluir siempre con portador.</p>
-            </div>
-          </div>
+        <div class="w-full h-36 overflow-hidden rounded border border-slate-300 relative">
+          <img src="/images/doterra_kits_official.jpg" alt="Kits Oficiales doTERRA" class="w-full h-full object-cover">
         </div>
       </div>
-    </div>
 
-    <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-muted pt-3">
-      <span>Aceites Esenciales Online · Edición Editorial</span>
-      <span>Página 2</span>
+      <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-slate-200 pt-2">
+        <span>doTERRA® Guía de Productos · aceitesesencialesonline.com</span>
+        <span>Página 9</span>
+      </div>
     </div>
   </div>
 
-  <!-- ==================== PÁGINA 3: ACEITES INDIVIDUALES I ==================== -->
+  <!-- ==================== PÁGINA 10: TABLA DILUCIÓN Y SEGURIDAD (100% LLENA) ==================== -->
   <div class="page">
     <div class="flex-1 flex flex-col justify-between">
       <div>
-        <div class="border-b border-muted pb-3 mb-5 flex justify-between items-baseline">
-          <h2 class="text-3xl font-light text-slate-900 font-serif-title">2. Catálogo de Aceites Individuales I</h2>
-          <span class="text-[10px] text-gold-muted font-medium uppercase tracking-widest">ESENCIALES BÁSICOS</span>
+        <div class="flex justify-between items-baseline border-b-2 border-emerald-900 pb-1.5 mb-3">
+          <h2 class="text-2xl font-bold text-emerald-950 font-serif-title">Tabla de Dilución Universal de Seguridad</h2>
+          <span class="text-[10px] font-bold text-amber-700 uppercase tracking-widest">Dosis Seguras</span>
         </div>
 
-        <div class="grid grid-cols-3 gap-6 mb-5">
-          <div class="col-span-2 grid grid-cols-2 gap-x-6 gap-y-4 text-xs">
-            
-            <div class="border-b border-muted/60 pb-2.5">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-base font-bold text-slate-900">🪻 Lavanda 15ml</h3>
-                <span class="text-[9px] text-gold-muted font-semibold">A | T | N</span>
-              </div>
-              <p class="text-[10px] text-olive italic mb-1">Lavandula angustifolia · Bulgaria</p>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">
-                Relajante neuromuscular natural. Induce sueño profundo y alivia picaduras e irritaciones.
-              </p>
-            </div>
-
-            <div class="border-b border-muted/60 pb-2.5">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-base font-bold text-slate-900">🌿 Menta (Peppermint) 15ml</h3>
-                <span class="text-[9px] text-gold-muted font-semibold">A | T | D</span>
-              </div>
-              <p class="text-[10px] text-olive italic mb-1">Mentha piperita · EEUU</p>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">
-                Vigorizante físico y mental. Disminuye la cefalea por tensión e hiperactividad.
-              </p>
-            </div>
-
-            <div class="border-b border-muted/60 pb-2.5">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-base font-bold text-slate-900">🍋 Limón (Lemon) 15ml</h3>
-                <span class="text-[9px] text-gold-muted font-semibold">A | T | D</span>
-              </div>
-              <p class="text-[10px] text-olive italic mb-1">Citrus limon · Sicilia</p>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">
-                Purificante ambiental cítrico. Eleva el ánimo en momentos de apatía o cansancio.
-              </p>
-            </div>
-
-            <div class="border-b border-muted/60 pb-2.5">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-base font-bold text-slate-900">🌱 Árbol del Té 15ml</h3>
-                <span class="text-[9px] text-gold-muted font-semibold">A | T | N</span>
-              </div>
-              <p class="text-[10px] text-olive italic mb-1">Melaleuca alternifolia · Australia</p>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">
-                Antiséptico cutáneo de amplio espectro. Ideal para imperfecciones faciales y acné.
-              </p>
-            </div>
-
-            <div class="border-b border-muted/60 pb-2.5">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-base font-bold text-slate-900">✨ Incienso 15ml</h3>
-                <span class="text-[9px] text-gold-muted font-semibold">A | T | N</span>
-              </div>
-              <p class="text-[10px] text-olive italic mb-1">Boswellia carterii · Somalilandia</p>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">
-                "El Rey de los Aceites". Regenerador celular, atenúa líneas de expresión y calma la mente.
-              </p>
-            </div>
-
-            <div class="border-b border-muted/60 pb-2.5">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-base font-bold text-slate-900">🍃 Eucalipto 15ml</h3>
-                <span class="text-[9px] text-gold-muted font-semibold">A | T | D</span>
-              </div>
-              <p class="text-[10px] text-olive italic mb-1">Eucalyptus globulus · Australia</p>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">
-                Expansivo y despejante. Abre las vías respiratorias en épocas de frío e intemperie.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="col-span-1 flex flex-col items-center justify-center p-4 bg-warm-muted/60 rounded-none border border-muted">
-            <div class="w-36 h-48 overflow-hidden rounded-none shadow-sm border border-muted/80 mb-3">
-              <img src="/images/aceite-lavanda-30ml.jpg" alt="Frasco Lavanda" class="w-full h-full object-cover">
-            </div>
-            <p class="text-[10px] text-slate-500 text-center italic font-serif-title">Frasco ámbar CPTG® 15 ml con gotero dosificador.</p>
-          </div>
+        <div class="mb-4">
+          <table class="w-full text-xs text-left border-collapse border border-slate-200 rounded overflow-hidden shadow-sm">
+            <thead>
+              <tr class="bg-emerald-950 text-amber-100 font-serif-title text-sm border-b border-emerald-900">
+                <th class="p-2.5">Recipiente Portador</th>
+                <th class="p-2.5">Dilución 1% (Suave)</th>
+                <th class="p-2.5">Dilución 2% (Estándar)</th>
+                <th class="p-2.5">Dilución 3-5% (Intensa)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 text-[11px] bg-white">
+              <tr>
+                <td class="p-2.5 font-bold text-slate-900">5 ml (Roll-on pequeño)</td>
+                <td class="p-2.5">1 gota</td>
+                <td class="p-2.5 font-bold text-amber-800">3 gotas</td>
+                <td class="p-2.5 text-red-800">5 gotas</td>
+              </tr>
+              <tr class="bg-slate-50">
+                <td class="p-2.5 font-bold text-slate-900">10 ml (Roll-on estándar)</td>
+                <td class="p-2.5">2 - 3 gotas</td>
+                <td class="p-2.5 font-bold text-amber-800">5 - 6 gotas</td>
+                <td class="p-2.5 text-red-800">9 - 10 gotas</td>
+              </tr>
+              <tr>
+                <td class="p-2.5 font-bold text-slate-900">30 ml (Frasco sérum)</td>
+                <td class="p-2.5">6 gotas</td>
+                <td class="p-2.5 font-bold text-amber-800">12 gotas</td>
+                <td class="p-2.5 text-red-800">18 - 25 gotas</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <div class="border-t border-muted pt-4">
-          <p class="text-[11px] text-slate-500 italic">
-            💡 Consejo de Sinergia: Difunde 2 gotas de Menta + 2 gotas de Limón para mantener la máxima concentración y agilidad mental durante el trabajo.
+        <div class="w-full h-32 overflow-hidden rounded border border-slate-300 relative mb-3">
+          <img src="/images/doterra_safety_official.jpg" alt="Seguridad doTERRA" class="w-full h-full object-cover">
+        </div>
+
+        <div class="p-3 bg-amber-50 border border-amber-200 text-xs rounded">
+          <h3 class="font-bold text-slate-900 mb-1">🛡️ Advertencias Clave en Piel y Fotosensibilidad</h3>
+          <ul class="list-disc pl-4 space-y-1 text-slate-600 text-[11px]">
+            <li><strong>Aceites Cítricos Fotosensibles:</strong> Limón, Bergamota y Naranja contienen furocumarinas. No expongas la piel al sol directo durante las 12 horas posteriores a su aplicación tópica.</li>
+            <li><strong>Prueba del Codo:</strong> Aplica 1 gota diluida en el pliegue interior del brazo y espera 24h para verificar la tolerancia cutánea.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-slate-200 pt-2">
+        <span>doTERRA® Guía de Productos · aceitesesencialesonline.com</span>
+        <span>Página 10</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PÁGINA 11: GUÍA DE COMPRA AMAZON (100% LLENA) ==================== -->
+  <div class="page">
+    <div class="flex-1 flex flex-col justify-between">
+      <div>
+        <div class="flex justify-between items-baseline border-b-2 border-emerald-900 pb-1.5 mb-3">
+          <h2 class="text-2xl font-bold text-emerald-950 font-serif-title">Verificación de Autenticidad en Amazon</h2>
+          <span class="text-[10px] font-bold text-amber-700 uppercase tracking-widest">Garantía de Compra</span>
+        </div>
+
+        <div class="p-4 bg-slate-900 text-white text-xs rounded mb-4 shadow">
+          <h3 class="font-serif-title text-base font-bold text-amber-400 mb-2">🔍 3 Puntos para Garantizar doTERRA® Auténtico</h3>
+          <ol class="list-decimal pl-4 space-y-2 text-slate-300 text-[11px] leading-relaxed">
+            <li><strong>Envío Gestionado por Amazon:</strong> Selecciona productos que tengan almacenamiento oficial en centros logísticos de Amazon para evitar intermediarios no verificados.</li>
+            <li><strong>Anillo de Seguridad en Tapón:</strong> Los aceites CPTG doTERRA® cuentan con un precinto plástico que cruje y se separa al abrir el frasco por primera vez.</li>
+            <li><strong>Frasco de Vidrio Ámbar Oscuro:</strong> Los aceites botánicos puros se degradan con la luz ultravioleta. Rechaza envases en plástico transparente.</li>
+          </ol>
+        </div>
+
+        <div class="p-4 bg-emerald-950 text-amber-100 text-xs rounded border border-emerald-900">
+          <h3 class="font-serif-title text-base font-bold text-amber-300 mb-1">💡 Enlaces de Afiliación Verificados</h3>
+          <p class="text-emerald-100 text-[11px] leading-relaxed">
+            En nuestra web mantenemos enlaces directos a las fichas mejor valoradas en Amazon España para asegurar el mejor precio e inventario garantizado sin ningún sobrecoste en tu pedido.
           </p>
         </div>
       </div>
-    </div>
 
-    <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-muted pt-3">
-      <span>Aceites Esenciales Online · Catálogo CPTG®</span>
-      <span>Página 3</span>
-    </div>
-  </div>
-
-  <!-- ==================== PÁGINA 4: ACEITES INDIVIDUALES II ==================== -->
-  <div class="page">
-    <div class="flex-1 flex flex-col justify-between">
-      <div>
-        <div class="border-b border-muted pb-3 mb-5 flex justify-between items-baseline">
-          <h2 class="text-3xl font-light text-slate-900 font-serif-title">3. Catálogo de Aceites Individuales II</h2>
-          <span class="text-[10px] text-gold-muted font-medium uppercase tracking-widest">ESPECIALIDADES BOTÁNICAS</span>
-        </div>
-
-        <div class="grid grid-cols-3 gap-6 mb-5">
-          <div class="col-span-2 grid grid-cols-2 gap-x-6 gap-y-4 text-xs">
-            
-            <div class="border-b border-muted/60 pb-2.5">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-base font-bold text-slate-900">🌳 Copaiba 15ml</h3>
-                <span class="text-[9px] text-gold-muted font-semibold">A | T | N</span>
-              </div>
-              <p class="text-[10px] text-olive italic mb-1">Copaifera reticulata · Brasil</p>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">Rico en beta-cariofileno. Calma el sistema nervioso y reconforta la piel.</p>
-            </div>
-
-            <div class="border-b border-muted/60 pb-2.5">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-base font-bold text-slate-900">🌿 Orégano 15ml</h3>
-                <span class="text-[9px] text-gold-muted font-semibold">A | T | D</span>
-              </div>
-              <p class="text-[10px] text-olive italic mb-1">Origanum vulgare · Turquía</p>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">Antiséptico botánico de máxima concentración. Requiere dilución obligatoria.</p>
-            </div>
-
-            <div class="border-b border-muted/60 pb-2.5">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-base font-bold text-slate-900">🍊 Naranja Silvestre 15ml</h3>
-                <span class="text-[9px] text-gold-muted font-semibold">A | T | N</span>
-              </div>
-              <p class="text-[10px] text-olive italic mb-1">Citrus sinensis · Rep. Dominicana</p>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">Aroma cálido y dulce. Vigoriza el estado de ánimo e inspira optimismo.</p>
-            </div>
-
-            <div class="border-b border-muted/60 pb-2.5">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-base font-bold text-slate-900">🪵 Cedro 15ml</h3>
-                <span class="text-[9px] text-gold-muted font-semibold">A | T | S</span>
-              </div>
-              <p class="text-[10px] text-olive italic mb-1">Juniperus virginiana · EEUU</p>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">Aroma amaderado denso. Promueve serenidad nocturna y arraigo mental.</p>
-            </div>
-
-            <div class="border-b border-muted/60 pb-2.5">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-base font-bold text-slate-900">🌸 Geranio 15ml</h3>
-                <span class="text-[9px] text-gold-muted font-semibold">A | T | S</span>
-              </div>
-              <p class="text-[10px] text-olive italic mb-1">Pelargonium graveolens · Egipto</p>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">Equilibrador para pieles mixtas o grasas. Aporta un suave aroma floral.</p>
-            </div>
-
-            <div class="border-b border-muted/60 pb-2.5">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-base font-bold text-slate-900">🌼 Manzanilla Romana 5ml</h3>
-                <span class="text-[9px] text-gold-muted font-semibold">A | T | N</span>
-              </div>
-              <p class="text-[10px] text-olive italic mb-1">Anthemis nobilis · Reino Unido</p>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">Extraordinariamente suave. Tradicionalmente apreciada en el descanso infantil.</p>
-            </div>
-
-          </div>
-
-          <div class="col-span-1 flex flex-col items-center justify-center p-4 bg-warm-muted/60 rounded-none border border-muted">
-            <div class="w-36 h-48 overflow-hidden rounded-none shadow-sm border border-muted/80 mb-3">
-              <img src="/images/set-aceites-puros.jpg" alt="Colección Aceites" class="w-full h-full object-cover">
-            </div>
-            <p class="text-[10px] text-slate-500 text-center italic font-serif-title">Colección de extractos botánicos puros CPTG®.</p>
-          </div>
-        </div>
-
-        <div class="border-t border-muted pt-4">
-          <p class="text-[11px] text-slate-500 italic">
-            💡 Maridaje Olfativo: Combina aceites amaderados (Cedro) como nota base, con florales (Geranio) como nota media, y cítricos (Naranja) como nota alta.
-          </p>
-        </div>
+      <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-slate-200 pt-2">
+        <span>doTERRA® Guía de Productos · aceitesesencialesonline.com</span>
+        <span>Página 11</span>
       </div>
     </div>
-
-    <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-muted pt-3">
-      <span>Aceites Esenciales Online · Catálogo CPTG®</span>
-      <span>Página 4</span>
-    </div>
   </div>
 
-  <!-- ==================== PÁGINA 5: MEZCLAS EMOCIONALES ==================== -->
+  <!-- ==================== PÁGINA 12: CONTRAPORTADA Y RECURSOS (100% LLENA) ==================== -->
   <div class="page">
     <div class="flex-1 flex flex-col justify-between">
       <div>
-        <div class="border-b border-muted pb-3 mb-5 flex justify-between items-baseline">
-          <h2 class="text-3xl font-light text-slate-900 font-serif-title">4. Mezclas Patentadas: Bienestar Emocional</h2>
-          <span class="text-[10px] text-gold-muted font-medium uppercase tracking-widest">SINERGIAS CPTG®</span>
+        <div class="flex justify-between items-baseline border-b-2 border-emerald-900 pb-1.5 mb-4">
+          <h2 class="text-2xl font-bold text-emerald-950 font-serif-title">Glosario Olfativo & Cierre Editorial</h2>
+          <span class="text-[10px] font-bold text-amber-700 uppercase tracking-widest">Recursos</span>
         </div>
 
-        <div class="grid grid-cols-3 gap-6 mb-5">
-          <div class="col-span-2 space-y-4 text-xs">
-            
-            <div class="border-b border-muted pb-3">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-xl font-bold text-slate-900">🛡️ doTERRA On Guard® (Protectora)</h3>
-                <span class="text-[10px] text-gold-muted font-semibold uppercase">Top Ventas Mundial</span>
-              </div>
-              <p class="text-[11px] text-olive italic mb-1">Naranja silvestre, Clavo, Canela, Eucalipto y Romero.</p>
-              <p class="text-slate-600 font-light text-[11px] leading-relaxed">
-                Mezcla patentada icónica. Purifica el ambiente del hogar, elimina olores enraizados e infunde un aroma cálido y especiado.
-              </p>
-            </div>
-
-            <div class="border-b border-muted pb-3">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-xl font-bold text-slate-900">🌙 doTERRA Serenity® (Relajante)</h3>
-                <span class="text-[10px] text-gold-muted font-semibold uppercase">Sueño Reparador</span>
-              </div>
-              <p class="text-[11px] text-olive italic mb-1">Lavanda, Mejorana, Manzanilla, Ylang Ylang, Sándalo y Vainilla.</p>
-              <p class="text-slate-600 font-light text-[11px] leading-relaxed">
-                Diseñada para apaciguar el torrente de pensamientos nocturnos. Disminuye la tensión muscular y favorece un descanso profundo.
-              </p>
-            </div>
-
-            <div class="border-b border-muted pb-3">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-xl font-bold text-slate-900">🧘 doTERRA Adaptiv® (Anti-Estrés)</h3>
-                <span class="text-[10px] text-gold-muted font-semibold uppercase">Gestión Emocional</span>
-              </div>
-              <p class="text-[11px] text-olive italic mb-1">Naranja, Lavanda, Copaiba, Menta, Liquidámbar y Romero.</p>
-              <p class="text-slate-600 font-light text-[11px] leading-relaxed">
-                Formulada para jornadas de alta exigencia o cambios de ritmo. Ayuda a adaptarse a entornos estresantes con claridad serena.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="col-span-1 flex flex-col items-center justify-center p-4 bg-warm-muted/60 rounded-none border border-muted">
-            <div class="w-36 h-48 overflow-hidden rounded-none shadow-sm border border-muted/80 mb-3">
-              <img src="/images/aceites-para-dormir.jpg" alt="Mezclas Serenity" class="w-full h-full object-cover">
-            </div>
-            <p class="text-[10px] text-slate-500 text-center italic font-serif-title">Formulaciones exclusivas patentadas doTERRA®.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-muted pt-3">
-      <span>Aceites Esenciales Online · Fórmulas CPTG® Patentadas</span>
-      <span>Página 5</span>
-    </div>
-  </div>
-
-  <!-- ==================== PÁGINA 6: MEZCLAS SALUD FÍSICA ==================== -->
-  <div class="page">
-    <div class="flex-1 flex flex-col justify-between">
-      <div>
-        <div class="border-b border-muted pb-3 mb-5 flex justify-between items-baseline">
-          <h2 class="text-3xl font-light text-slate-900 font-serif-title">5. Mezclas Patentadas: Salud Física</h2>
-          <span class="text-[10px] font-bold text-gold-muted uppercase tracking-widest">SINERGIAS CORPORALES</span>
-        </div>
-
-        <div class="grid grid-cols-3 gap-6 mb-5">
-          <div class="col-span-2 space-y-4 text-xs">
-            
-            <div class="border-b border-muted pb-3">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-xl font-bold text-slate-900">💙 doTERRA Deep Blue® (Muscular)</h3>
-                <span class="text-[10px] text-gold-muted font-semibold uppercase">Deporte y Espalda</span>
-              </div>
-              <p class="text-[11px] text-olive italic mb-1">Gaulteria, Alcanfor, Menta, Ylang Ylang, Helicriso y Tanaceto Azul.</p>
-              <p class="text-slate-600 font-light text-[11px] leading-relaxed">
-                Efecto frío-calor penetrante. Altamente apreciado en masajes descontracturantes de espalda, cuello y articulaciones.
-              </p>
-            </div>
-
-            <div class="border-b border-muted pb-3">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-xl font-bold text-slate-900">🌬️ doTERRA Air / Breathe® (Respiratoria)</h3>
-                <span class="text-[10px] text-gold-muted font-semibold uppercase">Vías Respiratorias</span>
-              </div>
-              <p class="text-[11px] text-olive italic mb-1">Laurel, Eucalipto, Menta, Árbol del Té, Limón y Cardamomo.</p>
-              <p class="text-slate-600 font-light text-[11px] leading-relaxed">
-                Abre las vías respiratorias nocturnas. Excelente para difusores en habitaciones durante episodios de congestión.
-              </p>
-            </div>
-
-            <div class="border-b border-muted pb-3">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-xl font-bold text-slate-900">🍃 doTERRA DigestZen® / ZenGest (Digestivo)</h3>
-                <span class="text-[10px] text-gold-muted font-semibold uppercase">Bienestar Abdominal</span>
-              </div>
-              <p class="text-[11px] text-olive italic mb-1">Jengibre, Hinojo, Menta, Estragón, Anís y Cilantro.</p>
-              <p class="text-slate-600 font-light text-[11px] leading-relaxed">
-                Calma y reconforta el abdomen mediante masajes suaves circulares tras comidas pesadas o viajes.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="col-span-1 flex flex-col items-center justify-center p-4 bg-warm-muted/60 rounded-none border border-muted">
-            <div class="w-36 h-48 overflow-hidden rounded-none shadow-sm border border-muted/80 mb-3">
-              <img src="/images/relajacion-estres.jpg" alt="Deep Blue Masaje" class="w-full h-full object-cover">
-            </div>
-            <p class="text-[10px] text-slate-500 text-center italic font-serif-title">Línea de aplicación física y descontracturante.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-muted pt-3">
-      <span>Aceites Esenciales Online · Fórmulas Corporal CPTG®</span>
-      <span>Página 6</span>
-    </div>
-  </div>
-
-  <!-- ==================== PÁGINA 7: CUIDADO PERSONAL Y HOGAR ==================== -->
-  <div class="page">
-    <div class="flex-1 flex flex-col justify-between">
-      <div>
-        <div class="border-b border-muted pb-3 mb-5 flex justify-between items-baseline">
-          <h2 class="text-3xl font-light text-slate-900 font-serif-title">6. Cuidado Personal y Línea del Hogar</h2>
-          <span class="text-[10px] font-bold text-gold-muted uppercase tracking-widest">BIENESTAR DIARIO</span>
-        </div>
-
-        <div class="grid grid-cols-3 gap-6 mb-5">
-          <div class="col-span-2 grid grid-cols-2 gap-5 text-xs">
-            
-            <div class="border-b border-muted pb-2.5">
-              <h3 class="font-serif-title text-lg font-bold text-slate-900 mb-1">Deep Blue® Rub (120 ml)</h3>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">
-                Crema reconfortante enriquecida con el complejo vegetal Deep Blue®. Absorción limpia sin rastro grasiento.
-              </p>
-            </div>
-
-            <div class="border-b border-muted pb-2.5">
-              <h3 class="font-serif-title text-lg font-bold text-slate-900 mb-1">Aceite de Coco Fraccionado (115 ml)</h3>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">
-                Vehículo vegetal inodoro e incoloro. Garantiza una dilución segura y suave sobre la piel sin obstruir poros.
-              </p>
-            </div>
-
-            <div class="border-b border-muted pb-2.5">
-              <h3 class="font-serif-title text-lg font-bold text-slate-900 mb-1">Pasta de Dientes On Guard®</h3>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">
-                Formulada sin flúor sintético. Limpieza profunda con aceites puros de clavo, canela y menta piperita.
-              </p>
-            </div>
-
-            <div class="border-b border-muted pb-2.5">
-              <h3 class="font-serif-title text-lg font-bold text-slate-900 mb-1">Limpiador Concentrado On Guard®</h3>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">
-                Biodegradable e ideal para hogares con niños y mascotas. Elimina residuos sin tóxicos volátiles en el aire.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="col-span-1 flex flex-col items-center justify-center p-4 bg-warm-muted/60 rounded-none border border-muted">
-            <div class="w-36 h-48 overflow-hidden rounded-none shadow-sm border border-muted/80 mb-3">
-              <img src="/images/como-usar-en-casa.jpg" alt="Usos en Casa" class="w-full h-full object-cover">
-            </div>
-            <p class="text-[10px] text-slate-500 text-center italic font-serif-title">Productos de uso cotidiano para el hogar saludable.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-muted pt-3">
-      <span>Aceites Esenciales Online · Línea de Hogar Saludable</span>
-      <span>Página 7</span>
-    </div>
-  </div>
-
-  <!-- ==================== PÁGINA 8: DIFUSORES ULTRASÓNICOS ==================== -->
-  <div class="page">
-    <div class="flex-1 flex flex-col justify-between">
-      <div>
-        <div class="border-b border-muted pb-3 mb-5 flex justify-between items-baseline">
-          <h2 class="text-3xl font-light text-slate-900 font-serif-title">7. Tecnología en Difusores Ultrasónicos</h2>
-          <span class="text-[10px] font-bold text-gold-muted uppercase tracking-widest">AROMATERAPIA EN CASA</span>
-        </div>
-
-        <div class="grid grid-cols-3 gap-6 mb-5">
-          <div class="col-span-2 grid grid-cols-2 gap-5 text-xs">
-            
-            <div class="border-b border-muted pb-3">
-              <h3 class="font-serif-title text-lg font-bold text-slate-900 mb-1">doTERRA Petal 2.0</h3>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">
-                Bruma ultra-fina para estancias de hasta 30 m². Ajuste temporizado flexible (2h, 6h continuas o 12h intermitentes).
-              </p>
-            </div>
-
-            <div class="border-b border-muted pb-3">
-              <h3 class="font-serif-title text-lg font-bold text-slate-900 mb-1">doTERRA Laluz</h3>
-              <p class="text-slate-600 font-light text-[10.5px] leading-relaxed">
-                Carcasa de cristal esmerilado de alta gama. Iluminación ambiental cálida y hasta 8 horas de difusión continua.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="col-span-1 flex flex-col items-center justify-center p-4 bg-warm-muted/60 rounded-none border border-muted">
-            <div class="w-36 h-48 overflow-hidden rounded-none shadow-sm border border-muted/80 mb-3">
-              <img src="/images/difusor-ultrasonico.jpg" alt="Difusor Ultrasónico Petal" class="w-full h-full object-cover">
-            </div>
-            <p class="text-[10px] text-slate-500 text-center italic font-serif-title">Difusor ultrasónico oficial Petal 2.0.</p>
-          </div>
-        </div>
-
-        <div class="border-t border-muted pt-4">
-          <h3 class="font-serif-title text-base font-bold text-slate-900 mb-1">Limpieza y Mantenimiento Periódico</h3>
-          <p class="text-slate-600 font-light text-[11px] leading-relaxed">
-            Vacía el depósito de agua quincenalmente y frota suavemente la placa ultrasónica cerámica del fondo con un bastoncillo impregnado en vinagre blanco para mantener la máxima densidad de bruma.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-muted pt-3">
-      <span>Aceites Esenciales Online · Dispositivos y Cuidado</span>
-      <span>Página 8</span>
-    </div>
-  </div>
-
-  <!-- ==================== PÁGINA 9: KITS Y COLECCIONES ==================== -->
-  <div class="page">
-    <div class="flex-1 flex flex-col justify-between">
-      <div>
-        <div class="border-b border-muted pb-3 mb-5 flex justify-between items-baseline">
-          <h2 class="text-3xl font-light text-slate-900 font-serif-title">8. Colecciones y Kits de Iniciación</h2>
-          <span class="text-[10px] font-bold text-gold-muted uppercase tracking-widest">KITS RECOMENDADOS</span>
-        </div>
-
-        <div class="grid grid-cols-3 gap-6 mb-5">
-          <div class="col-span-2 space-y-5 text-xs">
-            
-            <div class="border-b border-muted pb-3">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-xl font-bold text-slate-900">Family Essentials Kit (10 Aceites x 5ml)</h3>
-                <span class="text-[10px] text-gold-muted font-semibold uppercase">Botiquín Familiar</span>
-              </div>
-              <p class="text-slate-600 font-light text-[11px] leading-relaxed">
-                El estuche botánico más completo para iniciarse. Reúne los 10 esenciales doTERRA® (Lavanda, Limón, Menta, Tea Tree, Orégano, Incienso, Deep Blue®, Air®, DigestZen® y On Guard®).
-              </p>
-            </div>
-
-            <div class="border-b border-muted pb-3">
-              <div class="flex justify-between items-baseline mb-1">
-                <h3 class="font-serif-title text-xl font-bold text-slate-900">Home Essentials Kit (10 Aceites x 15ml + Difusor)</h3>
-                <span class="text-[10px] text-gold-muted font-semibold uppercase">Máximo Ahorro</span>
-              </div>
-              <p class="text-slate-600 font-light text-[11px] leading-relaxed">
-                Contiene las 10 sinergias principales en tamaño grande (15 ml) e incluye el difusor Petal 2.0. Representa la mayor rentabilidad técnica y económica para el hogar.
-              </p>
-            </div>
-
-          </div>
-
-          <div class="col-span-1 flex flex-col items-center justify-center p-4 bg-warm-muted/60 rounded-none border border-muted">
-            <div class="w-36 h-48 overflow-hidden rounded-none shadow-sm border border-muted/80 mb-3">
-              <img src="/images/guia-principiantes.jpg" alt="Kit de Inicio doTERRA" class="w-full h-full object-cover">
-            </div>
-            <p class="text-[10px] text-slate-500 text-center italic font-serif-title">Colección de inicio doTERRA Family Kit.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-muted pt-3">
-      <span>Aceites Esenciales Online · Botiquines de Inicio</span>
-      <span>Página 9</span>
-    </div>
-  </div>
-
-  <!-- ==================== PÁGINA 10: TABLA DILUCIÓN UNIVERSAL ==================== -->
-  <div class="page">
-    <div class="flex-1 flex flex-col justify-between">
-      <div>
-        <div class="border-b border-muted pb-3 mb-5 flex justify-between items-baseline">
-          <h2 class="text-3xl font-light text-slate-900 font-serif-title">9. Tabla de Dilución Universal de Seguridad</h2>
-          <span class="text-[10px] font-bold text-gold-muted uppercase tracking-widest">DOSIS SEGURAS</span>
-        </div>
-
-        <div class="grid grid-cols-3 gap-6 mb-5">
-          <div class="col-span-2">
-            <table class="w-full text-xs text-left border-collapse">
-              <thead>
-                <tr class="border-b-2 border-slate-900 font-serif-title text-sm text-slate-900">
-                  <th class="py-2.5 pr-3">Recipiente Portador</th>
-                  <th class="py-2.5 px-3">Dilución 1%</th>
-                  <th class="py-2.5 px-3">Dilución 2%</th>
-                  <th class="py-2.5 pl-3">Dilución 3-5%</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-muted text-xs font-light text-slate-700">
-                <tr>
-                  <td class="py-2.5 pr-3 font-semibold text-slate-900">5 ml (Roll-on)</td>
-                  <td class="py-2.5 px-3">1 gota</td>
-                  <td class="py-2.5 px-3 font-medium text-amber-900">3 gotas</td>
-                  <td class="py-2.5 pl-3 text-red-900">5 gotas</td>
-                </tr>
-                <tr>
-                  <td class="py-2.5 pr-3 font-semibold text-slate-900">10 ml (Estándar)</td>
-                  <td class="py-2.5 px-3">2 - 3 gotas</td>
-                  <td class="py-2.5 px-3 font-medium text-amber-900">5 - 6 gotas</td>
-                  <td class="py-2.5 pl-3 text-red-900">9 - 10 gotas</td>
-                </tr>
-                <tr>
-                  <td class="py-2.5 pr-3 font-semibold text-slate-900">30 ml (Sérum)</td>
-                  <td class="py-2.5 px-3">6 gotas</td>
-                  <td class="py-2.5 px-3 font-medium text-amber-900">12 gotas</td>
-                  <td class="py-2.5 pl-3 text-red-900">18 - 25 gotas</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="col-span-1 flex flex-col items-center justify-center p-3 bg-warm-muted/60 rounded-none border border-muted">
-            <div class="w-32 h-36 overflow-hidden rounded-none shadow-sm border border-muted/80 mb-2">
-              <img src="/images/precauciones-seguridad.jpg" alt="Seguridad y Dilución" class="w-full h-full object-cover">
-            </div>
-            <p class="text-[9px] text-slate-500 text-center italic font-serif-title">Aplicación responsable y segura.</p>
-          </div>
-        </div>
-
-        <div class="border-t border-muted pt-4">
-          <h3 class="font-serif-title text-xl text-slate-900 mb-2">Advertencias Clave de Fotosensibilidad Cutánea</h3>
-          <p class="text-xs text-slate-600 font-light leading-relaxed">
-            Los extractos cítricos (Limón, Bergamota, Naranja Silvestre) contienen componentes fotosensibles naturales. Evita la exposición solar directa en las zonas tratadas durante las 12 horas posteriores a la aplicación tópica.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-muted pt-3">
-      <span>Aceites Esenciales Online · Protocolos de Seguridad</span>
-      <span>Página 10</span>
-    </div>
-  </div>
-
-  <!-- ==================== PÁGINA 11: GUÍA DE COMPRA AMAZON ==================== -->
-  <div class="page">
-    <div class="flex-1 flex flex-col justify-between">
-      <div>
-        <div class="border-b border-muted pb-3 mb-5 flex justify-between items-baseline">
-          <h2 class="text-3xl font-light text-slate-900 font-serif-title">10. Autenticidad en Amazon España</h2>
-          <span class="text-[10px] font-bold text-gold-muted uppercase tracking-widest">GARANTÍA DE COMPRA</span>
-        </div>
-
-        <div class="grid grid-cols-3 gap-6 mb-5">
-          <div class="col-span-2 space-y-4 text-xs">
-            <div class="border-b border-muted pb-3">
-              <h3 class="font-serif-title text-lg font-bold text-slate-900 mb-1">1. Envío Gestionado por Amazon Logística</h3>
-              <p class="text-xs text-slate-600 font-light leading-relaxed">
-                Verifica que el frasco cuente con la etiqueta de gestión logística oficial para evitar falsificaciones de vendedores de terceros sin certificar.
-              </p>
-            </div>
-
-            <div class="border-b border-muted pb-3">
-              <h3 class="font-serif-title text-lg font-bold text-slate-900 mb-1">2. Precinto Plástico Rompible en Tapón</h3>
-              <p class="text-xs text-slate-600 font-light leading-relaxed">
-                Los envases originales CPTG doTERRA® incluyen un anillo plástico de seguridad que cruje limpiamente al abrir el producto por primera vez.
-              </p>
-            </div>
-
-            <div class="border-b border-muted pb-3">
-              <h3 class="font-serif-title text-lg font-bold text-slate-900 mb-1">3. Frasco de Vidrio Ámbar Oscuro Protegido</h3>
-              <p class="text-xs text-slate-600 font-light leading-relaxed">
-                Los aceites de pureza vegetal 100% se oxidan con la radiación solar. Desconfía de marcas que utilicen recipientes plásticos transparentes.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-span-1 flex flex-col items-center justify-center p-3 bg-warm-muted/60 rounded-none border border-muted">
-            <div class="w-32 h-40 overflow-hidden rounded-none shadow-sm border border-muted/80 mb-2">
-              <img src="/images/como-elegir-aceites-puros.jpg" alt="Calidad doTERRA" class="w-full h-full object-cover">
-            </div>
-            <p class="text-[9px] text-slate-500 text-center italic font-serif-title">Verificación de pureza CPTG®.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-muted pt-3">
-      <span>Aceites Esenciales Online · Recomendaciones de Afiliación</span>
-      <span>Página 11</span>
-    </div>
-  </div>
-
-  <!-- ==================== PÁGINA 12: CONTRAPORTADA EDITORIAL Y CTA FINAL ==================== -->
-  <div class="page">
-    <div class="flex-1 flex flex-col justify-between">
-      <div>
-        <div class="border-b border-muted pb-3 mb-6 flex justify-between items-baseline">
-          <h2 class="text-3xl font-light text-slate-900 font-serif-title">11. Glosario Olfativo & Cierre Editorial</h2>
-          <span class="text-[10px] font-bold text-gold-muted uppercase tracking-widest">RECURSOS</span>
-        </div>
-
-        <div class="grid grid-cols-2 gap-8 text-xs mb-6">
-          <div>
-            <h3 class="font-serif-title text-xl text-slate-900 mb-3 border-b border-muted pb-1.5">🌿 Familias Olfativas</h3>
-            <ul class="text-xs font-light text-slate-600 space-y-2">
-              <li>• <strong>Cítricos:</strong> Limón, Bergamota, Naranja Silvestre</li>
+        <div class="grid grid-cols-2 gap-4 text-xs mb-4">
+          <div class="p-3 bg-amber-50 border border-amber-200 rounded">
+            <h3 class="font-serif-title text-base font-bold text-slate-900 mb-2">🌿 Familias de Aromas</h3>
+            <ul class="text-[11px] text-slate-600 space-y-1.5">
+              <li>• <strong>Cítricos:</strong> Limón, Bergamota, Naranja</li>
               <li>• <strong>Florales:</strong> Lavanda, Geranio, Ylang Ylang</li>
               <li>• <strong>Amaderados:</strong> Incienso, Cedro, Copaiba</li>
               <li>• <strong>Herbales:</strong> Romero, Menta, Eucalipto</li>
             </ul>
           </div>
 
-          <div>
-            <h3 class="font-serif-title text-xl text-slate-900 mb-3 border-b border-muted pb-1.5">📖 Guías Recomendadas</h3>
-            <ul class="text-xs font-light text-slate-600 space-y-2">
-              <li>• Análisis Técnico de Difusores Ultrasónicos</li>
-              <li>• Aceites Esenciales para el Insomnio</li>
-              <li>• Protocolos de Dilución Segura en Niños</li>
+          <div class="p-3 bg-emerald-50 border border-emerald-200 rounded">
+            <h3 class="font-serif-title text-base font-bold text-slate-900 mb-2">📖 Guías Destacadas en la Web</h3>
+            <ul class="text-[11px] text-slate-600 space-y-1.5">
+              <li>• Análisis de Difusores Ultrasónicos</li>
+              <li>• Aceites Recomendados para el Sueño</li>
+              <li>• Guía de Seguridad en Niños</li>
             </ul>
           </div>
         </div>
 
-        <div class="p-6 bg-warm-muted border border-muted text-center rounded-none relative overflow-hidden">
-          <div class="w-full h-24 mb-4 overflow-hidden rounded-none border border-muted/70">
-            <img src="/images/hero-aromaterapia.jpg" alt="Aromaterapia Lujo" class="w-full h-full object-cover">
-          </div>
-          <span class="text-gold-muted text-[10px] uppercase tracking-[0.2em] font-medium block mb-1">Gracias por descargar nuestro Vademécum</span>
-          <h3 class="text-3xl font-light text-slate-900 mb-2 font-serif-title">¿Buscas comparativas y ofertas actualizadas?</h3>
-          <p class="text-slate-600 text-xs font-light mb-4 max-w-md mx-auto leading-relaxed">
-            Visita nuestro portal web independiente para acceder a análisis detallados, pruebas de laboratorio y recomendaciones directas:
+        <div class="p-6 rounded bg-gradient-to-b from-emerald-950 to-slate-900 text-white text-center border border-amber-500/30 shadow-xl">
+          <span class="text-amber-400 text-xs uppercase tracking-widest font-semibold block mb-2">Gracias por descargar nuestro Catálogo Oficial</span>
+          <h3 class="text-2xl font-normal text-amber-100 mb-2 font-serif-title">¿Buscas análisis o comparativas actualizadas?</h3>
+          <p class="text-slate-300 text-xs mb-4 max-w-md mx-auto leading-relaxed">
+            Consulta nuestro portal web para leer opiniones independientes y guías paso a paso sobre aromaterapia:
           </p>
-          <a href="https://aceitesesencialesonline.com" class="inline-block px-8 py-3 bg-emerald-950 text-amber-100 font-medium text-xs tracking-widest uppercase transition hover:bg-slate-900 border border-amber-500/30">
+          <a href="https://aceitesesencialesonline.com" class="inline-block px-8 py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded text-xs tracking-wider transition shadow-lg">
             WWW.ACEITESESENCIALESONLINE.COM
           </a>
         </div>
       </div>
-    </div>
 
-    <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-muted pt-3">
-      <span>Aceites Esenciales Online © 2026 · Edición Editorial de Lujo</span>
-      <span>Página 12</span>
+      <div class="flex justify-between items-center text-[10px] text-slate-400 border-t border-slate-200 pt-2">
+        <span>doTERRA® Guía de Productos © 2026 · Edición Oficial</span>
+        <span>Página 12</span>
+      </div>
     </div>
   </div>
 

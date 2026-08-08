@@ -1,7 +1,7 @@
 ---
 ---
 
-<!-- Botón flotante para reabrir (esquina inferior derecha, oculto por defecto) -->
+<!-- Botón flotante para reabrir (esquina inferior derecha) -->
 <button
   id="cookie-trigger-btn"
   style="display:none;"
@@ -12,19 +12,16 @@
   <span>Gestionar consentimiento</span>
 </button>
 
-<!-- Banner principal (oculto por defecto via style, no clase Tailwind) -->
+<!-- Banner principal -->
 <div
   id="cookie-banner-wrap"
   style="display:none;"
   class="fixed inset-x-4 bottom-5 z-[9999] mx-auto max-w-6xl"
 >
-  <div
-    id="cookie-banner-box"
-    class="rounded-2xl border border-gray-200/80 bg-white/98 p-5 shadow-2xl backdrop-blur-md dark:border-slate-800/80 dark:bg-slate-900/98 sm:p-6"
-  >
+  <div class="rounded-2xl border border-gray-200/80 bg-white/98 p-5 shadow-2xl backdrop-blur-md dark:border-slate-800/80 dark:bg-slate-900/98 sm:p-6">
+
     <!-- Fila principal: texto + botones -->
     <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-      <!-- Texto -->
       <div class="flex-1 space-y-1">
         <h3 class="text-sm font-bold text-gray-900 dark:text-white sm:text-base">
           🍪 Tu privacidad, tus reglas
@@ -34,26 +31,19 @@
         </p>
       </div>
 
-      <!-- Botones -->
       <div class="flex shrink-0 flex-wrap items-center gap-2 sm:flex-nowrap">
         <button
           id="cookie-btn-reject"
           class="w-full cursor-pointer rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-xs font-semibold text-gray-700 transition-colors hover:bg-gray-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 sm:w-auto"
-        >
-          Denegar
-        </button>
+        >Denegar</button>
         <button
           id="cookie-btn-prefs"
           class="w-full cursor-pointer rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-xs font-semibold text-gray-700 transition-colors hover:bg-gray-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 sm:w-auto"
-        >
-          Preferencias
-        </button>
+        >Preferencias</button>
         <button
           id="cookie-btn-accept"
           class="w-full cursor-pointer rounded-xl bg-amber-500 px-5 py-2.5 text-xs font-bold text-white shadow-sm transition-colors hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-700 sm:w-auto"
-        >
-          Aceptar
-        </button>
+        >Aceptar</button>
       </div>
     </div>
 
@@ -99,9 +89,7 @@
         <button
           id="cookie-btn-save"
           class="cursor-pointer rounded-xl bg-amber-500 px-6 py-2.5 text-xs font-bold text-white shadow-sm transition-colors hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-700"
-        >
-          Guardar preferencias
-        </button>
+        >Guardar preferencias</button>
       </div>
     </div>
 
@@ -116,100 +104,66 @@
   </div>
 </div>
 
-<script is:inline>
-  (function () {
-    function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
-    function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+<script>
+  // Astro garantiza que este script se ejecuta una sola vez por sesión.
+  // astro:page-load es el evento correcto para inicializar componentes con View Transitions.
 
-    function cookieBannerInit() {
-      var wrap    = document.getElementById('cookie-banner-wrap');
-      var trigger = document.getElementById('cookie-trigger-btn');
-      var panel   = document.getElementById('cookie-prefs-panel');
-      var chkA    = document.getElementById('pref-analytics');
-      var chkM    = document.getElementById('pref-marketing');
+  function lsGet(k: string): string | null {
+    try { return localStorage.getItem(k); } catch { return null; }
+  }
+  function lsSet(k: string, v: string): void {
+    try { localStorage.setItem(k, v); } catch { /* incognito */ }
+  }
 
-      // Si algún elemento no existe en este momento, no hacer nada
-      if (!wrap || !trigger || !panel || !chkA || !chkM) return;
+  function initBanner() {
+    const wrap    = document.getElementById('cookie-banner-wrap') as HTMLElement | null;
+    const trigger = document.getElementById('cookie-trigger-btn') as HTMLElement | null;
+    const panel   = document.getElementById('cookie-prefs-panel') as HTMLElement | null;
+    const chkA    = document.getElementById('pref-analytics') as HTMLInputElement | null;
+    const chkM    = document.getElementById('pref-marketing') as HTMLInputElement | null;
 
-      // Si ya están registrados los handlers, solo actualizar el estado visual
-      // sin volver a registrar listeners (evita duplicados en View Transitions)
-      var alreadyBound = wrap.dataset.cookieInit === '1';
+    if (!wrap || !trigger || !panel || !chkA || !chkM) return;
 
-      if (!alreadyBound) {
-        wrap.dataset.cookieInit = '1';
-
-        var btnAccept = document.getElementById('cookie-btn-accept');
-        var btnReject = document.getElementById('cookie-btn-reject');
-        var btnPrefs  = document.getElementById('cookie-btn-prefs');
-        var btnSave   = document.getElementById('cookie-btn-save');
-
-        if (btnAccept) btnAccept.onclick = function() {
-          chkA.checked = true; chkM.checked = true;
-          saveAndClose(true, true);
-        };
-        if (btnReject) btnReject.onclick = function() {
-          chkA.checked = false; chkM.checked = false;
-          saveAndClose(false, false);
-        };
-        if (btnPrefs) btnPrefs.onclick = function() {
-          panel.style.display = (panel.style.display === 'none' || panel.style.display === '') ? 'block' : 'none';
-        };
-        if (btnSave) btnSave.onclick = function() {
-          saveAndClose(chkA.checked, chkM.checked);
-        };
-        trigger.onclick = function() { showBanner(); };
-      }
-
-      function showBanner() {
-        chkA.checked = lsGet('ck-analytics') !== 'false';
-        chkM.checked = lsGet('ck-marketing') !== 'false';
-        panel.style.display = 'none';
-        trigger.style.display = 'none';
-        wrap.style.display = 'block';
-      }
-
-      function hideBanner() {
-        wrap.style.display = 'none';
-        panel.style.display = 'none';
-        trigger.style.display = 'flex';
-      }
-
-      function saveAndClose(analytics, marketing) {
-        lsSet('ck-decided', '1');
-        lsSet('ck-analytics', analytics ? 'true' : 'false');
-        lsSet('ck-marketing', marketing ? 'true' : 'false');
-        hideBanner();
-        window.dispatchEvent(new CustomEvent('cookie-consent-updated', {
-          detail: { analytics: analytics, marketing: marketing }
-        }));
-      }
-
-      // Sincronizar checkboxes con valores guardados
-      chkA.checked = lsGet('ck-analytics') !== 'false';
-      chkM.checked = lsGet('ck-marketing') !== 'false';
-
-      // Decidir qué mostrar según el estado guardado
-      if (!lsGet('ck-decided')) {
-        showBanner();
-      } else {
-        wrap.style.display = 'none';
-        trigger.style.display = 'flex';
-      }
+    // Helpers visuales
+    function showBanner() {
+      chkA!.checked = lsGet('ck-analytics') !== 'false';
+      chkM!.checked = lsGet('ck-marketing') !== 'false';
+      panel!.style.display = 'none';
+      wrap!.style.display = 'block';
+      trigger!.style.display = 'none';
+    }
+    function hideBanner() {
+      wrap!.style.display = 'none';
+      panel!.style.display = 'none';
+      trigger!.style.display = 'flex';
+    }
+    function saveAndClose(analytics: boolean, marketing: boolean) {
+      lsSet('ck-decided', '1');
+      lsSet('ck-analytics', analytics ? 'true' : 'false');
+      lsSet('ck-marketing', marketing ? 'true' : 'false');
+      hideBanner();
+      window.dispatchEvent(new CustomEvent('cookie-consent-updated', {
+        detail: { analytics, marketing }
+      }));
     }
 
-    // Inicializar ahora si el DOM está listo, o esperar a DOMContentLoaded
-    function run() {
-      // Pequeño delay para asegurar que Astro ha terminado de inyectar el HTML
-      // (necesario en Firefox con ClientRouter/View Transitions)
-      setTimeout(cookieBannerInit, 0);
-    }
+    // Registrar listeners (onclick no acumula duplicados)
+    document.getElementById('cookie-btn-accept')!.onclick = () => saveAndClose(true, true);
+    document.getElementById('cookie-btn-reject')!.onclick = () => saveAndClose(false, false);
+    document.getElementById('cookie-btn-prefs')!.onclick = () => {
+      panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+    };
+    document.getElementById('cookie-btn-save')!.onclick = () => saveAndClose(chkA.checked, chkM.checked);
+    trigger.onclick = () => showBanner();
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', run);
+    // Estado inicial
+    if (!lsGet('ck-decided')) {
+      showBanner();
     } else {
-      run();
+      hideBanner();
     }
-    // Para navegación entre páginas con View Transitions de Astro
-    document.addEventListener('astro:page-load', run);
-  })();
+  }
+
+  // astro:page-load es el único punto de entrada — funciona en carga inicial y navegación
+  document.addEventListener('astro:page-load', initBanner);
 </script>

@@ -2,20 +2,46 @@
 import { ANALYTICS } from 'astrowind:config';
 
 const id = ANALYTICS?.vendors?.googleAnalytics?.id ? String(ANALYTICS.vendors.googleAnalytics.id) : '';
-const partytown = !!ANALYTICS?.vendors?.googleAnalytics?.partytown;
-const scriptType = partytown ? 'text/partytown' : undefined;
 ---
 
-{id && <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${id}`} type={scriptType} />}
+<script is:inline id="ga-init" data-id={id}>
+  function loadGoogleAnalytics() {
+    const consentAnalytics = localStorage.getItem('cookie-consent-analytics');
+    const gaId = document.getElementById('ga-init').dataset.id;
+    
+    if (gaId && consentAnalytics === 'true') {
+      // Evitar duplicar el script si ya fue insertado antes
+      if (!document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${gaId}"]`)) {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+        document.head.appendChild(script);
+      }
 
-<script is:inline id="ga-init" data-id={id} type={id ? scriptType : undefined}>
-  if (document.getElementById('ga-init').dataset.id) {
-    var d = document.getElementById('ga-init').dataset.id;
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () {
-      dataLayer.push(arguments);
-    };
-    window.gtag('js', new Date());
-    window.gtag('config', d);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () {
+        dataLayer.push(arguments);
+      };
+      window.gtag('js', new Date());
+      window.gtag('config', gaId);
+    }
   }
+
+  // Inicializar en la carga de la página
+  loadGoogleAnalytics();
+
+  // Escuchar si hay cambios de consentimiento en vivo desde el banner de cookies
+  window.addEventListener('cookie-consent-updated', (event) => {
+    if (event.detail && event.detail.analytics) {
+      loadGoogleAnalytics();
+    } else {
+      const gaId = document.getElementById('ga-init').dataset.id;
+      if (gaId) {
+        window[`ga-disable-${gaId}`] = true;
+      }
+    }
+  });
+
+  // Soporte para Astro View Transitions
+  document.addEventListener('astro:page-load', loadGoogleAnalytics);
 </script>

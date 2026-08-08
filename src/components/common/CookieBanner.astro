@@ -147,9 +147,12 @@
       optMarketing.checked = true;
     }
 
-    // Si no ha decidido consentimiento, mostrar banner
+    // Si no ha decidido consentimiento, mostrar banner. Si ya decidió, mostrar el disparador.
     if (!consentDecided) {
       showBanner();
+      trigger.classList.add('hidden');
+    } else {
+      trigger.classList.remove('hidden');
     }
 
     // Botón flotante a mano derecha para abrir
@@ -165,6 +168,14 @@
         prefsPanel.classList.add('hidden');
       }
     });
+
+    // Botón X de cierre en cabecera
+    if (btnClose) {
+      btnClose.addEventListener('click', () => {
+        hideBanner();
+        trigger.classList.remove('hidden'); // Mostrar el trigger flotante al cerrar
+      });
+    }
 
     // ACEPTAR TODAS LAS COOKIES
     btnAcceptAll.addEventListener('click', () => {
@@ -190,6 +201,7 @@
       localStorage.setItem('cookie-consent-analytics', String(analyticsVal));
       localStorage.setItem('cookie-consent-marketing', String(marketingVal));
       hideBanner();
+      trigger.classList.remove('hidden'); // Mostrar el trigger al decidir
 
       // Disparar eventos globales para que otras partes del sitio actúen (ej: Analytics)
       window.dispatchEvent(new CustomEvent('cookie-consent-updated', {
@@ -198,7 +210,19 @@
     }
 
     function showBanner() {
+      // Sincronizar los checkboxes con las decisiones anteriores antes de abrir
+      const currentAnalytics = localStorage.getItem('cookie-consent-analytics');
+      const currentMarketing = localStorage.getItem('cookie-consent-marketing');
+      if (currentAnalytics !== null) {
+        optAnalytics.checked = currentAnalytics === 'true';
+      }
+      if (currentMarketing !== null) {
+        optMarketing.checked = currentMarketing === 'true';
+      }
+
       banner.classList.remove('hidden');
+      trigger.classList.add('hidden'); // Ocultar trigger cuando el banner está abierto
+
       setTimeout(() => {
         banner.classList.remove('translate-y-12', 'opacity-0');
         banner.classList.add('translate-y-0', 'opacity-100');

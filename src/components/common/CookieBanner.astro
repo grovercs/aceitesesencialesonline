@@ -1,50 +1,68 @@
 ---
 ---
 
-<!-- Botón flotante para reabrir el consentimiento en cualquier momento -->
+<!-- Botón flotante para reabrir el consentimiento (situado abajo a mano derecha) -->
 <button
   id="btn-cookie-trigger"
-  class="fixed bottom-4 left-4 z-40 flex items-center justify-center gap-2 rounded-full border border-gray-200 bg-white/90 px-3.5 py-2.5 text-xs font-bold text-gray-700 shadow-xl backdrop-blur-sm hover:bg-gray-50 dark:border-slate-800 dark:bg-slate-900/90 dark:text-slate-200 dark:hover:bg-slate-800 transition-all duration-300 hover:scale-105 cursor-pointer"
+  class="fixed bottom-4 right-4 z-40 flex items-center justify-center gap-2 rounded-full border border-gray-200 bg-white/90 px-4 py-2.5 text-xs font-bold text-gray-700 shadow-xl backdrop-blur-sm hover:bg-gray-50 dark:border-slate-800 dark:bg-slate-900/90 dark:text-slate-200 dark:hover:bg-slate-800 transition-all duration-300 hover:scale-105 cursor-pointer"
   title="Gestionar consentimiento de cookies"
 >
   <span class="text-sm">🍪</span>
-  <span class="hidden sm:inline-block">Gestionar consentimiento</span>
+  <span>Gestionar consentimiento</span>
 </button>
 
-<!-- Caja/Modal de Consentimiento de Cookies -->
+<!-- Banner de Consentimiento de Cookies (Diseño Horizontal elegante abajo) -->
 <div
   id="cookie-banner"
-  class="fixed inset-x-4 bottom-4 z-50 mx-auto w-auto max-w-lg transform rounded-2xl border border-gray-200/80 bg-white/98 p-5 shadow-2xl backdrop-blur-md transition-all duration-500 translate-y-12 opacity-0 hidden dark:border-slate-800/80 dark:bg-slate-900/98 sm:bottom-6 sm:p-6"
+  class="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-6xl transform rounded-2xl border border-gray-200/80 bg-white/98 p-5 shadow-2xl backdrop-blur-md transition-all duration-500 translate-y-12 opacity-0 hidden dark:border-slate-800/80 dark:bg-slate-900/98 sm:bottom-6 sm:p-6"
   aria-live="polite"
 >
-  <!-- Cabecera -->
-  <div class="flex items-center justify-between border-b border-gray-100 pb-3 dark:border-slate-800">
-    <h3 class="text-sm font-bold text-gray-900 dark:text-white sm:text-base">
-      Gestionar el consentimiento de las cookies
-    </h3>
-    <button
-      id="btn-close-cookie-banner"
-      class="rounded-lg p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-slate-800 dark:hover:text-white transition-colors cursor-pointer"
-      aria-label="Cerrar banner"
-    >
-      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
+  <!-- Layout Horizontal Principal -->
+  <div class="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+    <!-- Texto descriptivo a la izquierda -->
+    <div class="flex-1 space-y-1.5">
+      <h3 class="text-sm font-bold text-gray-900 dark:text-white sm:text-base">
+        📢 Gestionar el consentimiento de las cookies
+      </h3>
+      <p class="text-xs text-gray-600 dark:text-slate-300 leading-relaxed max-w-4xl">
+        Para ofrecer las mejores experiencias, utilizamos tecnologías como las cookies para almacenar y/o acceder a la información del dispositivo. El consentimiento de estas tecnologías nos permitirá procesar datos como el comportamiento de navegación o las identificaciones únicas en este sitio. No consentir o retirar el consentimiento, puede afectar negativamente a ciertas características y funciones.
+      </p>
+    </div>
+
+    <!-- Botones de Acción a la derecha -->
+    <div class="flex flex-wrap items-center gap-3 sm:flex-nowrap lg:flex-shrink-0">
+      <button
+        id="btn-reject-all-cookies"
+        class="w-full sm:w-auto rounded-xl border border-gray-300 px-4 py-2.5 text-xs font-bold text-gray-700 hover:bg-gray-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white transition-colors cursor-pointer text-center"
+      >
+        Denegar
+      </button>
+      <button
+        id="btn-toggle-cookie-prefs"
+        class="w-full sm:w-auto rounded-xl border border-gray-300 px-4 py-2.5 text-xs font-bold text-gray-700 hover:bg-gray-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white transition-colors cursor-pointer text-center"
+      >
+        Preferencias
+      </button>
+      <button
+        id="btn-accept-all-cookies"
+        class="w-full sm:w-auto rounded-xl bg-amber-500 hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-700 px-5 py-2.5 text-xs font-bold text-slate-950 dark:text-white shadow-sm transition-all cursor-pointer text-center"
+      >
+        Aceptar
+      </button>
+    </div>
   </div>
 
-  <!-- Cuerpo de contenido -->
-  <div class="mt-4 space-y-4">
-    <p class="text-xs text-gray-600 dark:text-slate-300 leading-relaxed">
-      Para ofrecer las mejores experiencias, utilizamos tecnologías como las cookies para almacenar y/o acceder a la información del dispositivo. El consentimiento de estas tecnologías nos permitirá procesar datos como el comportamiento de navegación o las identificaciones únicas en este sitio. No consentir o retirar el consentimiento, puede afectar negativamente a ciertas características y funciones.
-    </p>
-
-    <!-- Preferencias Granulares -->
-    <div class="space-y-2">
+  <!-- Panel Desplegable de Preferencias Granulares (Acordeón expandible) -->
+  <div
+    id="cookie-preferences-panel"
+    class="mt-5 border-t border-gray-100 pt-5 dark:border-slate-800 hidden space-y-4 transition-all duration-300"
+  >
+    <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
       <!-- Funcional (Siempre activo) -->
       <div class="flex items-center justify-between rounded-xl bg-gray-50/80 p-3.5 dark:bg-slate-800/50">
         <div class="flex flex-col gap-0.5">
           <span class="text-xs font-bold text-gray-900 dark:text-white">Funcional</span>
+          <span class="text-[10px] text-gray-500 dark:text-slate-400">Estrictamente necesarias</span>
         </div>
         <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 select-none">Siempre activo</span>
       </div>
@@ -53,6 +71,7 @@
       <div class="flex items-center justify-between rounded-xl bg-gray-50/80 p-3.5 dark:bg-slate-800/50">
         <div class="flex flex-col gap-0.5">
           <span class="text-xs font-bold text-gray-900 dark:text-white">Estadísticas</span>
+          <span class="text-[10px] text-gray-500 dark:text-slate-400">Analítica y rendimiento</span>
         </div>
         <label class="relative inline-flex items-center cursor-pointer select-none">
           <input type="checkbox" id="cookie-opt-analytics" class="sr-only peer" checked />
@@ -64,6 +83,7 @@
       <div class="flex items-center justify-between rounded-xl bg-gray-50/80 p-3.5 dark:bg-slate-800/50">
         <div class="flex flex-col gap-0.5">
           <span class="text-xs font-bold text-gray-900 dark:text-white">Marketing</span>
+          <span class="text-[10px] text-gray-500 dark:text-slate-400">Afiliación y enlaces</span>
         </div>
         <label class="relative inline-flex items-center cursor-pointer select-none">
           <input type="checkbox" id="cookie-opt-marketing" class="sr-only peer" checked />
@@ -71,33 +91,19 @@
         </label>
       </div>
     </div>
-  </div>
 
-  <!-- Botones de Acción -->
-  <div class="mt-5 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-    <div class="grid w-full grid-cols-3 gap-2">
-      <button
-        id="btn-accept-all-cookies"
-        class="rounded-xl bg-blue-600 px-3 py-2.5 text-xs font-bold text-white shadow hover:bg-blue-700 transition-colors cursor-pointer"
-      >
-        Aceptar
-      </button>
-      <button
-        id="btn-reject-all-cookies"
-        class="rounded-xl bg-gray-100 px-3 py-2.5 text-xs font-bold text-gray-700 hover:bg-gray-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
-      >
-        Denegar
-      </button>
+    <!-- Botón de Guardar en Preferencias -->
+    <div class="flex justify-end pt-2">
       <button
         id="btn-save-cookie-prefs"
-        class="rounded-xl bg-gray-100 px-2 py-2.5 text-xs font-bold text-gray-700 hover:bg-gray-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+        class="w-full sm:w-auto rounded-xl bg-blue-600 px-5 py-2 text-xs font-bold text-white shadow hover:bg-blue-700 transition-colors cursor-pointer"
       >
-        Guardar
+        Guardar Preferencias
       </button>
     </div>
   </div>
 
-  <!-- Enlaces Legales -->
+  <!-- Enlaces de footer legal -->
   <div class="mt-4 flex justify-center gap-3 border-t border-gray-100 pt-3 text-[10px] text-gray-500 dark:border-slate-800 dark:text-slate-400">
     <a href="/cookies" class="hover:underline">Política de Cookies</a>
     <span>•</span>
@@ -111,7 +117,8 @@
   function initCookieBanner() {
     const banner = document.getElementById('cookie-banner');
     const trigger = document.getElementById('btn-cookie-trigger');
-    const btnClose = document.getElementById('btn-close-cookie-banner');
+    const btnTogglePrefs = document.getElementById('btn-toggle-cookie-prefs');
+    const prefsPanel = document.getElementById('cookie-preferences-panel');
 
     const btnAcceptAll = document.getElementById('btn-accept-all-cookies');
     const btnRejectAll = document.getElementById('btn-reject-all-cookies');
@@ -120,7 +127,7 @@
     const optAnalytics = document.getElementById('cookie-opt-analytics') as HTMLInputElement;
     const optMarketing = document.getElementById('cookie-opt-marketing') as HTMLInputElement;
 
-    if (!banner || !trigger || !btnAcceptAll || !btnRejectAll || !btnSavePrefs) return;
+    if (!banner || !trigger || !btnTogglePrefs || !prefsPanel || !btnAcceptAll || !btnRejectAll || !btnSavePrefs) return;
 
     // Cargar las preferencias guardadas desde localStorage
     const consentDecided = localStorage.getItem('cookie-consent-decided');
@@ -145,17 +152,19 @@
       showBanner();
     }
 
-    // Botón flotante para abrir
+    // Botón flotante a mano derecha para abrir
     trigger.addEventListener('click', () => {
       showBanner();
     });
 
-    // Botón X de cierre
-    if (btnClose) {
-      btnClose.addEventListener('click', () => {
-        hideBanner();
-      });
-    }
+    // Alternar el panel de preferencias
+    btnTogglePrefs.addEventListener('click', () => {
+      if (prefsPanel.classList.contains('hidden')) {
+        prefsPanel.classList.remove('hidden');
+      } else {
+        prefsPanel.classList.add('hidden');
+      }
+    });
 
     // ACEPTAR TODAS LAS COOKIES
     btnAcceptAll.addEventListener('click', () => {
@@ -201,6 +210,7 @@
       banner.classList.add('translate-y-12', 'opacity-0');
       setTimeout(() => {
         banner.classList.add('hidden');
+        prefsPanel.classList.add('hidden'); // Reiniciar panel al ocultar
       }, 500);
     }
   }

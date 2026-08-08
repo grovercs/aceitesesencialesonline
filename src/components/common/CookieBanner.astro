@@ -1,11 +1,29 @@
 ---
 ---
 
+<style>
+  /* El banner empieza visible con animación de entrada */
+  #cookie-banner-wrap {
+    animation: cookie-slide-up 0.4s ease-out both;
+  }
+  @keyframes cookie-slide-up {
+    from { transform: translateY(120%); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
+  }
+  /* Clase para ocultarlo (solo JS la añade) */
+  .ck-hidden {
+    display: none !important;
+  }
+  /* El trigger empieza oculto */
+  #cookie-trigger-btn {
+    display: none;
+  }
+</style>
+
 <!-- Botón flotante para reabrir (esquina inferior derecha) -->
 <button
   id="cookie-trigger-btn"
   transition:persist
-  style="display:none;"
   class="fixed bottom-5 right-5 z-[9998] flex cursor-pointer items-center gap-2 rounded-full border border-gray-200 bg-white/95 px-4 py-2.5 text-xs font-semibold text-gray-700 shadow-xl backdrop-blur-md transition-all hover:scale-105 hover:shadow-2xl dark:border-slate-700 dark:bg-slate-900/95 dark:text-slate-200"
   title="Gestionar consentimiento de cookies"
 >
@@ -13,11 +31,10 @@
   <span>Gestionar consentimiento</span>
 </button>
 
-<!-- Banner principal -->
+<!-- Banner principal: VISIBLE por defecto, JS lo oculta si ya hay consentimiento -->
 <div
   id="cookie-banner-wrap"
   transition:persist
-  style="display:none;"
   class="fixed inset-x-4 bottom-5 z-[9999] mx-auto max-w-6xl"
 >
   <div class="rounded-2xl border border-gray-200/80 bg-white/98 p-5 shadow-2xl backdrop-blur-md dark:border-slate-800/80 dark:bg-slate-900/98 sm:p-6">
@@ -50,7 +67,7 @@
     </div>
 
     <!-- Panel de preferencias (oculto por defecto) -->
-    <div id="cookie-prefs-panel" style="display:none;" class="mt-5 border-t border-gray-100 pt-5 dark:border-slate-700">
+    <div id="cookie-prefs-panel" class="ck-hidden mt-5 border-t border-gray-100 pt-5 dark:border-slate-700">
       <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
 
         <!-- Funcional: siempre activo -->
@@ -107,9 +124,6 @@
 </div>
 
 <script>
-  // Astro garantiza que este script se ejecuta una sola vez por sesión.
-  // astro:page-load es el evento correcto para inicializar componentes con View Transitions.
-
   function lsGet(k: string): string | null {
     try { return localStorage.getItem(k); } catch { return null; }
   }
@@ -118,26 +132,27 @@
   }
 
   function initBanner() {
-    const wrap    = document.getElementById('cookie-banner-wrap') as HTMLElement | null;
-    const trigger = document.getElementById('cookie-trigger-btn') as HTMLElement | null;
-    const panel   = document.getElementById('cookie-prefs-panel') as HTMLElement | null;
+    const wrap    = document.getElementById('cookie-banner-wrap');
+    const trigger = document.getElementById('cookie-trigger-btn');
+    const panel   = document.getElementById('cookie-prefs-panel');
     const chkA    = document.getElementById('pref-analytics') as HTMLInputElement | null;
     const chkM    = document.getElementById('pref-marketing') as HTMLInputElement | null;
 
     if (!wrap || !trigger || !panel || !chkA || !chkM) return;
 
-    // Helpers visuales
+    // ─── Helpers visuales ──────────────────────────────────────────────────
+    // El banner empieza VISIBLE por CSS. JavaScript solo lo OCULTA.
+    function hideBanner() {
+      wrap.classList.add('ck-hidden');
+      panel.classList.add('ck-hidden');
+      trigger.style.display = 'flex';
+    }
     function showBanner() {
       chkA!.checked = lsGet('ck-analytics') !== 'false';
       chkM!.checked = lsGet('ck-marketing') !== 'false';
-      panel!.style.display = 'none';
-      wrap!.style.display = 'block';
-      trigger!.style.display = 'none';
-    }
-    function hideBanner() {
-      wrap!.style.display = 'none';
-      panel!.style.display = 'none';
-      trigger!.style.display = 'flex';
+      panel.classList.add('ck-hidden');
+      wrap.classList.remove('ck-hidden');
+      trigger.style.display = 'none';
     }
     function saveAndClose(analytics: boolean, marketing: boolean) {
       lsSet('ck-decided', '1');
@@ -149,23 +164,27 @@
       }));
     }
 
-    // Registrar listeners (onclick no acumula duplicados)
+    // ─── Registrar listeners (onclick no acumula duplicados) ───────────────
     document.getElementById('cookie-btn-accept')!.onclick = () => saveAndClose(true, true);
     document.getElementById('cookie-btn-reject')!.onclick = () => saveAndClose(false, false);
-    document.getElementById('cookie-btn-prefs')!.onclick = () => {
-      panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+    document.getElementById('cookie-btn-prefs')!.onclick  = () => {
+      panel.classList.toggle('ck-hidden');
     };
-    document.getElementById('cookie-btn-save')!.onclick = () => saveAndClose(chkA.checked, chkM.checked);
+    document.getElementById('cookie-btn-save')!.onclick   = () => saveAndClose(chkA.checked, chkM.checked);
     trigger.onclick = () => showBanner();
 
-    // Estado inicial
-    if (!lsGet('ck-decided')) {
-      showBanner();
-    } else {
+    // ─── Estado inicial ────────────────────────────────────────────────────
+    // Si ya existe consentimiento → ocultar banner y mostrar trigger.
+    // Si NO existe → el banner ya es visible por CSS (no hace falta hacer nada).
+    if (lsGet('ck-decided')) {
       hideBanner();
+    } else {
+      // Sincronizar checkboxes con valores por defecto
+      chkA.checked = true;
+      chkM.checked = true;
+      trigger.style.display = 'none';
     }
   }
 
-  // astro:page-load es el único punto de entrada — funciona en carga inicial y navegación
   document.addEventListener('astro:page-load', initBanner);
 </script>

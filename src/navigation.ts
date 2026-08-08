@@ -101,6 +101,7 @@ export const footerData = {
       links: [
         { text: 'Sobre nosotros', href: getPermalink('/about') },
         { text: 'Política de privacidad', href: getPermalink('/privacy') },
+        { text: 'Política de cookies', href: getPermalink('/cookies') },
         { text: 'Aviso legal', href: getPermalink('/terms') },
         { text: 'Política de afiliación', href: getPermalink('/politica-de-afiliacion') },
       ],
@@ -108,6 +109,7 @@ export const footerData = {
   ],
   secondaryLinks: [
     { text: 'Política de privacidad', href: getPermalink('/privacy') },
+    { text: 'Política de cookies', href: getPermalink('/cookies') },
     { text: 'Aviso legal', href: getPermalink('/terms') },
   ],
   socialLinks: [

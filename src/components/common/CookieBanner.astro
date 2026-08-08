@@ -1,0 +1,216 @@
+---
+---
+
+<!-- Botón flotante para reabrir el consentimiento en cualquier momento -->
+<button
+  id="btn-cookie-trigger"
+  class="fixed bottom-4 left-4 z-40 flex items-center justify-center gap-2 rounded-full border border-gray-200 bg-white/90 px-3.5 py-2.5 text-xs font-bold text-gray-700 shadow-xl backdrop-blur-sm hover:bg-gray-50 dark:border-slate-800 dark:bg-slate-900/90 dark:text-slate-200 dark:hover:bg-slate-800 transition-all duration-300 hover:scale-105 cursor-pointer"
+  title="Gestionar consentimiento de cookies"
+>
+  <span class="text-sm">🍪</span>
+  <span class="hidden sm:inline-block">Gestionar consentimiento</span>
+</button>
+
+<!-- Caja/Modal de Consentimiento de Cookies -->
+<div
+  id="cookie-banner"
+  class="fixed inset-x-4 bottom-4 z-50 mx-auto w-auto max-w-lg transform rounded-2xl border border-gray-200/80 bg-white/98 p-5 shadow-2xl backdrop-blur-md transition-all duration-500 translate-y-12 opacity-0 hidden dark:border-slate-800/80 dark:bg-slate-900/98 sm:bottom-6 sm:p-6"
+  aria-live="polite"
+>
+  <!-- Cabecera -->
+  <div class="flex items-center justify-between border-b border-gray-100 pb-3 dark:border-slate-800">
+    <h3 class="text-sm font-bold text-gray-900 dark:text-white sm:text-base">
+      Gestionar el consentimiento de las cookies
+    </h3>
+    <button
+      id="btn-close-cookie-banner"
+      class="rounded-lg p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-700 dark:hover:bg-slate-800 dark:hover:text-white transition-colors cursor-pointer"
+      aria-label="Cerrar banner"
+    >
+      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Cuerpo de contenido -->
+  <div class="mt-4 space-y-4">
+    <p class="text-xs text-gray-600 dark:text-slate-300 leading-relaxed">
+      Para ofrecer las mejores experiencias, utilizamos tecnologías como las cookies para almacenar y/o acceder a la información del dispositivo. El consentimiento de estas tecnologías nos permitirá procesar datos como el comportamiento de navegación o las identificaciones únicas en este sitio. No consentir o retirar el consentimiento, puede afectar negativamente a ciertas características y funciones.
+    </p>
+
+    <!-- Preferencias Granulares -->
+    <div class="space-y-2">
+      <!-- Funcional (Siempre activo) -->
+      <div class="flex items-center justify-between rounded-xl bg-gray-50/80 p-3.5 dark:bg-slate-800/50">
+        <div class="flex flex-col gap-0.5">
+          <span class="text-xs font-bold text-gray-900 dark:text-white">Funcional</span>
+        </div>
+        <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 select-none">Siempre activo</span>
+      </div>
+
+      <!-- Estadísticas (Toggle) -->
+      <div class="flex items-center justify-between rounded-xl bg-gray-50/80 p-3.5 dark:bg-slate-800/50">
+        <div class="flex flex-col gap-0.5">
+          <span class="text-xs font-bold text-gray-900 dark:text-white">Estadísticas</span>
+        </div>
+        <label class="relative inline-flex items-center cursor-pointer select-none">
+          <input type="checkbox" id="cookie-opt-analytics" class="sr-only peer" checked />
+          <div class="relative w-10 h-5 bg-gray-200 rounded-full peer dark:bg-slate-700 peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-slate-600 peer-checked:after:translate-x-full peer-checked:after:border-white"></div>
+        </label>
+      </div>
+
+      <!-- Marketing (Toggle) -->
+      <div class="flex items-center justify-between rounded-xl bg-gray-50/80 p-3.5 dark:bg-slate-800/50">
+        <div class="flex flex-col gap-0.5">
+          <span class="text-xs font-bold text-gray-900 dark:text-white">Marketing</span>
+        </div>
+        <label class="relative inline-flex items-center cursor-pointer select-none">
+          <input type="checkbox" id="cookie-opt-marketing" class="sr-only peer" checked />
+          <div class="relative w-10 h-5 bg-gray-200 rounded-full peer dark:bg-slate-700 peer-checked:bg-blue-600 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-slate-600 peer-checked:after:translate-x-full peer-checked:after:border-white"></div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botones de Acción -->
+  <div class="mt-5 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+    <div class="grid w-full grid-cols-3 gap-2">
+      <button
+        id="btn-accept-all-cookies"
+        class="rounded-xl bg-blue-600 px-3 py-2.5 text-xs font-bold text-white shadow hover:bg-blue-700 transition-colors cursor-pointer"
+      >
+        Aceptar
+      </button>
+      <button
+        id="btn-reject-all-cookies"
+        class="rounded-xl bg-gray-100 px-3 py-2.5 text-xs font-bold text-gray-700 hover:bg-gray-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+      >
+        Denegar
+      </button>
+      <button
+        id="btn-save-cookie-prefs"
+        class="rounded-xl bg-gray-100 px-2 py-2.5 text-xs font-bold text-gray-700 hover:bg-gray-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+      >
+        Guardar
+      </button>
+    </div>
+  </div>
+
+  <!-- Enlaces Legales -->
+  <div class="mt-4 flex justify-center gap-3 border-t border-gray-100 pt-3 text-[10px] text-gray-500 dark:border-slate-800 dark:text-slate-400">
+    <a href="/cookies" class="hover:underline">Política de Cookies</a>
+    <span>•</span>
+    <a href="/privacy" class="hover:underline">Política de Privacidad</a>
+    <span>•</span>
+    <a href="/terms" class="hover:underline">Aviso Legal</a>
+  </div>
+</div>
+
+<script>
+  function initCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    const trigger = document.getElementById('btn-cookie-trigger');
+    const btnClose = document.getElementById('btn-close-cookie-banner');
+
+    const btnAcceptAll = document.getElementById('btn-accept-all-cookies');
+    const btnRejectAll = document.getElementById('btn-reject-all-cookies');
+    const btnSavePrefs = document.getElementById('btn-save-cookie-prefs');
+
+    const optAnalytics = document.getElementById('cookie-opt-analytics') as HTMLInputElement;
+    const optMarketing = document.getElementById('cookie-opt-marketing') as HTMLInputElement;
+
+    if (!banner || !trigger || !btnAcceptAll || !btnRejectAll || !btnSavePrefs) return;
+
+    // Cargar las preferencias guardadas desde localStorage
+    const consentDecided = localStorage.getItem('cookie-consent-decided');
+    const consentAnalytics = localStorage.getItem('cookie-consent-analytics');
+    const consentMarketing = localStorage.getItem('cookie-consent-marketing');
+
+    // Inicializar estado de los checkboxes
+    if (consentAnalytics !== null) {
+      optAnalytics.checked = consentAnalytics === 'true';
+    } else {
+      optAnalytics.checked = true;
+    }
+
+    if (consentMarketing !== null) {
+      optMarketing.checked = consentMarketing === 'true';
+    } else {
+      optMarketing.checked = true;
+    }
+
+    // Si no ha decidido consentimiento, mostrar banner
+    if (!consentDecided) {
+      showBanner();
+    }
+
+    // Botón flotante para abrir
+    trigger.addEventListener('click', () => {
+      showBanner();
+    });
+
+    // Botón X de cierre
+    if (btnClose) {
+      btnClose.addEventListener('click', () => {
+        hideBanner();
+      });
+    }
+
+    // ACEPTAR TODAS LAS COOKIES
+    btnAcceptAll.addEventListener('click', () => {
+      optAnalytics.checked = true;
+      optMarketing.checked = true;
+      saveConsent(true, true);
+    });
+
+    // DENEGAR TODAS LAS COOKIES (Excepto Funcional)
+    btnRejectAll.addEventListener('click', () => {
+      optAnalytics.checked = false;
+      optMarketing.checked = false;
+      saveConsent(false, false);
+    });
+
+    // GUARDAR PREFERENCIAS SELECCIONADAS
+    btnSavePrefs.addEventListener('click', () => {
+      saveConsent(optAnalytics.checked, optMarketing.checked);
+    });
+
+    function saveConsent(analyticsVal: boolean, marketingVal: boolean) {
+      localStorage.setItem('cookie-consent-decided', 'true');
+      localStorage.setItem('cookie-consent-analytics', String(analyticsVal));
+      localStorage.setItem('cookie-consent-marketing', String(marketingVal));
+      hideBanner();
+
+      // Disparar eventos globales para que otras partes del sitio actúen (ej: Analytics)
+      window.dispatchEvent(new CustomEvent('cookie-consent-updated', {
+        detail: { analytics: analyticsVal, marketing: marketingVal }
+      }));
+    }
+
+    function showBanner() {
+      banner.classList.remove('hidden');
+      setTimeout(() => {
+        banner.classList.remove('translate-y-12', 'opacity-0');
+        banner.classList.add('translate-y-0', 'opacity-100');
+      }, 50);
+    }
+
+    function hideBanner() {
+      banner.classList.remove('translate-y-0', 'opacity-100');
+      banner.classList.add('translate-y-12', 'opacity-0');
+      setTimeout(() => {
+        banner.classList.add('hidden');
+      }, 500);
+    }
+  }
+
+  // Soporte completo para Astro View Transitions
+  document.addEventListener('astro:page-load', initCookieBanner);
+  // Soporte para carga normal
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCookieBanner);
+  } else {
+    initCookieBanner();
+  }
+</script>

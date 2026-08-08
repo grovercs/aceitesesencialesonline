@@ -3,32 +3,43 @@ title: 'Aviso legal y términos de uso'
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
-_Última actualización_: 6 de agosto de 2026
+_Última actualización_: 8 de agosto de 2026
 
-## 1. Información general
+## 1. Datos Identificativos del Responsable
 
-Este sitio web, **Aceites Esenciales Online**, es un proyecto de contenido informativo sobre aromaterapia, aceites esenciales y productos relacionados. El acceso y uso de este sitio implica la aceptación de los presentes términos.
+En cumplimiento del deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSI-CE), a continuación se reflejan los siguientes datos del titular del sitio web:
 
-## 2. Contenido informativo
+- **Denominación Social**: vielhacomputer, S.C.P.
+- **NIF/CIF**: J25744293
+- **Domicilio Social**: Avenida Castiero, 15 local 13, 25530 Viella (Lérida)
+- **Teléfono de contacto**: 973641053
+- **Correo electrónico de contacto**: info@vielhacomputer.com
+- **Sitio web**: https://aceitesesencialesonline.com
 
-La información publicada tiene carácter orientativo y divulgativo. **No sustituye el consejo médico, farmacéutico ni de ningún profesional de la salud.** Antes de usar aceites esenciales, especialmente si estás embarazada, tienes niños pequeños, enfermedades crónicas o tomas medicación, consulta a un especialista.
+## 2. Condiciones de Uso y Acceso
 
-## 3. Enlaces de afiliado
+El acceso y/o uso de este portal atribuye la condición de **Usuario**, que acepta, desde dicho acceso y/o uso, las Condiciones Generales de Uso aquí reflejadas.
 
-Algunos enlaces de este sitio son de afiliados de Amazon y otras plataformas. Esto significa que, si realizas una compra a través de esos enlaces, podemos recibir una comisión. Esto no tiene ningún coste adicional para ti y no influye en nuestras recomendaciones.
+El sitio web **Aceites Esenciales Online** proporciona el acceso a multitud de informaciones, servicios o datos en Internet pertenecientes a vielhacomputer, S.C.P. o a sus licenciantes. El Usuario asume la responsabilidad del uso del portal.
 
-## 4. Propiedad intelectual
+## 3. Exclusión de Responsabilidad Médica (Descargo de Responsabilidad)
 
-Los contenidos de este sitio están protegidos por derechos de propiedad intelectual. Queda prohibida su reproducción, distribución o comunicación pública sin autorización expresa del titular.
+Toda la información proporcionada en este sitio web tiene una finalidad exclusivamente divulgativa, educativa e informativa. **En ningún caso debe considerarse asesoramiento médico, diagnóstico, tratamiento ni sustituto de la consulta con un profesional de la salud cualificado.**
 
-## 5. Limitación de responsabilidad
+Los aceites esenciales son sustancias concentradas de alta potencia. El uso inapropiado de los mismos puede acarrear riesgos para la salud. Le recomendamos encarecidamente consultar con su médico o especialista en aromaterapia antes de iniciar cualquier tratamiento o uso tópico/interno, especialmente en caso de embarazo, lactancia, niños, personas mayores o si padece enfermedades crónicas.
 
-No nos hacemos responsables del uso indebido que se haga de la información contenida en este sitio. Tampoco garantizamos la disponibilidad continua del sitio ni la ausencia de errores técnicos.
+## 4. Política de Enlaces de Afiliación (Amazon Afiliados)
 
-## 6. Legislación aplicable
+Este sitio web participa en el **Programa de Afiliados de Amazon de la UE**, un programa de publicidad para afiliados diseñado para ofrecer a los sitios web un modo de obtener comisiones por publicidad mediante la publicidad y el enlace a Amazon.es. 
 
-Estos términos se rigen por la legislación española. Para cualquier controversia, las partes se someten a los juzgados y tribunales de la ciudad de Madrid.
+Los enlaces de afiliado marcados en nuestras guías y comparativas dirigen al Usuario a la plataforma de Amazon España. Si realiza una compra a través de estos enlaces, recibimos una pequeña comisión de afiliado sin que ello suponga incremento alguno en el precio final del producto para usted.
 
-## 7. Contacto
+## 5. Propiedad Intelectual e Industrial
 
-Para cualquier consulta, puedes escribirnos a hola@aceitesesencialesonline.com.
+vielhacomputer, S.C.P. por sí o como cesionaria, es propietaria de todos los derechos de propiedad intelectual e industrial de su sitio web, así como de los elementos contenidos en el mismo (a título enunciativo: imágenes, sonido, audio, vídeo, software o textos; marcas o logotipos, combinaciones de colores, estructura y diseño, selección de materiales usados, etc.).
+
+Queda expresamente prohibida la reproducción, distribución y comunicación pública, incluida su modalidad de puesta a disposición, de la totalidad o parte de los contenidos de esta página web, con fines comerciales, en cualquier soporte y por cualquier medio técnico, sin la autorización previa por escrito de vielhacomputer, S.C.P.
+
+## 6. Legislación Aplicable y Jurisdicción
+
+La relación entre vielhacomputer, S.C.P. y el Usuario se regirá por la normativa española vigente y cualquier controversia se someterá a los Juzgados y Tribunales de la provincia de Lérida, España.

@@ -118,7 +118,6 @@
 
 <script is:inline>
   (function () {
-    // Lectura/escritura segura de localStorage (funciona también en modo incógnito)
     function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
     function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
 
@@ -129,25 +128,44 @@
       var chkA    = document.getElementById('pref-analytics');
       var chkM    = document.getElementById('pref-marketing');
 
+      // Si algún elemento no existe en este momento, no hacer nada
       if (!wrap || !trigger || !panel || !chkA || !chkM) return;
 
-      // Evitar doble registro de listeners usando un flag
-      if (wrap.dataset.cookieInit === '1') return;
-      wrap.dataset.cookieInit = '1';
+      // Si ya están registrados los handlers, solo actualizar el estado visual
+      // sin volver a registrar listeners (evita duplicados en View Transitions)
+      var alreadyBound = wrap.dataset.cookieInit === '1';
 
-      // Cargar valores guardados en los checkboxes
-      chkA.checked = lsGet('ck-analytics') !== 'false';
-      chkM.checked = lsGet('ck-marketing') !== 'false';
+      if (!alreadyBound) {
+        wrap.dataset.cookieInit = '1';
+
+        var btnAccept = document.getElementById('cookie-btn-accept');
+        var btnReject = document.getElementById('cookie-btn-reject');
+        var btnPrefs  = document.getElementById('cookie-btn-prefs');
+        var btnSave   = document.getElementById('cookie-btn-save');
+
+        if (btnAccept) btnAccept.onclick = function() {
+          chkA.checked = true; chkM.checked = true;
+          saveAndClose(true, true);
+        };
+        if (btnReject) btnReject.onclick = function() {
+          chkA.checked = false; chkM.checked = false;
+          saveAndClose(false, false);
+        };
+        if (btnPrefs) btnPrefs.onclick = function() {
+          panel.style.display = (panel.style.display === 'none' || panel.style.display === '') ? 'block' : 'none';
+        };
+        if (btnSave) btnSave.onclick = function() {
+          saveAndClose(chkA.checked, chkM.checked);
+        };
+        trigger.onclick = function() { showBanner(); };
+      }
 
       function showBanner() {
-        // Sincronizar checkboxes antes de mostrar
         chkA.checked = lsGet('ck-analytics') !== 'false';
         chkM.checked = lsGet('ck-marketing') !== 'false';
         panel.style.display = 'none';
-
         trigger.style.display = 'none';
         wrap.style.display = 'block';
-        // Pequeño retraso para que la animación CSS funcione si se añade después
       }
 
       function hideBanner() {
@@ -161,68 +179,37 @@
         lsSet('ck-analytics', analytics ? 'true' : 'false');
         lsSet('ck-marketing', marketing ? 'true' : 'false');
         hideBanner();
-        // Notificar a Analytics si está configurado
         window.dispatchEvent(new CustomEvent('cookie-consent-updated', {
           detail: { analytics: analytics, marketing: marketing }
         }));
       }
 
-      // Mostrar banner solo si no ha decidido antes
+      // Sincronizar checkboxes con valores guardados
+      chkA.checked = lsGet('ck-analytics') !== 'false';
+      chkM.checked = lsGet('ck-marketing') !== 'false';
+
+      // Decidir qué mostrar según el estado guardado
       if (!lsGet('ck-decided')) {
         showBanner();
       } else {
-        trigger.style.display = 'flex';
         wrap.style.display = 'none';
+        trigger.style.display = 'flex';
       }
-
-      // BOTÓN: Aceptar todo
-      var btnAccept = document.getElementById('cookie-btn-accept');
-      if (btnAccept) {
-        btnAccept.onclick = function() {
-          chkA.checked = true;
-          chkM.checked = true;
-          saveAndClose(true, true);
-        };
-      }
-
-      // BOTÓN: Denegar todo
-      var btnReject = document.getElementById('cookie-btn-reject');
-      if (btnReject) {
-        btnReject.onclick = function() {
-          chkA.checked = false;
-          chkM.checked = false;
-          saveAndClose(false, false);
-        };
-      }
-
-      // BOTÓN: Preferencias (abre/cierra panel)
-      var btnPrefs = document.getElementById('cookie-btn-prefs');
-      if (btnPrefs) {
-        btnPrefs.onclick = function() {
-          panel.style.display = (panel.style.display === 'none') ? 'block' : 'none';
-        };
-      }
-
-      // BOTÓN: Guardar preferencias
-      var btnSave = document.getElementById('cookie-btn-save');
-      if (btnSave) {
-        btnSave.onclick = function() {
-          saveAndClose(chkA.checked, chkM.checked);
-        };
-      }
-
-      // BOTÓN: Trigger flotante (volver a abrir)
-      trigger.onclick = function() {
-        showBanner();
-      };
     }
 
-    // Ejecutar en carga clásica y en navegación Astro (View Transitions)
+    // Inicializar ahora si el DOM está listo, o esperar a DOMContentLoaded
+    function run() {
+      // Pequeño delay para asegurar que Astro ha terminado de inyectar el HTML
+      // (necesario en Firefox con ClientRouter/View Transitions)
+      setTimeout(cookieBannerInit, 0);
+    }
+
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', cookieBannerInit);
+      document.addEventListener('DOMContentLoaded', run);
     } else {
-      cookieBannerInit();
+      run();
     }
-    document.addEventListener('astro:page-load', cookieBannerInit);
+    // Para navegación entre páginas con View Transitions de Astro
+    document.addEventListener('astro:page-load', run);
   })();
 </script>

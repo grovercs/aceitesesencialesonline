@@ -39,26 +39,40 @@ const metadata = {
         alt: 'Botella de aceite esencial junto a flores frescas sobre mesa',
       },
     ]}
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Explorar guías',
-        href: '/blog/',
-        icon: 'tabler:leaf',
-      },
-      { text: 'Ver difusores recomendados', href: '/blog/mejores-difusores-aceites-esenciales' },
-    ]}
   >
     <Fragment slot="title">
       Bienestar natural con <span class="text-primary font-heading italic">aceites esenciales</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Guías prácticas, comparativas honestas y recomendaciones probadas para incorporar la aromaterapia con seguridad y armonía en tu hogar.
+      Guías prácticas, comparativas honestas y recomendaciones probadas para incorporar la aromaterapia con seguridad y
+      armonía en tu hogar.
+    </Fragment>
+
+    <Fragment slot="actions">
+      <div class="flex w-full sm:w-auto">
+        <a
+          href="/blog/"
+          class="btn-primary w-full sm:mb-0 flex items-center gap-2 rounded-full bg-amber-500 px-6 py-3 text-sm font-bold text-white shadow-md transition hover:bg-amber-600"
+        >
+          🌿 Explorar guías
+        </a>
+      </div>
+      <div class="flex w-full sm:w-auto">
+        <a
+          href="/blog/mejores-difusores-aceites-esenciales"
+          class="w-full sm:mb-0 flex items-center justify-center gap-2 rounded-full border border-white/60 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
+        >
+          Ver difusores recomendados
+        </a>
+      </div>
     </Fragment>
   </HeroSlider>
 
-  <Note title="Nuestra filosofía:" description="Contenido independiente, transparencia de afiliación y rigurosas pautas de seguridad." />
+  <Note
+    title="Nuestra filosofía:"
+    description="Contenido independiente, transparencia de afiliación y rigurosas pautas de seguridad."
+  />
 
   <Features
     id="pilares"
@@ -95,8 +109,7 @@ const metadata = {
     items={[
       {
         title: 'Contenido revisado y documentado',
-        description:
-          'Combinamos la tradición botánica con la investigación actual sobre quimiotipos y precauciones.',
+        description: 'Combinamos la tradición botánica con la investigación actual sobre quimiotipos y precauciones.',
       },
       {
         title: 'Transparencia de afiliados',
@@ -122,7 +135,10 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-amber-50/40 dark:bg-slate-900/40 border-y border-amber-200/40 dark:border-slate-800"></div>
+      <div
+        class="absolute inset-0 bg-amber-50/40 dark:bg-slate-900/40 border-y border-amber-200/40 dark:border-slate-800"
+      >
+      </div>
     </Fragment>
   </Content>
 
@@ -131,8 +147,7 @@ const metadata = {
     items={[
       {
         title: 'Paso 1: <span class="font-medium">Elige con conocimiento</span>',
-        description:
-          'Identifica el nombre botánico en latín y exige aceites 100% puros de destilación limpia.',
+        description: 'Identifica el nombre botánico en latín y exige aceites 100% puros de destilación limpia.',
         icon: 'tabler:search',
       },
       {
@@ -165,7 +180,9 @@ const metadata = {
 
   <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-7xl">
     <div class="text-center mb-10">
-      <span class="text-xs font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400">Selección Garantizada</span>
+      <span class="text-xs font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400"
+        >Selección Garantizada</span
+      >
       <h2 class="text-3xl md:text-4xl font-bold tracking-tight font-heading mt-1 mb-3">
         Productos más recomendados en Amazon
       </h2>
@@ -178,7 +195,8 @@ const metadata = {
       products={[
         {
           title: 'doTERRA Family Essentials Kit',
-          description: 'El botiquín botánico familiar definitivo. Incluye los 10 aceites e infusiones CPTG indispensables en frascos de 5 ml y folleto oficial.',
+          description:
+            'El botiquín botánico familiar definitivo. Incluye los 10 aceites e infusiones CPTG indispensables en frascos de 5 ml y folleto oficial.',
           image: 'https://m.media-amazon.com/images/I/61roLT7bz4L._AC_UL320_.jpg',
           link: 'https://www.amazon.es/dp/B01N3JJXM5?tag=aceitesesen06-21',
           price: '235,00 €',
@@ -189,7 +207,8 @@ const metadata = {
         },
         {
           title: 'doTERRA Lavender Essential Oil (15 ml)',
-          description: '100% puro y con certificación CPTG®. El aceite indispensable de aromaterapia para la calma mental, el descanso profundo y el cuidado cutáneo.',
+          description:
+            '100% puro y con certificación CPTG®. El aceite indispensable de aromaterapia para la calma mental, el descanso profundo y el cuidado cutáneo.',
           image: 'https://m.media-amazon.com/images/I/71MryMJYA2L._AC_UL320_.jpg',
           link: 'https://www.amazon.es/dp/B004O25R8A?tag=aceitesesen06-21',
           price: '56,00 €',
@@ -200,7 +219,8 @@ const metadata = {
         },
         {
           title: 'doTERRA Peppermint Essential Oil (15 ml)',
-          description: 'Aceite de Menta Piperita 100% puro. Energizante y refrescante natural, ideal para la concentración y aliviar tensiones.',
+          description:
+            'Aceite de Menta Piperita 100% puro. Energizante y refrescante natural, ideal para la concentración y aliviar tensiones.',
           image: 'https://m.media-amazon.com/images/I/41s0pFII1jL._AC_UL320_.jpg',
           link: 'https://www.amazon.es/dp/B01N4L50KI?tag=aceitesesen06-21',
           price: '49,00 €',
@@ -212,7 +232,8 @@ const metadata = {
       ]}
     />
     <p class="mt-8 text-xs text-center text-gray-400 dark:text-slate-500">
-      Enlaces de afiliación. Comprar a través de Amazon ayuda a mantener la investigación independiente de Aceites Esenciales Online sin recargo alguno en tu pedido.
+      Enlaces de afiliación. Comprar a través de Amazon ayuda a mantener la investigación independiente de Aceites
+      Esenciales Online sin recargo alguno en tu pedido.
     </p>
   </section>
 

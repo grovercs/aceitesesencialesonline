@@ -19,9 +19,9 @@ El responsable del tratamiento de los datos personales recogidos en este sitio w
 Tratamos los datos personales de nuestros Usuarios para las siguientes finalidades:
 
 1. **Gestión de Suscripciones (Newsletter)**: Al suscribirse a nuestro boletín, tratamos su dirección de correo electrónico para enviarle información relevante sobre aromaterapia, ofertas de aceites esenciales y guías de uso.
-   - *Legitimación*: El consentimiento explícito del interesado (artículo 6.1.a del RGPD) al marcar voluntariamente la casilla de aceptación.
+   - _Legitimación_: El consentimiento explícito del interesado (artículo 6.1.a del RGPD) al marcar voluntariamente la casilla de aceptación.
 2. **Navegación y Mejora del Sitio Web**: A través de las cookies (de carácter técnico y analítico de terceros), recopilamos datos de navegación agregados para optimizar el rendimiento y el SEO del portal.
-   - *Legitimación*: El interés legítimo (artículo 6.1.f del RGPD) para el correcto funcionamiento del portal, y el consentimiento para las cookies no esenciales (analíticas).
+   - _Legitimación_: El interés legítimo (artículo 6.1.f del RGPD) para el correcto funcionamiento del portal, y el consentimiento para las cookies no esenciales (analíticas).
 
 ## 3. Plazo de Conservación de Datos
 

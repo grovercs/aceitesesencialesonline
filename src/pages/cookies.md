@@ -14,14 +14,18 @@ Las cookies son pequeños archivos de texto que los sitios web que visitas enví
 En **Aceites Esenciales Online** utilizamos cookies propias y de terceros con diferentes finalidades:
 
 ### Cookies Técnicas (Estrictamente Necesarias)
+
 Son aquellas que permiten al usuario la navegación a través de una página web y la utilización de las diferentes opciones o servicios que en ella existan. Por ejemplo, recordar tu aceptación o rechazo del consentimiento de cookies, permitir el acceso a áreas seguras o controlar el tráfico y la comunicación de datos. Estas cookies no recopilan ninguna información personal y están siempre activas ya que el sitio web no puede funcionar correctamente sin ellas.
 
 ### Cookies de Personalización y Preferencias
+
 Permiten recordar información para que el usuario acceda al servicio con determinadas características que pueden diferenciar su experiencia de la de otros usuarios (por ejemplo, el idioma o el tema visual claro/oscuro seleccionado).
 
 ### Cookies de Análisis (De terceros)
+
 Son aquellas que, tratadas por nosotros o por terceros (como Google Analytics), nos permiten cuantificar el número de usuarios y realizar la medición y análisis estadístico de la utilización que hacen los usuarios de la web. Para ello se analiza su navegación en nuestra página con el fin de mejorar la oferta de contenidos y guías prácticas que publicamos.
-- *Google Analytics*: Puedes consultar la política de privacidad de Google para estas cookies en su web oficial.
+
+- _Google Analytics_: Puedes consultar la política de privacidad de Google para estas cookies en su web oficial.
 
 ## 3. ¿Cómo configurar o desactivar las cookies?
 

@@ -30,7 +30,7 @@ Los aceites esenciales son sustancias concentradas de alta potencia. El uso inap
 
 ## 4. Política de Enlaces de Afiliación (Amazon Afiliados)
 
-Este sitio web participa en el **Programa de Afiliados de Amazon de la UE**, un programa de publicidad para afiliados diseñado para ofrecer a los sitios web un modo de obtener comisiones por publicidad mediante la publicidad y el enlace a Amazon.es. 
+Este sitio web participa en el **Programa de Afiliados de Amazon de la UE**, un programa de publicidad para afiliados diseñado para ofrecer a los sitios web un modo de obtener comisiones por publicidad mediante la publicidad y el enlace a Amazon.es.
 
 Los enlaces de afiliado marcados en nuestras guías y comparativas dirigen al Usuario a la plataforma de Amazon España. Si realiza una compra a través de estos enlaces, recibimos una pequeña comisión de afiliado sin que ello suponga incremento alguno en el precio final del producto para usted.
 

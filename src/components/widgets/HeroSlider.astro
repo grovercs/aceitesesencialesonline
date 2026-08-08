@@ -13,12 +13,7 @@ export interface Props {
   id?: string;
 }
 
-const {
-  slides = [],
-  tagline,
-  interval = 5000,
-  id,
-} = Astro.props;
+const { slides = [], tagline, interval = 5000, id } = Astro.props;
 
 const title = await Astro.slots.render('title');
 const subtitle = await Astro.slots.render('subtitle');
@@ -57,10 +52,7 @@ const actions = await Astro.slots.render('actions');
   <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 py-16 md:py-24 text-center">
     {
       tagline && (
-        <p
-          class="text-xs sm:text-sm text-amber-300 font-bold tracking-widest uppercase mb-3"
-          set:html={tagline}
-        />
+        <p class="text-xs sm:text-sm text-amber-300 font-bold tracking-widest uppercase mb-3" set:html={tagline} />
       )
     }
     {
@@ -105,7 +97,14 @@ const actions = await Astro.slots.render('actions');
           class="hero-slider-prev absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
           aria-label="Imagen anterior"
         >
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
         </button>
@@ -114,7 +113,14 @@ const actions = await Astro.slots.render('actions');
           class="hero-slider-next absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white backdrop-blur-sm transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
           aria-label="Imagen siguiente"
         >
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
           </svg>
         </button>

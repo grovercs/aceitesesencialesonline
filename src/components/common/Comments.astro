@@ -20,7 +20,9 @@ const GISCUS_CONFIG = {
 };
 ---
 
-<section class:list={['giscus-container not-prose mt-12 border-t border-gray-200 dark:border-slate-700 pt-10', className]}>
+<section
+  class:list={['giscus-container not-prose mt-12 border-t border-gray-200 dark:border-slate-700 pt-10', className]}
+>
   <div class="mb-6 flex items-center justify-between">
     <div>
       <h2 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
@@ -50,8 +52,7 @@ const GISCUS_CONFIG = {
     data-lang={GISCUS_CONFIG.lang}
     data-loading={GISCUS_CONFIG.loading}
     crossorigin="anonymous"
-    async
-  ></script>
+    async></script>
 
   <script is:inline>
     (function () {
@@ -63,10 +64,7 @@ const GISCUS_CONFIG = {
         const theme = getGiscusTheme();
         const iframe = document.querySelector('iframe.giscus-frame');
         if (iframe && iframe.contentWindow) {
-          iframe.contentWindow.postMessage(
-            { giscus: { setConfig: { theme: theme } } },
-            'https://giscus.app'
-          );
+          iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: theme } } }, 'https://giscus.app');
         }
       }
 

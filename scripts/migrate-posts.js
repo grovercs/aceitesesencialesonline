@@ -45,7 +45,6 @@ function parseFrontmatter(text) {
   if (!match) return null;
   const lines = match[1].split('\n');
   const data = {};
-  let currentKey = null;
   let currentList = null;
 
   for (const rawLine of lines) {
@@ -73,15 +72,12 @@ function parseFrontmatter(text) {
         .map((v) => v.trim().replace(/^"|"$/g, '').replace(/^'|'$/g, ''))
         .filter(Boolean);
       data[key] = value;
-      currentKey = null;
       currentList = null;
     } else if (value === '') {
       data[key] = [];
-      currentKey = key;
       currentList = data[key];
     } else {
       data[key] = value.replace(/^"|"$/g, '').replace(/^'|'$/g, '');
-      currentKey = null;
       currentList = null;
     }
   }

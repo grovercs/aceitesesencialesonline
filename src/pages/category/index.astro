@@ -10,29 +10,32 @@ export const prerender = true;
 const posts = await fetchPosts();
 
 // Group posts by category
-const categoriesMap: Record<string, { title: string; slug: string; count: number; description: string; icon: string }> = {
-  guias: {
-    title: 'Guías',
-    slug: 'guias',
-    count: 0,
-    description: 'Manuales paso a paso, diluciones seguras, criterios de calidad y todo lo necesario para principiantes.',
-    icon: 'tabler:book',
-  },
-  bienestar: {
-    title: 'Bienestar',
-    slug: 'bienestar',
-    count: 0,
-    description: 'Aceites esenciales para mejorar el descanso, combatir el estrés, la ansiedad y promover la relajación.',
-    icon: 'tabler:heart-handshake',
-  },
-  hogar: {
-    title: 'Hogar',
-    slug: 'hogar',
-    count: 0,
-    description: 'Análisis de difusores, recetas para ambientadores caseros y técnicas de limpieza natural.',
-    icon: 'tabler:home',
-  },
-};
+const categoriesMap: Record<string, { title: string; slug: string; count: number; description: string; icon: string }> =
+  {
+    guias: {
+      title: 'Guías',
+      slug: 'guias',
+      count: 0,
+      description:
+        'Manuales paso a paso, diluciones seguras, criterios de calidad y todo lo necesario para principiantes.',
+      icon: 'tabler:book',
+    },
+    bienestar: {
+      title: 'Bienestar',
+      slug: 'bienestar',
+      count: 0,
+      description:
+        'Aceites esenciales para mejorar el descanso, combatir el estrés, la ansiedad y promover la relajación.',
+      icon: 'tabler:heart-handshake',
+    },
+    hogar: {
+      title: 'Hogar',
+      slug: 'hogar',
+      count: 0,
+      description: 'Análisis de difusores, recetas para ambientadores caseros y técnicas de limpieza natural.',
+      icon: 'tabler:home',
+    },
+  };
 
 posts.forEach((post) => {
   if (post.category?.slug && categoriesMap[post.category.slug]) {

@@ -11,7 +11,7 @@ metadata:
   title:
     default: Aceites Esenciales Online
     template: '%s — Aceites Esenciales Online'
-  description: "Guías prácticas de aromaterapia, comparativas de difusores y recomendaciones de aceites esenciales. Contenido independiente para usar el bienestar natural con confianza."
+  description: 'Guías prácticas de aromaterapia, comparativas de difusores y recomendaciones de aceites esenciales. Contenido independiente para usar el bienestar natural con confianza.'
   robots:
     index: true
     follow: true

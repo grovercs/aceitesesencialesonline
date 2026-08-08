@@ -32,8 +32,8 @@ Esta habilidad otorga directrices profesionales de nivel agencia para crear, maq
    - Crear un flujo de lectura orgánico de 2 a 3 columnas balanceadas.
 
 2. **Jerarquía Tipográfica Editorial:**
-   - **Titulares Principales y Sección:** Fuente Serif elegante (*Cormorant Garamond*, *Playfair Display* o *Georgia*) para denotar autoridad, lujo y tradición.
-   - **Cuerpo de Texto y Datos Tácticos:** Fuente Sans-Serif ultra-limpia (*Inter*, *Roboto*, *Outfit*) en peso ligero (`font-light`), garantizando legibilidad perfecta.
+   - **Titulares Principales y Sección:** Fuente Serif elegante (_Cormorant Garamond_, _Playfair Display_ o _Georgia_) para denotar autoridad, lujo y tradición.
+   - **Cuerpo de Texto y Datos Tácticos:** Fuente Sans-Serif ultra-limpia (_Inter_, _Roboto_, _Outfit_) en peso ligero (`font-light`), garantizando legibilidad perfecta.
    - **Variación de Escalas:** Mantener un contraste tipográfico marcado entre títulos (`24px - 36px`) y descripciones (`11px - 13px`).
 
 3. **Paleta de Colores Muted / Premium:**

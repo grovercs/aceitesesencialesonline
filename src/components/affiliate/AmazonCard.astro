@@ -30,7 +30,8 @@ const {
 } = Astro.props;
 
 const safeLink = link.startsWith('http') ? link : `https://${link}`;
-const safeImage = image || 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=400&q=80';
+const safeImage =
+  image || 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=400&q=80';
 const roundedRating = rating ? Math.round(rating * 10) / 10 : undefined;
 ---
 
@@ -83,7 +84,13 @@ const roundedRating = rating ? Math.round(rating * 10) / 10 : undefined;
           <ul class="mt-3 space-y-1 text-xs text-gray-600 dark:text-slate-300">
             {features.map((feat) => (
               <li class="flex items-center gap-1.5">
-                <svg class="h-3.5 w-3.5 flex-shrink-0 text-emerald-500 dark:text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <svg
+                  class="h-3.5 w-3.5 flex-shrink-0 text-emerald-500 dark:text-emerald-400"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  viewBox="0 0 24 24"
+                >
                   <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
                 <span class="line-clamp-1">{feat}</span>
@@ -119,8 +126,18 @@ const roundedRating = rating ? Math.round(rating * 10) / 10 : undefined;
           data-affiliate="amazon"
         >
           <span>{buttonText === 'Ver en Amazon' ? 'Ver precio actualizado en Amazon' : buttonText}</span>
-          <svg class="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+          <svg
+            class="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+            />
           </svg>
         </a>
         <p class="text-[10px] text-center text-slate-500 dark:text-slate-400 font-medium">
@@ -167,17 +184,19 @@ const roundedRating = rating ? Math.round(rating * 10) / 10 : undefined;
             </a>
           </h3>
 
-          {description && (
-            <p class="mt-2 text-sm leading-relaxed text-gray-600 dark:text-slate-300">
-              {description}
-            </p>
-          )}
+          {description && <p class="mt-2 text-sm leading-relaxed text-gray-600 dark:text-slate-300">{description}</p>}
 
           {features && features.length > 0 && (
             <ul class="mt-3 space-y-1 text-xs text-gray-600 dark:text-slate-300">
               {features.map((feat) => (
                 <li class="flex items-center gap-1.5">
-                  <svg class="h-3.5 w-3.5 flex-shrink-0 text-emerald-500 dark:text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <svg
+                    class="h-3.5 w-3.5 flex-shrink-0 text-emerald-500 dark:text-emerald-400"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    viewBox="0 0 24 24"
+                  >
                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                   <span>{feat}</span>
@@ -190,7 +209,10 @@ const roundedRating = rating ? Math.round(rating * 10) / 10 : undefined;
         <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t border-gray-100 dark:border-slate-700/60">
           <div class="flex flex-wrap items-center gap-3">
             {price && (
-              <span class="text-xl font-extrabold text-emerald-700 dark:text-emerald-400" aria-label={`Precio: ${price}`}>
+              <span
+                class="text-xl font-extrabold text-emerald-700 dark:text-emerald-400"
+                aria-label={`Precio: ${price}`}
+              >
                 {price}
               </span>
             )}
@@ -221,12 +243,14 @@ const roundedRating = rating ? Math.round(rating * 10) / 10 : undefined;
             >
               <span>{buttonText}</span>
               <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                />
               </svg>
             </a>
-            <span class="mt-1.5 text-[11px] text-gray-400 dark:text-slate-500">
-              Enlace de afiliado de Amazon
-            </span>
+            <span class="mt-1.5 text-[11px] text-gray-400 dark:text-slate-500">Enlace de afiliado de Amazon</span>
           </div>
         </div>
       </div>

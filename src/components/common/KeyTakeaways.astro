@@ -7,23 +7,37 @@ export interface Props {
 const { title = 'Lo que debes saber de un vistazo', items = [] } = Astro.props;
 ---
 
-<div class="not-prose my-8 rounded-2xl border border-amber-300/60 bg-amber-50/40 p-5 shadow-xs backdrop-blur-xs dark:border-amber-900/50 dark:bg-amber-950/20">
+<div
+  class="not-prose my-8 rounded-2xl border border-amber-300/60 bg-amber-50/40 p-5 shadow-xs backdrop-blur-xs dark:border-amber-900/50 dark:bg-amber-950/20"
+>
   <div class="mb-3 flex items-center gap-2.5">
     <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-amber-500/20 text-amber-700 dark:text-amber-300">
       <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 2.625a3.375 3.375 0 00-3.75-3.375m-3.75 3.375a3.375 3.375 0 013.75-3.375m0 9a9 9 0 110-18 9 9 0 010 18z" />
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 2.625a3.375 3.375 0 00-3.75-3.375m-3.75 3.375a3.375 3.375 0 013.75-3.375m0 9a9 9 0 110-18 9 9 0 010 18z"
+        ></path>
       </svg>
     </div>
     <h3 class="font-heading text-lg font-bold text-slate-900 dark:text-white">{title}</h3>
   </div>
   <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
-    {items.map((item) => (
-      <li class="flex items-start gap-2.5">
-        <svg class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-600 dark:text-amber-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-        </svg>
-        <span>{item}</span>
-      </li>
-    ))}
+    {
+      items.map((item) => (
+        <li class="flex items-start gap-2.5">
+          <svg
+            class="mt-0.5 h-4 w-4 flex-shrink-0 text-amber-600 dark:text-amber-400"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+          </svg>
+          <span>{item}</span>
+        </li>
+      ))
+    }
   </ul>
 </div>

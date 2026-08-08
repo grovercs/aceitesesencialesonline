@@ -12,13 +12,19 @@ const { compact = false, class: className = '' } = Astro.props;
 {
   compact ? (
     <p class={`text-[11px] text-slate-500 dark:text-slate-400 leading-normal ${className}`}>
-      *Como Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables. El precio para ti es exactamente el mismo.
+      *Como Afiliado de Amazon, obtengo ingresos por las compras adscritas que cumplen los requisitos aplicables. El
+      precio para ti es exactamente el mismo.
     </p>
   ) : (
-    <div class={`not-prose my-6 p-4 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/70 dark:border-amber-900/40 text-slate-700 dark:text-slate-300 text-xs sm:text-sm flex items-start gap-3 shadow-2xs ${className}`}>
+    <div
+      class={`not-prose my-6 p-4 rounded-xl bg-amber-50/60 dark:bg-amber-950/20 border border-amber-200/70 dark:border-amber-900/40 text-slate-700 dark:text-slate-300 text-xs sm:text-sm flex items-start gap-3 shadow-2xs ${className}`}
+    >
       <Icon name="tabler:info-circle-filled" class="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
       <div class="leading-relaxed">
-        <strong class="font-semibold text-slate-900 dark:text-amber-300">Nota de transparencia de afiliados:</strong> En Aceites Esenciales Online participamos en el Programa de Afiliados de Amazon EU. Si compras a través de nuestros enlaces, podemos recibir una pequeña comisión sin ningún coste adicional para ti. Esto financia nuestros análisis independientes.
+        <strong class="font-semibold text-slate-900 dark:text-amber-300">Nota de transparencia de afiliados:</strong> En
+        Aceites Esenciales Online participamos en el Programa de Afiliados de Amazon EU. Si compras a través de nuestros
+        enlaces, podemos recibir una pequeña comisión sin ningún coste adicional para ti. Esto financia nuestros
+        análisis independientes.
       </div>
     </div>
   )

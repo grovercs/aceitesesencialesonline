@@ -8,7 +8,7 @@ const id = ANALYTICS?.vendors?.googleAnalytics?.id ? String(ANALYTICS.vendors.go
   function loadGoogleAnalytics() {
     const consentAnalytics = localStorage.getItem('cookie-consent-analytics');
     const gaId = document.getElementById('ga-init').dataset.id;
-    
+
     if (gaId && consentAnalytics === 'true') {
       // Evitar duplicar el script si ya fue insertado antes
       if (!document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${gaId}"]`)) {

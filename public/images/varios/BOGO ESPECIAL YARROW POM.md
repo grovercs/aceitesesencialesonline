@@ -2,7 +2,7 @@ BOGO para su piel
 
 TODOS LOS PRODUCTOS DE UN VISTAZO + USO SEGURO
 
-Yarrow Pom
+Yarrow Pom
 
 DÚO BOTÁNICO NUTRITIVO ACTIVO
 
@@ -22,13 +22,13 @@ Promueve la salud del sistema
 
 vitalidad y el bienestar general; en otras
 
-celular e inmune*
+celular e inmune\*
 
 palabras, para darte lozanía.
 
 Esta sinérgica y exclusiva mezcla reajusta
 
-una función metabólica saludable*
+una función metabólica saludable\*
 
 Cuando se consume puede apoyar
 
@@ -46,17 +46,17 @@ Consume una o dos gotas por la mañana y por la
 
 elasticidad y el colágeno) con el beneficio
 
-noche para promover la salud del metabolismo.*
+noche para promover la salud del metabolismo.\*
 
 agregado de contribuir a la producción de
 
-colágeno. *
+colágeno. \*
 
 Para promover una respuesta inmunitaria saluda-
 
 Beneficios Primarios
 
-(milenrama|granada) diariamente.*
+(milenrama|granada) diariamente.\*
 
 ble, toma una o dos gotas de Yarrow|Pom
 
@@ -64,11 +64,11 @@ Brinda un poderoso apoyo antioxidante
 
 Como parte de tu rutina para el cuidado de la piel,
 
-cuando se toma internamente*
+cuando se toma internamente\*
 
 aplícate Yarrow|Pom (milenrama|granada) para
 
- Estas declaraciones no han sido evaluadas por la Admi-
+Estas declaraciones no han sido evaluadas por la Admi-
 nistración de Alimentos y Medicamentos (FDA, por sus
 siglas en inglés). Este producto no tiene el propósito de
 diagnosticar, tratar, curar o evitar ninguna enfermedad.
@@ -79,7 +79,7 @@ piel o para ayudar a reducir la aparición de
 
 imperfecciones.
 
-Árbol de Té
+Árbol de Té
 
 MELALEUCA ALTERNIFOLIA
 
@@ -147,7 +147,7 @@ para propiedades de limpieza agregadas o
 
 aplica en la piel después de afeitarte.
 
-Anti-Aging Eye Cream
+Anti-Aging Eye Cream
 
 dōTERRA Anti-Aging Eye Cream (crema
 
@@ -207,7 +207,7 @@ irritación de la piel, discontinúa el uso.
 
 a evitar señales futuras de envejecimiento.
 
-El uso seguro
+El uso seguro
 
 DE LOS ACEITES ESENCIALES
 
@@ -217,15 +217,15 @@ Aceite portador
 
 El uso tópico de los aceites esenciales, es
 
-Los  aceites  portadores  pueden  ser  aceite
+Los aceites portadores pueden ser aceite
 
 decir sobre la piel, es una forma segura y
 
-de  coco,  de  jojoba  o  cualquier  otro  aceite
+de coco, de jojoba o cualquier otro aceite
 
 eficaz de disfrutar de los beneficios que los
 
-vegetal.  Por  favor,  considere  diluir  sus  aceites
+vegetal. Por favor, considere diluir sus aceites
 
 aceites esenciales proporcionan a la piel y
 
@@ -283,7 +283,7 @@ Niños mayores de 12 años:
 
 proporción de 1:3 o de 1:1
 
-El uso seguro
+El uso seguro
 
 DE LOS ACEITES ESENCIALES
 
@@ -300,4 +300,3 @@ generalmente incluye respirar o inhalarlo, lo que permitirá que el aroma intera
 sus sentidos. Asimismo, al utilizar un aceite por sus beneficios tópicos, puede también
 
 disfrutar de su aroma único al respirarlo mientras se asienta en la piel.
-

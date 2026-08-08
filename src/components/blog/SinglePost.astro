@@ -24,7 +24,9 @@ const { post, url } = Astro.props;
 <section class="py-6 sm:py-10 max-w-4xl mx-auto px-4 sm:px-6">
   <article>
     <header class="max-w-3xl mx-auto text-center mb-8">
-      <div class="mb-3 text-xs sm:text-sm text-slate-500 dark:text-slate-400 flex items-center justify-center gap-2 flex-wrap">
+      <div
+        class="mb-3 text-xs sm:text-sm text-slate-500 dark:text-slate-400 flex items-center justify-center gap-2 flex-wrap"
+      >
         <span class="inline-flex items-center gap-1">
           <Icon name="tabler:clock" class="w-3.5 h-3.5 inline-block -mt-0.5" />
           <time datetime={String(post.publishDate)}>{getFormattedDate(post.publishDate)}</time>
@@ -32,7 +34,8 @@ const { post, url } = Astro.props;
         {
           post.author && (
             <>
-              · <span class="inline-flex items-center gap-1">
+              ·{' '}
+              <span class="inline-flex items-center gap-1">
                 <Icon name="tabler:user" class="w-3.5 h-3.5 inline-block -mt-0.5" />
                 <span>{post.author}</span>
               </span>
@@ -42,7 +45,11 @@ const { post, url } = Astro.props;
         {
           post.category && (
             <>
-              · <a class="hover:underline font-semibold text-amber-600 dark:text-amber-400" href={getPermalink(post.category.slug, 'category')}>
+              ·{' '}
+              <a
+                class="hover:underline font-semibold text-amber-600 dark:text-amber-400"
+                href={getPermalink(post.category.slug, 'category')}
+              >
                 {post.category.title}
               </a>
             </>
@@ -63,11 +70,13 @@ const { post, url } = Astro.props;
         {post.title}
       </h1>
 
-      {post.excerpt && (
-        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto">
-          {post.excerpt}
-        </p>
-      )}
+      {
+        post.excerpt && (
+          <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 font-normal leading-relaxed max-w-2xl mx-auto">
+            {post.excerpt}
+          </p>
+        )
+      }
     </header>
 
     {
@@ -104,7 +113,9 @@ const { post, url } = Astro.props;
       <AuthorBox />
     </div>
 
-    <div class="mx-auto max-w-3xl mt-6 pt-6 border-t border-slate-200 dark:border-slate-800 flex justify-between flex-col sm:flex-row gap-4">
+    <div
+      class="mx-auto max-w-3xl mt-6 pt-6 border-t border-slate-200 dark:border-slate-800 flex justify-between flex-col sm:flex-row gap-4"
+    >
       <PostTags tags={post.tags} class="mr-5 rtl:mr-0 rtl:ml-5" />
       <SocialShare url={url} text={post.title} class="mt-2 sm:mt-0 align-middle text-slate-500 dark:text-slate-400" />
     </div>

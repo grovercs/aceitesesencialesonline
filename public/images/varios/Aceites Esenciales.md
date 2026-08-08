@@ -20,13 +20,13 @@ La gran variedad de aceites esenciales y sus múltiplos usos como relajación, b
 
 Los aceites esenciales son muy potentes, sin importar cómo se apliquen, hay que saber que una pequeña cantidad es suficiente, sigue siempre las recomendaciones de uso del fabricante.
 
-* Al utilizar por primera vez un aceite esencial de manera tópica, es recomendable diluirlo con un aceite portador para ver cómo reacciona la piel al contacto con el aceite. Puedes variar la proporción con el tiempo y la experiencia. Los aceites muy potentes conocidos como aceites calientes la proporción de disolución es una gota de aceite esencial por 10 gotas de aceite portador, puedes encontrar aceites vegetales de almendras, aceites vegetales de coco.
-* Algunos aceites esenciales provocan foto sensibilidad, que puede causar mayor propensión a quemaduras solares. Es mejor mantenerse alejado de la luz ultravioleta (luz solar o camas bronceadoras) durante al menos 12 horas después de aplicarlo sobre la piel.
-* En general, es seguro aplicarse aceites esenciales en cualquier parte del cuerpo, pero hay zonas que deben evitase, estas son: interior y cerca de la nariz, oído interno, ojos, heridas cutáneas u otras zonas sensibles.
-* Si la piel comienza a ponerse roja, picar o quemar después de la aplicación, limpia suavemente la zona con un paño suave para eliminar el aceite en la piel, a continuación, añade un aceite portador y limpia cuidadosamente la zona.
-* Cuando ingieras el aceite esencial, todo lo que necesitas es una o dos gotas. Puedes añadir el aceite directamente al agua o en otro líquido.
-* Los niños normalmente tienen mayor sensibilidad a los aceites esenciales que los adultos. Es recomendable diluir el aceite esencial antes de aplicarlo tópicamente a un niño y empezar por las plantas de los pies. En bebés menores de 2 años, el uso aromático mediante un difusor es la mejor manera de empezar a usarlos.
-* Utilizar siempre los aceites esenciales bajo la supervisión de un adulto, conservar los aceites fuera del alcance de los niños.
+- Al utilizar por primera vez un aceite esencial de manera tópica, es recomendable diluirlo con un aceite portador para ver cómo reacciona la piel al contacto con el aceite. Puedes variar la proporción con el tiempo y la experiencia. Los aceites muy potentes conocidos como aceites calientes la proporción de disolución es una gota de aceite esencial por 10 gotas de aceite portador, puedes encontrar aceites vegetales de almendras, aceites vegetales de coco.
+- Algunos aceites esenciales provocan foto sensibilidad, que puede causar mayor propensión a quemaduras solares. Es mejor mantenerse alejado de la luz ultravioleta (luz solar o camas bronceadoras) durante al menos 12 horas después de aplicarlo sobre la piel.
+- En general, es seguro aplicarse aceites esenciales en cualquier parte del cuerpo, pero hay zonas que deben evitase, estas son: interior y cerca de la nariz, oído interno, ojos, heridas cutáneas u otras zonas sensibles.
+- Si la piel comienza a ponerse roja, picar o quemar después de la aplicación, limpia suavemente la zona con un paño suave para eliminar el aceite en la piel, a continuación, añade un aceite portador y limpia cuidadosamente la zona.
+- Cuando ingieras el aceite esencial, todo lo que necesitas es una o dos gotas. Puedes añadir el aceite directamente al agua o en otro líquido.
+- Los niños normalmente tienen mayor sensibilidad a los aceites esenciales que los adultos. Es recomendable diluir el aceite esencial antes de aplicarlo tópicamente a un niño y empezar por las plantas de los pies. En bebés menores de 2 años, el uso aromático mediante un difusor es la mejor manera de empezar a usarlos.
+- Utilizar siempre los aceites esenciales bajo la supervisión de un adulto, conservar los aceites fuera del alcance de los niños.
 
 **Aceites Esenciales Individuales**
 

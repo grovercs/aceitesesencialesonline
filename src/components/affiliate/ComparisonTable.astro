@@ -23,7 +23,9 @@ const {
 } = Astro.props;
 ---
 
-<div class="not-prose my-10 overflow-hidden rounded-2xl border border-amber-200/60 bg-white/90 shadow-sm backdrop-blur-sm dark:border-slate-700/80 dark:bg-slate-800/80">
+<div
+  class="not-prose my-10 overflow-hidden rounded-2xl border border-amber-200/60 bg-white/90 shadow-sm backdrop-blur-sm dark:border-slate-700/80 dark:bg-slate-800/80"
+>
   {
     (title || subtitle) && (
       <div class="border-b border-gray-100 bg-amber-50/50 p-5 dark:border-slate-700/60 dark:bg-slate-900/40">
@@ -35,7 +37,9 @@ const {
 
   <div class="overflow-x-auto">
     <table class="w-full text-left text-xs sm:text-sm">
-      <thead class="border-b border-gray-100 bg-slate-50/70 text-slate-700 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-300">
+      <thead
+        class="border-b border-gray-100 bg-slate-50/70 text-slate-700 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-300"
+      >
         <tr>
           <th scope="col" class="py-3.5 px-4 font-semibold">Producto</th>
           <th scope="col" class="hidden py-3.5 px-4 font-semibold md:table-cell">Características Destacadas</th>
@@ -100,7 +104,11 @@ const {
                 >
                   <span>Ver oferta</span>
                   <svg class="h-3 w-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                    />
                   </svg>
                 </a>
               </td>

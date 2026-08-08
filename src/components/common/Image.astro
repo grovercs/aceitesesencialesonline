@@ -173,14 +173,7 @@ const isPublicUrl = typeof resolved === 'string' && resolved.startsWith('/');
       style={finalStyle}
     />
   ) : isPublicUrl ? (
-    <img
-      src={resolved as string}
-      width={w}
-      height={h}
-      alt={alt}
-      {...rest}
-      style={finalStyle}
-    />
+    <img src={resolved as string} width={w} height={h} alt={alt} {...rest} style={finalStyle} />
   ) : (
     /* The native <Image /> typing is overly strict for our forwarding wrapper;
        we cast through `unknown` once so each call site keeps clean types. */

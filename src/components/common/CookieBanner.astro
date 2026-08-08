@@ -33,13 +33,13 @@
     <div class="flex flex-wrap items-center gap-3 sm:flex-nowrap lg:flex-shrink-0">
       <button
         id="btn-reject-all-cookies"
-        class="w-full sm:w-auto rounded-xl bg-gray-100 hover:bg-gray-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-gray-300 dark:border-slate-700 px-4 py-2.5 text-xs font-bold text-gray-800 dark:text-gray-200 transition-colors cursor-pointer text-center font-sans"
+        class="w-full sm:w-auto rounded-xl bg-gray-150 hover:bg-gray-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-gray-300 dark:border-slate-750 px-4 py-2.5 text-xs font-bold text-gray-800 dark:text-gray-200 transition-colors cursor-pointer text-center font-sans"
       >
         Denegar
       </button>
       <button
         id="btn-toggle-cookie-prefs"
-        class="w-full sm:w-auto rounded-xl bg-gray-100 hover:bg-gray-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-gray-300 dark:border-slate-700 px-4 py-2.5 text-xs font-bold text-gray-800 dark:text-gray-200 transition-colors cursor-pointer text-center font-sans"
+        class="w-full sm:w-auto rounded-xl bg-gray-150 hover:bg-gray-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-gray-300 dark:border-slate-750 px-4 py-2.5 text-xs font-bold text-gray-800 dark:text-gray-200 transition-colors cursor-pointer text-center font-sans"
       >
         Preferencias
       </button>
@@ -125,20 +125,35 @@
       const btnTogglePrefs = document.getElementById('btn-toggle-cookie-prefs');
       const btnSavePrefs = document.getElementById('btn-save-cookie-prefs');
 
-      const optAnalytics = document.getElementById('cookie-opt-analytics') as HTMLInputElement;
-      const optMarketing = document.getElementById('cookie-opt-marketing') as HTMLInputElement;
+      const optAnalytics = document.getElementById('cookie-opt-analytics');
+      const optMarketing = document.getElementById('cookie-opt-marketing');
 
       if (!banner || !trigger || !prefsPanel || !btnAcceptAll || !btnRejectAll || !btnTogglePrefs || !btnSavePrefs || !optAnalytics || !optMarketing) {
         console.warn('Algunos elementos del banner de cookies no se encontraron en el DOM.');
         return;
       }
 
-      // Cargar las preferencias guardadas desde localStorage
-      const consentDecided = localStorage.getItem('cookie-consent-decided');
-      const consentAnalytics = localStorage.getItem('cookie-consent-analytics');
-      const consentMarketing = localStorage.getItem('cookie-consent-marketing');
+      // Funciones seguras de lectura/escritura de almacenamiento local para evitar problemas en modo privado/incógnito
+      function getStorage(key) {
+        try {
+          return localStorage.getItem(key);
+        } catch (e) {
+          return null;
+        }
+      }
 
-      // Sincronizar checkboxes con localStorage
+      function setStorage(key, value) {
+        try {
+          localStorage.setItem(key, value);
+        } catch (e) {}
+      }
+
+      // Cargar el estado del consentimiento
+      const consentDecided = getStorage('cookie-consent-decided');
+      const consentAnalytics = getStorage('cookie-consent-analytics');
+      const consentMarketing = getStorage('cookie-consent-marketing');
+
+      // Sincronizar los checkboxes
       if (consentAnalytics !== null) {
         optAnalytics.checked = consentAnalytics === 'true';
       } else {
@@ -151,43 +166,42 @@
         optMarketing.checked = true;
       }
 
-      // Al iniciar la web: solo se muestra la barra si no ha decidido consentimiento.
-      // Si ya decidió, la barra permanece oculta y solo se muestra el disparador a la derecha.
+      // Si el usuario no ha decidido el consentimiento al iniciar la web:
+      // se muestra el banner grande y el disparador a la derecha se mantiene oculto.
       if (!consentDecided) {
         showBanner();
-        trigger.classList.add('hidden');
       } else {
         trigger.classList.remove('hidden');
         banner.classList.add('hidden');
       }
 
-      // Función para guardar consentimiento
-      function saveConsent(analyticsVal: boolean, marketingVal: boolean) {
-        localStorage.setItem('cookie-consent-decided', 'true');
-        localStorage.setItem('cookie-consent-analytics', String(analyticsVal));
-        localStorage.setItem('cookie-consent-marketing', String(marketingVal));
+      // Guardar el consentimiento en localStorage y lanzar evento
+      function saveConsent(analyticsVal, marketingVal) {
+        setStorage('cookie-consent-decided', 'true');
+        setStorage('cookie-consent-analytics', String(analyticsVal));
+        setStorage('cookie-consent-marketing', String(marketingVal));
+        
         hideBanner();
         trigger.classList.remove('hidden');
 
-        // Disparar evento para scripts como Analytics
+        // Disparar evento para Analytics
         window.dispatchEvent(new CustomEvent('cookie-consent-updated', {
           detail: { analytics: analyticsVal, marketing: marketingVal }
         }));
       }
 
       function showBanner() {
-        // Sincronizar checks antes de mostrar
-        const currentAnalytics = localStorage.getItem('cookie-consent-analytics');
-        const currentMarketing = localStorage.getItem('cookie-consent-marketing');
-        if (currentAnalytics !== null) {
-          optAnalytics.checked = currentAnalytics === 'true';
+        const curAnalytics = getStorage('cookie-consent-analytics');
+        const curMarketing = getStorage('cookie-consent-marketing');
+        if (curAnalytics !== null) {
+          optAnalytics.checked = curAnalytics === 'true';
         }
-        if (currentMarketing !== null) {
-          optMarketing.checked = currentMarketing === 'true';
+        if (curMarketing !== null) {
+          optMarketing.checked = curMarketing === 'true';
         }
 
         banner.classList.remove('hidden');
-        trigger.classList.add('hidden'); // Ocultar el disparador cuando la barra está abierta
+        trigger.classList.add('hidden'); // Ocultar el botón pequeño mientras está la barra grande
         setTimeout(() => {
           banner.classList.remove('translate-y-12', 'opacity-0');
           banner.classList.add('translate-y-0', 'opacity-100');
@@ -199,47 +213,50 @@
         banner.classList.add('translate-y-12', 'opacity-0');
         setTimeout(() => {
           banner.classList.add('hidden');
-          prefsPanel.classList.add('hidden'); // Colapsar el panel de preferencias al ocultar la barra
+          prefsPanel.classList.add('hidden'); // Resetear preferencias colapsándolas
         }, 500);
       }
 
-      // Configurar event listeners utilizando delegación para evitar fallos
-      banner.addEventListener('click', (event) => {
-        const target = event.target as HTMLElement;
-        const button = target.closest('button');
-        if (!button) return;
-
-        if (button.id === 'btn-toggle-cookie-prefs') {
-          // Alternar la visualización de la sección de preferencias
-          if (prefsPanel.classList.contains('hidden')) {
-            prefsPanel.classList.remove('hidden');
-          } else {
-            prefsPanel.classList.add('hidden');
-          }
-        } else if (button.id === 'btn-accept-all-cookies') {
-          optAnalytics.checked = true;
-          optMarketing.checked = true;
-          saveConsent(true, true);
-        } else if (button.id === 'btn-reject-all-cookies') {
-          optAnalytics.checked = false;
-          optMarketing.checked = false;
-          saveConsent(false, false);
-        } else if (button.id === 'btn-save-cookie-prefs') {
-          saveConsent(optAnalytics.checked, optMarketing.checked);
+      // Registrar los event listeners de forma clásica e infalible
+      btnTogglePrefs.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (prefsPanel.classList.contains('hidden')) {
+          prefsPanel.classList.remove('hidden');
+        } else {
+          prefsPanel.classList.add('hidden');
         }
       });
 
-      // Abrir el banner al hacer clic en el disparador flotante situado a la derecha
-      trigger.addEventListener('click', () => {
+      btnAcceptAll.addEventListener('click', (e) => {
+        e.preventDefault();
+        optAnalytics.checked = true;
+        optMarketing.checked = true;
+        saveConsent(true, true);
+      });
+
+      btnRejectAll.addEventListener('click', (e) => {
+        e.preventDefault();
+        optAnalytics.checked = false;
+        optMarketing.checked = false;
+        saveConsent(false, false);
+      });
+
+      btnSavePrefs.addEventListener('click', (e) => {
+        e.preventDefault();
+        saveConsent(optAnalytics.checked, optMarketing.checked);
+      });
+
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
         showBanner();
       });
 
     } catch (error) {
-      console.error('Error inicializando el banner de cookies:', error);
+      console.error('Error durante la inicialización del banner de cookies:', error);
     }
   }
 
-  // Soporte para transiciones de Astro e inicialización estándar
+  // Soporte completo para Astro View Transitions e inicialización clásica
   document.addEventListener('astro:page-load', initCookieBanner);
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initCookieBanner);

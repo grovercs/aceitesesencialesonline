@@ -4,6 +4,7 @@
 <!-- Botón flotante para reabrir (esquina inferior derecha) -->
 <button
   id="cookie-trigger-btn"
+  transition:persist
   style="display:none;"
   class="fixed bottom-5 right-5 z-[9998] flex cursor-pointer items-center gap-2 rounded-full border border-gray-200 bg-white/95 px-4 py-2.5 text-xs font-semibold text-gray-700 shadow-xl backdrop-blur-md transition-all hover:scale-105 hover:shadow-2xl dark:border-slate-700 dark:bg-slate-900/95 dark:text-slate-200"
   title="Gestionar consentimiento de cookies"
@@ -15,6 +16,7 @@
 <!-- Banner principal -->
 <div
   id="cookie-banner-wrap"
+  transition:persist
   style="display:none;"
   class="fixed inset-x-4 bottom-5 z-[9999] mx-auto max-w-6xl"
 >

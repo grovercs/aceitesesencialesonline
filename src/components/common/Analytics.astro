@@ -6,7 +6,7 @@ const id = ANALYTICS?.vendors?.googleAnalytics?.id ? String(ANALYTICS.vendors.go
 
 <script is:inline id="ga-init" data-id={id}>
   function loadGoogleAnalytics() {
-    const consentAnalytics = localStorage.getItem('cookie-consent-analytics');
+    const consentAnalytics = localStorage.getItem('ck-analytics') ?? localStorage.getItem('cookie-consent-analytics');
     const gaId = document.getElementById('ga-init').dataset.id;
 
     if (gaId && consentAnalytics === 'true') {

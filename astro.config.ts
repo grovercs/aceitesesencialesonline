@@ -28,7 +28,7 @@ export default defineConfig({
 
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/tag/'),
+      filter: (page) => !page.includes('/tag/') && !page.includes('/gracias-newsletter'),
     }),
     mdx(),
     icon({

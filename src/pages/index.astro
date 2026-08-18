@@ -10,14 +10,36 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Newsletter from '~/components/widgets/Newsletter.astro';
 import ProductGrid from '~/components/affiliate/ProductGrid.astro';
+import JsonLd from '~/components/common/JsonLd.astro';
 
 const metadata = {
   title: 'Aceites Esenciales Online — Guías de aromaterapia y bienestar natural',
   ignoreTitleTemplate: true,
 };
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://aceitesesencialesonline.com/#website',
+  url: 'https://aceitesesencialesonline.com/',
+  name: 'Aceites Esenciales Online',
+  inLanguage: 'es',
+  publisher: {
+    '@id': 'https://aceitesesencialesonline.com/#organization',
+  },
+};
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://aceitesesencialesonline.com/#organization',
+  name: 'Aceites Esenciales Online',
+  url: 'https://aceitesesencialesonline.com/',
+};
 ---
 
 <Layout metadata={metadata}>
+  <JsonLd schema={[websiteSchema, organizationSchema]} />
   <HeroSlider
     tagline="Aromaterapia Natural y Basada en Evidencia"
     interval={5500}

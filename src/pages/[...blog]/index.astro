@@ -12,6 +12,7 @@ import { getStaticPathsBlogPost, blogPostRobots } from '~/utils/blog';
 import { findImage } from '~/utils/images';
 import type { MetaData } from '~/types';
 import RelatedPosts from '~/components/blog/RelatedPosts.astro';
+import JsonLd from '~/components/common/JsonLd.astro';
 
 export const prerender = true;
 
@@ -43,9 +44,54 @@ const metadata = merge(
   },
   { ...(post?.metadata ? { ...post.metadata, canonical: post.metadata?.canonical || url } : {}) }
 ) as MetaData;
+
+const siteUrl = 'https://aceitesesencialesonline.com';
+const rawImageUrl = post.image
+  ? post.image.startsWith('http')
+    ? post.image
+    : `${siteUrl}${post.image.startsWith('/') ? '' : '/'}${post.image}`
+  : undefined;
+const imageUrl = rawImageUrl ? encodeURI(rawImageUrl) : undefined;
+
+const authorSchema =
+  post.author === 'Equipo Aceites Esenciales Online' || !post.author
+    ? {
+        '@type': 'Organization',
+        name: 'Equipo Aceites Esenciales Online',
+      }
+    : {
+        '@type': 'Person',
+        name: post.author,
+      };
+
+const blogPostingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.excerpt,
+  datePublished: post.publishDate ? post.publishDate.toISOString() : undefined,
+  dateModified: post.updateDate ? post.updateDate.toISOString() : undefined,
+  url: url,
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': url,
+  },
+  image: imageUrl,
+  inLanguage: 'es',
+  isPartOf: {
+    '@type': 'Blog',
+    '@id': 'https://aceitesesencialesonline.com/blog/',
+    name: 'Blog de Aceites Esenciales Online',
+  },
+  author: authorSchema,
+  publisher: {
+    '@id': 'https://aceitesesencialesonline.com/#organization',
+  },
+};
 ---
 
 <Layout metadata={metadata}>
+  <JsonLd schema={blogPostingSchema} />
   <SinglePost post={{ ...post, image: image }} url={url}>
     {post.Content && <post.Content />}
   </SinglePost>
